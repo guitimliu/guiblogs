@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://img.guiblogs.com/shell-backup/shell-backup-before.jpg">
 <meta property="og:image" content="https://img.guiblogs.com/shell-backup/shell-backup-after.jpg">
 <meta property="article:published_time" content="2021-02-14T06:01:32.000Z">
-<meta property="article:modified_time" content="2021-02-14T06:48:38.585Z">
+<meta property="article:modified_time" content="2021-02-15T14:26:04.590Z">
 <meta property="article:author" content="Gui">
 <meta property="article:tag" content="shell">
 <meta property="article:tag" content="cPanel">
@@ -212,10 +212,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-02-14 14:01:32 / 修改時間：14:48:38" itemprop="dateCreated datePublished" datetime="2021-02-14T14:01:32+08:00">2021-02-14</time>
+              <time title="創建時間：2021-02-14 14:01:32" itemprop="dateCreated datePublished" datetime="2021-02-14T14:01:32+08:00">2021-02-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-02-15 22:26:04" itemprop="dateModified" datetime="2021-02-15T22:26:04+08:00">2021-02-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -246,9 +252,9 @@
 <p>網站所使用的虛擬主機有提供 cPanel 控制台，因而利用 cPanel 內建的 Cron Job 排程器進行每日排程。指令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqldump --user&#x3D;帳號 --password&#x3D;密碼 --all-databases --single-transaction &gt; &#x2F;home&#x2F;帳號&#x2F;public_html&#x2F;backup&#x2F;full_backup_&#96;date -I&#96;.sql</span><br></pre></td></tr></table></figure>
 <blockquote>
-<h2 id="新做法"><a href="#新做法" class="headerlink" title="新做法"></a>新做法</h2></blockquote>
+<h2 id="新作法"><a href="#新作法" class="headerlink" title="新作法"></a>新作法</h2></blockquote>
 <p>後來到網路上找了許多相關文章，中文資源找不到往國外資源翻也依舊找不到。後來想了想：那如果自己寫一個腳本來做呢？</p>
-<p>新的做法，是將自己撰寫的備份 shell 指令獨立成一個檔案，再利用 cPanel 排程機制，每日自動執行該檔案。</p>
+<p>新的作法，是將自己撰寫的備份 shell 指令獨立成一個檔案，再利用 cPanel 排程機制，每日自動執行該檔案。</p>
 <ol>
 <li>cPanel Cron Job 指令：每日0時0秒執行一次</li>
 </ol>
@@ -260,7 +266,7 @@
 <blockquote>
 <h2 id="結論與後記"><a href="#結論與後記" class="headerlink" title="結論與後記"></a>結論與後記</h2></blockquote>
 <p>這段程式其實是我在去年差不多三～四月寫的，雖然只有短短幾行程式碼，但當時為了解決這個問題，前前後後花了三天的時間，從自己研究到實驗室的同學一起學習，最後寫出一個能夠備份的腳本，成果一出來的那一刻到現在還是令人難忘！</p>
-<p>至於舊做法為何偶爾會無法備份成功？其實我也不知道，猜測是因為資料內容過大無法直接透過 cPanel 的機制去備份？這我就不清楚了，可能要請路過的大神來做解答。</p>
+<p>至於舊作法為何偶爾會無法備份成功？其實我也不知道，猜測是因為資料內容過大無法直接透過 cPanel 的機制去備份？這我就不清楚了，可能要請路過的大神來做解答。</p>
 <p>目前指令執行到現在也快一年了，除了之前因為虛擬主機空間用完、虛擬主機莫名被降方案（QQ）之外，基本上都是執行成功的，附上去年 4/21 時自動備份執行結果。</p>
 <p><img src="https://img.guiblogs.com/shell-backup/shell-backup-after.jpg" alt="執行後結果畫面"></p>
 
@@ -344,7 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E4%BD%9C%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">原始作法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%81%9A%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">新做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96%E8%88%87%E5%BE%8C%E8%A8%98"><span class="nav-number">3.</span> <span class="nav-text">結論與後記</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E4%BD%9C%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">原始作法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E4%BD%9C%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">新作法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96%E8%88%87%E5%BE%8C%E8%A8%98"><span class="nav-number">3.</span> <span class="nav-text">結論與後記</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

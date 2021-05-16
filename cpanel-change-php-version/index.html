@@ -30,30 +30,38 @@
   gtag('config', 'UA-189750489-1');
 </script>
 
-  <meta name="description" content="程式筆記、實戰經驗，與個人成長紀錄">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gui Blog - 網站的工具人">
-<meta property="og:url" content="http://guiblogs.com/index.html">
+  <meta name="description" content="時代以及網路在進步，PHP 也不例外，1995 年 PHP 1.0 誕生之後，至今也已經邁向了 PHP 8 時代了！而版本的跌進，當然也就有從早至今的版本可以提供選擇。 而 cPanel 就有一個功能，是提供用戶能夠切換 PHP 版本，當然我不知道是否是只要有 cPanel 就一定有這個功能，可能要視主機商提供的權限而定？不過至少我目前操作的 cPanel 是擁有可以切換 PHP 版本的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何更換 cPanel 虛擬主機的 PHP 版本？">
+<meta property="og:url" content="http://guiblogs.com/cpanel-change-php-version/index.html">
 <meta property="og:site_name" content="Gui Blog - 網站的工具人">
-<meta property="og:description" content="程式筆記、實戰經驗，與個人成長紀錄">
+<meta property="og:description" content="時代以及網路在進步，PHP 也不例外，1995 年 PHP 1.0 誕生之後，至今也已經邁向了 PHP 8 時代了！而版本的跌進，當然也就有從早至今的版本可以提供選擇。 而 cPanel 就有一個功能，是提供用戶能夠切換 PHP 版本，當然我不知道是否是只要有 cPanel 就一定有這個功能，可能要視主機商提供的權限而定？不過至少我目前操作的 cPanel 是擁有可以切換 PHP 版本的。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/cpanel-change-php-version/cpanel-change-php-version-login.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/cpanel-change-php-version/php-manage.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/cpanel-change-php-version/change-pnp-version.jpg">
+<meta property="article:published_time" content="2021-05-16T13:52:20.000Z">
+<meta property="article:modified_time" content="2021-05-16T13:55:42.794Z">
 <meta property="article:author" content="Gui">
+<meta property="article:tag" content="cPanel">
+<meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.guiblogs.com/cpanel-change-php-version/cpanel-change-php-version-login.jpg">
 
-<link rel="canonical" href="http://guiblogs.com/">
+<link rel="canonical" href="http://guiblogs.com/cpanel-change-php-version/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>Gui Blog - 網站的工具人</title>
+  <title>如何更換 cPanel 虛擬主機的 PHP 版本？ | Gui Blog - 網站的工具人</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189750489-1"></script>
     <script>
@@ -176,9 +184,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
@@ -194,10 +203,9 @@
       <meta itemprop="name" content="Gui Blog - 網站的工具人">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/cpanel-change-php-version/" class="post-title-link" itemprop="url">如何更換 cPanel 虛擬主機的 PHP 版本？</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          如何更換 cPanel 虛擬主機的 PHP 版本？
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -234,273 +242,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>時代以及網路在進步，PHP 也不例外，1995 年 PHP 1.0 誕生之後，至今也已經邁向了 PHP 8 時代了！而版本的跌進，當然也就有從早至今的版本可以提供選擇。</p>
+        <p>時代以及網路在進步，PHP 也不例外，1995 年 PHP 1.0 誕生之後，至今也已經邁向了 PHP 8 時代了！而版本的跌進，當然也就有從早至今的版本可以提供選擇。</p>
 <p>而 cPanel 就有一個功能，是提供用戶能夠切換 PHP 版本，當然我不知道是否是只要有 cPanel 就一定有這個功能，可能要視主機商提供的權限而定？不過至少我目前操作的 cPanel 是擁有可以切換 PHP 版本的。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/cpanel-change-php-version/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
+<a id="more"></a>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://guiblogs.com/session-reorganize-Invalidation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img.guiblogs.com/Gui.jpg">
-      <meta itemprop="name" content="Gui">
-      <meta itemprop="description" content="程式筆記、實戰經驗，與個人成長紀錄">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gui Blog - 網站的工具人">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/session-reorganize-Invalidation/" class="post-title-link" itemprop="url">PHP SESSION 重新整理就失效，是發生什麼事情？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-05-09 13:14:18 / 修改時間：13:16:37" itemprop="dateCreated datePublished" datetime="2021-05-09T13:14:18+08:00">2021-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>正常來說除非是過久沒有跟伺服器互動，否則 PHP 的 SESSION 不會在「重新整理」後立刻消失。但之前實習有次在開發平台時，卻遇到了一個很尷尬的問題：</p>
 <blockquote>
-<p>前一頁設定好日期並以 session 形式儲存，傳到下一頁。而頁面轉到下一頁時也能夠正常輸出，但如果因為一些原因需要重新整理時，session 卻很神奇的失效了！</p>
+<h2 id="升級前請三思而後行！"><a href="#升級前請三思而後行！" class="headerlink" title="升級前請三思而後行！"></a>升級前請三思而後行！</h2></blockquote>
+<p>首先，不管是 PHP 版本的升級、還是其他的更新，在做這些變動前備份是一定要做的。</p>
+<p>再來，必須要確認你上面的程式，是否在 PHP 升級過後會出現一些問題？之前實驗室的 Joomla，就曾經在 PHP 升級的情況之下，造成了錯誤；所以升級前務必要先想清楚。</p>
+<blockquote>
+<h2 id="確定好要升級後，PHP-升級教學！"><a href="#確定好要升級後，PHP-升級教學！" class="headerlink" title="確定好要升級後，PHP 升級教學！"></a>確定好要升級後，PHP 升級教學！</h2></blockquote>
+<ol>
+<li>一開始當然就是進入你的 cPanel 控制台，並進行登入。</li>
+</ol>
+<p><img src="https://img.guiblogs.com/cpanel-change-php-version/cpanel-change-php-version-login.jpg"></p>
+<blockquote>
+<h3 id="你的-cPanel-資訊？"><a href="#你的-cPanel-資訊？" class="headerlink" title="你的 cPanel 資訊？"></a>你的 cPanel 資訊？</h3><ul>
+<li>cPanel 網址：https://網址:2083 or <a target="_blank" rel="noopener" href="https://cpanel.網址/">https://cpanel.網址/</a> 皆可<br>P.s. 以我所就讀的學校校內右邊網址通常連不進去，在校內建議用左邊的網址進入。</li>
+<li>cPanel 帳號、密碼：主機商給的 cPanel 帳號密碼。</li>
+</ul>
 </blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/session-reorganize-Invalidation/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+<ol start="2">
+<li>若是繁體中文語言，找到「軟體」欄內的「多 PHP 管理器」鏈結點擊進去。</li>
+</ol>
+<p><img src="https://img.guiblogs.com/cpanel-change-php-version/php-manage.jpg"></p>
+<ol start="3">
+<li>進入後，你會看到系統預設的 PHP 版本。不過若要修改自己本身的 PHP 版本，請勾選自己網址旁的選取方塊，再來到網頁右邊的「PHP 版本」選擇要更換的版本，按下套用後即可完成更換！</li>
+</ol>
+<p><img src="https://img.guiblogs.com/cpanel-change-php-version/change-pnp-version.jpg"></p>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/cPanel/" rel="tag"># cPanel</a>
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://guiblogs.com/joomla-is-iterable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img.guiblogs.com/Gui.jpg">
-      <meta itemprop="name" content="Gui">
-      <meta itemprop="description" content="程式筆記、實戰經驗，與個人成長紀錄">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gui Blog - 網站的工具人">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/joomla-is-iterable/" class="post-title-link" itemprop="url">使用 is_iterable()  解決：Warning: count(): Parameter must be an array or an object that implements Countable</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-02-21 18:22:47 / 修改時間：18:32:51" itemprop="dateCreated datePublished" datetime="2021-02-21T18:22:47+08:00">2021-02-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>去年與學弟幫忙實驗室架設一個新的 Joomla 時，那時是使用 gk_shop_and_buy 這個佈景，但在新增一篇文章時，我們發現到了它會出現這個錯誤訊息：</p>
-<p><img src="https://img.guiblogs.com/joomla-is-iterable/joomla-is-iterable-before.jpg" alt="錯誤訊息"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/joomla-is-iterable/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://guiblogs.com/shell-backup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img.guiblogs.com/Gui.jpg">
-      <meta itemprop="name" content="Gui">
-      <meta itemprop="description" content="程式筆記、實戰經驗，與個人成長紀錄">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gui Blog - 網站的工具人">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/shell-backup/" class="post-title-link" itemprop="url">撰寫 Shell 指令，每日自動備份資料庫 - 使用 cPanel Cron Job</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-02-14 14:01:32" itemprop="dateCreated datePublished" datetime="2021-02-14T14:01:32+08:00">2021-02-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-02-15 22:26:04" itemprop="dateModified" datetime="2021-02-15T22:26:04+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我所待的 Lab 裡滿多網站都是用 cPanel 的排程每日備份資料庫內容，但後來發現某一家主機商下面的備份檔，一下備份正常、一下卻又出現檔案大小「763」容量極小的備份不完全狀況，如下所示……</p>
-<p><img src="https://img.guiblogs.com/shell-backup/shell-backup-before.jpg" alt="執行前畫面"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/shell-backup/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/session-reorganize-Invalidation/" rel="prev" title="PHP SESSION 重新整理就失效，是發生什麼事情？">
+      <i class="fa fa-chevron-left"></i> PHP SESSION 重新整理就失效，是發生什麼事情？
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -547,6 +358,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%B4%9A%E5%89%8D%E8%AB%8B%E4%B8%89%E6%80%9D%E8%80%8C%E5%BE%8C%E8%A1%8C%EF%BC%81"><span class="nav-number">1.</span> <span class="nav-text">升級前請三思而後行！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%BA%E5%AE%9A%E5%A5%BD%E8%A6%81%E5%8D%87%E7%B4%9A%E5%BE%8C%EF%BC%8CPHP-%E5%8D%87%E7%B4%9A%E6%95%99%E5%AD%B8%EF%BC%81"><span class="nav-number">2.</span> <span class="nav-text">確定好要升級後，PHP 升級教學！</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%A0%E7%9A%84-cPanel-%E8%B3%87%E8%A8%8A%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">你的 cPanel 資訊？</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -662,6 +474,27 @@
 
   
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://guiblogs.com/cpanel-change-php-version/";
+    this.page.identifier = "cpanel-change-php-version/";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    this.page.title = "如何更換 cPanel 虛擬主機的 PHP 版本？";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://guiblogs.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>

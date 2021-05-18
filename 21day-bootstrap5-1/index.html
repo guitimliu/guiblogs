@@ -38,7 +38,7 @@
 <meta property="og:description" content="疫情在家，就上網搜尋了一下有什麼東西可以打發時間，就發現了六角學院推出的「21 天 Bootstrap 5 新手教學實戰營」，既然要少出門，那就來報名好好充實一下自己的技術！  什麼是 Bootstrape？ 是一個由 HTML、CSS、JavaScript 撰寫而成的前端框架，因為使用 RWD 自適應設計以及行動版優先，讓網站在各個裝置都能夠順利地顯示。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-05-18T14:07:19.000Z">
-<meta property="article:modified_time" content="2021-05-18T14:25:43.999Z">
+<meta property="article:modified_time" content="2021-05-18T14:49:10.539Z">
 <meta property="article:author" content="Gui">
 <meta property="article:tag" content="Bootstrap">
 <meta property="article:tag" content="Bootstrap 5">
@@ -213,7 +213,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-05-18 22:07:19 / 修改時間：22:25:43" itemprop="dateCreated datePublished" datetime="2021-05-18T22:07:19+08:00">2021-05-18</time>
+              <time title="創建時間：2021-05-18 22:07:19 / 修改時間：22:49:10" itemprop="dateCreated datePublished" datetime="2021-05-18T22:07:19+08:00">2021-05-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,14 +251,12 @@
 </ul>
 <blockquote>
 <h2 id="開始撰寫前：了解-CDN-與本地下載的差異"><a href="#開始撰寫前：了解-CDN-與本地下載的差異" class="headerlink" title="開始撰寫前：了解 CDN 與本地下載的差異"></a>開始撰寫前：了解 CDN 與本地下載的差異</h2></blockquote>
-<p>CDN 下載：</p>
-<ul>
+<h3 id="CDN-下載"><a href="#CDN-下載" class="headerlink" title="CDN 下載"></a>CDN 下載</h3><ul>
 <li>因為是載入別人的主機，所以流量部分不會算自己的。</li>
 <li>會根據使用者所在地連到距離最近的主機，所以速度不會是問題。</li>
 <li>如果 CDN 掛掉就會連不上。（但機率較不大）</li>
 </ul>
-<p>本地下載：</p>
-<ul>
+<h3 id="本地下載"><a href="#本地下載" class="headerlink" title="本地下載"></a>本地下載</h3><ul>
 <li>可以客製化修改一些程式碼。</li>
 <li>若完整下載會較大，但也可以下載部分。（不過其實影響也還好，根據經驗圖片是影響較大的）</li>
 </ul>
@@ -387,7 +385,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Bootstrape%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什麼是 Bootstrape？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrape-5-%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Bootstrape 5 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B%E6%92%B0%E5%AF%AB%E5%89%8D%EF%BC%9A%E4%BA%86%E8%A7%A3-CDN-%E8%88%87%E6%9C%AC%E5%9C%B0%E4%B8%8B%E8%BC%89%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">3.</span> <span class="nav-text">開始撰寫前：了解 CDN 與本地下載的差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-CDN-%E5%AE%89%E8%A3%9D"><span class="nav-number">4.</span> <span class="nav-text">使用 CDN 安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">4.1.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript"><span class="nav-number">4.2.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">4.3.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E4%B8%8B%E8%BC%89%E5%AE%89%E8%A3%9D"><span class="nav-number">5.</span> <span class="nav-text">使用本地下載安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A2%BA%E8%AA%8D-BootStrap-%E6%9C%89%E5%AE%89%E8%A3%9D%E6%88%90%E5%8A%9F%EF%BC%9F-%E4%BB%A5%E5%8F%8A%E7%9B%B8%E9%97%9C%E6%8A%80%E5%B7%A7"><span class="nav-number">6.</span> <span class="nav-text">如何確認 BootStrap 有安裝成功？( 以及相關技巧 )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Bootstrap%EF%BC%9A%E7%94%A8%E6%8C%89%E9%88%95%E7%95%B6%E7%AF%84%E4%BE%8B"><span class="nav-number">7.</span> <span class="nav-text">使用 Bootstrap：用按鈕當範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Reset-%E8%88%87%E9%87%8D%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">CSS Reset 與重置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%82%E6%96%BC%E6%92%B0%E5%AF%AB%E5%AE%8C-Week-1-%E7%AD%86%E8%A8%98%EF%BC%81"><span class="nav-number">9.</span> <span class="nav-text">終於撰寫完 Week 1 筆記！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Bootstrape%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什麼是 Bootstrape？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrape-5-%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Bootstrape 5 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B%E6%92%B0%E5%AF%AB%E5%89%8D%EF%BC%9A%E4%BA%86%E8%A7%A3-CDN-%E8%88%87%E6%9C%AC%E5%9C%B0%E4%B8%8B%E8%BC%89%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">3.</span> <span class="nav-text">開始撰寫前：了解 CDN 與本地下載的差異</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN-%E4%B8%8B%E8%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">CDN 下載</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%B8%8B%E8%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">本地下載</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-CDN-%E5%AE%89%E8%A3%9D"><span class="nav-number">4.</span> <span class="nav-text">使用 CDN 安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-number">4.1.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript"><span class="nav-number">4.2.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">4.3.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E4%B8%8B%E8%BC%89%E5%AE%89%E8%A3%9D"><span class="nav-number">5.</span> <span class="nav-text">使用本地下載安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A2%BA%E8%AA%8D-BootStrap-%E6%9C%89%E5%AE%89%E8%A3%9D%E6%88%90%E5%8A%9F%EF%BC%9F-%E4%BB%A5%E5%8F%8A%E7%9B%B8%E9%97%9C%E6%8A%80%E5%B7%A7"><span class="nav-number">6.</span> <span class="nav-text">如何確認 BootStrap 有安裝成功？( 以及相關技巧 )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Bootstrap%EF%BC%9A%E7%94%A8%E6%8C%89%E9%88%95%E7%95%B6%E7%AF%84%E4%BE%8B"><span class="nav-number">7.</span> <span class="nav-text">使用 Bootstrap：用按鈕當範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Reset-%E8%88%87%E9%87%8D%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">CSS Reset 與重置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%82%E6%96%BC%E6%92%B0%E5%AF%AB%E5%AE%8C-Week-1-%E7%AD%86%E8%A8%98%EF%BC%81"><span class="nav-number">9.</span> <span class="nav-text">終於撰寫完 Week 1 筆記！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

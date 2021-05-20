@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/liblib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-189750489-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-189750489-1');
+</script>
+
+  <meta name="description" content="這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是隔線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。 在介紹格線系統之前，先讓我們認識一下「魔術數字」。  什麼是魔術數字（magic number）？  設計師開了一個 div 的規格，數字為：左200px、右800px 程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap 5 新手教學實戰營 - Week 2">
+<meta property="og:url" content="http://guiblogs.com/21day-bootstrap5-2/index.html">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是隔線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。 在介紹格線系統之前，先讓我們認識一下「魔術數字」。  什麼是魔術數字（magic number）？  設計師開了一個 div 的規格，數字為：左200px、右800px 程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-3.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-4.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col6-7.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col5-3.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/grid-option.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/col-12.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/col-md-4.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/col-lg-4.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/untilities-display.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/nested-grid-system.jpg">
+<meta property="article:published_time" content="2021-05-20T12:49:38.000Z">
+<meta property="article:modified_time" content="2021-05-20T12:52:29.538Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="Bootstrap">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Bootstrap5">
+<meta property="article:tag" content="格線">
+<meta property="article:tag" content="通用類別">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-3.jpg">
+
+<link rel="canonical" href="http://guiblogs.com/21day-bootstrap5-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Bootstrap 5 新手教學實戰營 - Week 2 | Gui Blog - 網站的工具人</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189750489-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-189750489-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Gui Blog - 網站的工具人</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://guiblogs.com/21day-bootstrap5-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.guiblogs.com/Gui.jpg">
+      <meta itemprop="name" content="Gui">
+      <meta itemprop="description" content="程式筆記、實戰經驗，與個人成長紀錄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gui Blog - 網站的工具人">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Bootstrap 5 新手教學實戰營 - Week 2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-05-20 20:49:38 / 修改時間：20:52:29" itemprop="dateCreated datePublished" datetime="2021-05-20T20:49:38+08:00">2021-05-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bootstrap/" itemprop="url" rel="index"><span itemprop="name">Bootstrap</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是隔線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。</p>
+<p>在介紹格線系統之前，先讓我們認識一下「魔術數字」。</p>
+<blockquote>
+<h2 id="什麼是魔術數字（magic-number）？"><a href="#什麼是魔術數字（magic-number）？" class="headerlink" title="什麼是魔術數字（magic number）？"></a>什麼是魔術數字（magic number）？</h2></blockquote>
+<ul>
+<li>設計師開了一個 div 的規格，數字為：左200px、右800px</li>
+<li>程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義</li>
+</ul>
+<a id="more"></a>
+
+<p>簡單來說這個數字能夠讓程式跑的順利，但是其可讀性不高，其他程式設計師甚至會難以理解設置這個數字的意義。</p>
+<p>在 Bootstrap，為了解決這個問題，因此有格線系統可以幫助我們設計。</p>
+<blockquote>
+<h2 id="格線系統"><a href="#格線系統" class="headerlink" title="格線系統"></a>格線系統</h2></blockquote>
+<p>格線系統有兩個關鍵字，分別為：</p>
+<ul>
+<li>column 欄 ( 基本上常見總欄數是 12 )</li>
+<li>gutter 間距</li>
+</ul>
+<blockquote>
+<h2 id="格線系統原理：Bootstrap-排版三劍客"><a href="#格線系統原理：Bootstrap-排版三劍客" class="headerlink" title="格線系統原理：Bootstrap 排版三劍客"></a>格線系統原理：Bootstrap 排版三劍客</h2></blockquote>
+<h3 id="container"><a href="#container" class="headerlink" title=".container"></a>.container</h3><p>針對不同寬度，總共有分兩種：</p>
+<ul>
+<li>container 固定寬度</li>
+<li>container-fiuld 滿版</li>
+</ul>
+<p>另外，在 .container 之下一層，可以放置 .row 或其它東西，不過不能直接放置 .col！</p>
+<p>再來就是，格線系統最外層至少要有一個 container。</p>
+<h3 id="rol"><a href="#rol" class="headerlink" title=".rol"></a>.rol</h3><ul>
+<li>類似於 Excel 欄的概念</li>
+<li>另有 no-gutters 呈現方式，不需要 gutters</li>
+</ul>
+<p>要注意的事情是，「.rol」的下一層一定、一定、一定要是「.col」，否則會有意想不到的驚喜。</p>
+<h3 id="col-1-12"><a href="#col-1-12" class="headerlink" title=".col 1~12"></a>.col 1~12</h3><ul>
+<li>.col 一定要是在 .row 以下第一層</li>
+<li>要要納入格線的內容，都要放置在 .col 以內，也可以在放一個 .row</li>
+</ul>
+<p>另外要注意的事情是，.col 是用來劃分格子的元素（下面會介紹），所以盡量不要去更動它的寬度、左右 margin、padding，容易造成跑版；上下高度與 margin、padding 調整倒是比較沒什麼影響。</p>
+<ul>
+<li>補充：使用「box-sizing: border-box」，可以讓外框線不增加元素的寬度。</li>
+</ul>
+<h3 id="來段範例吧！"><a href="#來段範例吧！" class="headerlink" title="來段範例吧！"></a>來段範例吧！</h3><ul>
+<li>正確示範</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;h2&gt;內容標題&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-6&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-6&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>再次提醒：<strong>container 下面可是不同的東西並非僅限於 row，但 row 下第一層一定要是 col！</strong></p>
+<ul>
+<li>錯誤示範一：row 下一層有非 .col 的標籤</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;h2&gt;內容標題&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-6&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-6&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>錯誤示範二：row 下接了單純的 div 標籤，而非 .col div</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;col-6&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;col-6&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="col-基本排列"><a href="#col-基本排列" class="headerlink" title=".col 基本排列"></a>.col 基本排列</h2></blockquote>
+<h3 id="範例一：row-下一層塞了-3-個-col-4"><a href="#範例一：row-下一層塞了-3-個-col-4" class="headerlink" title="範例一：row 下一層塞了 3 個 col-4"></a>範例一：row 下一層塞了 3 個 col-4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-3.jpg"></p>
+<p>首先，Bootstrap 的 .container 類別樣式會將區塊往置中對齊；再來為求呈現方便，我增加了 .black 的 class，並設定框線樣式，幫助大家區分每一塊 div。</p>
+<p>上面有提到，col 的常見總欄數為 12，而「col-4」就佔了 12 欄中的 4 欄，所以 3 個 col-4，就剛好占滿了 12 欄。</p>
+<p>那如果超過了呢？</p>
+<h3 id="範例二：row-下一層塞了-4-個-col-4"><a href="#範例二：row-下一層塞了-4-個-col-4" class="headerlink" title="範例二：row 下一層塞了 4 個 col-4"></a>範例二：row 下一層塞了 4 個 col-4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-4.jpg"></p>
+<p>多了一個 col-4，但因為第一列已經塞滿了，因此第 4 個 col-4 就自動往下到第二列呈現出來。</p>
+<h3 id="範例三：有沒有可能是-col-2、col3、col4、col6-排滿一整列？"><a href="#範例三：有沒有可能是-col-2、col3、col4、col6-排滿一整列？" class="headerlink" title="範例三：有沒有可能是 col-2、col3、col4、col6 排滿一整列？"></a>範例三：有沒有可能是 col-2、col3、col4、col6 排滿一整列？</h3><p>當然可以，以 col-2 為範例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-2 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-2 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-2 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-2 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-2 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-2 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-2 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col6-7.jpg"></p>
+<p>這次設定了 7 個 col-2，最上層的 col-2 擺滿了 6 個剛好是 12，最後一個 col-2 則自動排到最下面。</p>
+<h3 id="範例四：-col-欄總數一定要剛好是-12-嗎？"><a href="#範例四：-col-欄總數一定要剛好是-12-嗎？" class="headerlink" title="範例四： col 欄總數一定要剛好是 12 嗎？"></a>範例四： col 欄總數一定要剛好是 12 嗎？</h3><p>答案是不用，以下我們用 3 個 col-5 來示範：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-5 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-5 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-5 black&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col5-3.jpg"></p>
+<p>我們可以看到，第一列只有 2 個 col-5，加起來只有 10 而已。這就代表 col 的排版在小於 12 都是會編排在同一列的。</p>
+<p>以第三個 col-5 為例，如果加上它就會變成 15 欄，超過 12 欄了，因此就會自動排到下一列去。</p>
+<p>不過相信眼尖的網友可以發現，col-5 示範圖 div 左右是不平衡的，右邊空出來的就是沒有利用到的兩個 col 區塊，這個部分就要靠網頁設計師在撰寫 css 時在調整 row 欄本身的位置呈現了！</p>
+<blockquote>
+<h2 id="容器、元件以及通用類別的關係"><a href="#容器、元件以及通用類別的關係" class="headerlink" title="容器、元件以及通用類別的關係"></a>容器、元件以及通用類別的關係</h2></blockquote>
+<p>待會要介紹「端點」，在介紹端點以前，要先介紹容器、元件以及通用類別的關係。</p>
+<ul>
+<li>容器（container）：格線系統最外層</li>
+<li>元件（components）：Bootstrap 提供的一些撰寫好樣式的互動式功能，通常放置在 col 內，除非該 div 未使用格線系統</li>
+<li>通用類別（Utilities）：通用類別可以讓格線系統在不同大小的裝置上，呈現不同的顯示方式</li>
+</ul>
+<blockquote>
+<h2 id="斷點設計"><a href="#斷點設計" class="headerlink" title="斷點設計"></a>斷點設計</h2></blockquote>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/grid-option.jpg"></p>
+<p>表格來自於 <a target="_blank" rel="noopener" href="https://bootstrap5.hexschool.com/docs/5.0/layout/grid/#grid-options">網格系統 (Grid system) · Bootstrap 5 繁體中文文件 - 六角學院 v5.0</a>。</p>
+<p>Bootstrap 5 總共分成 6 個網格：</p>
+<ul>
+<li>極小 xs - 視窗 &lt; 576px 適用</li>
+<li>小 sm - 視窗 &gt;= 576px 適用</li>
+<li>中 md - 視窗 &gt;= 768px 適用</li>
+<li>大 lg - 視窗 &gt;= 992px 適用</li>
+<li>特大 xl - 視窗 &gt;= 1200px 適用</li>
+<li>超級大 xxl - 視窗 &gt;= 1400px 適用</li>
+</ul>
+<h3 id="來段範例吧！-1"><a href="#來段範例吧！-1" class="headerlink" title="來段範例吧！"></a>來段範例吧！</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-12 col-md-4 col-lg-3&quot;&gt;網頁內容&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>col-12 代表的是一個 col 佔了整個頁面，在這個範例是螢幕較小的時候會呈現出來（Ex. 手機）</li>
+</ul>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/col-12.jpg"></p>
+<ul>
+<li>col-md-4 代表的是在平板（md：768px）以上，一欄占用 4 格，呈現 3 欄</li>
+</ul>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/col-md-4.jpg"></p>
+<ul>
+<li>col-lg-4 代表的是在電腦版（lg：992px）以上，一欄占用 3 格，呈現 4欄</li>
+</ul>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/col-lg-4.jpg"></p>
+<blockquote>
+<h2 id="通用類別與-display"><a href="#通用類別與-display" class="headerlink" title="通用類別與 display"></a>通用類別與 display</h2></blockquote>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/untilities-display.jpg"></p>
+<p>文件來自於 <a target="_blank" rel="noopener" href="https://bootstrap5.hexschool.com/docs/5.0/utilities/display/">Display · Bootstrap 5 繁體中文文件 - 六角學院 v5.0</a></p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.d-斷點-值</span><br></pre></td></tr></table></figure>
+<ul>
+<li>範例一：電腦版以上時隱藏 div</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.d-lg-none</span><br></pre></td></tr></table></figure>
+<ul>
+<li>範例二：原本設定隱藏，平版以上顯示 div</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.d-none .d-md-blick</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="巢狀格線系統"><a href="#巢狀格線系統" class="headerlink" title="巢狀格線系統"></a>巢狀格線系統</h2></blockquote>
+<p>可適用在 col 內又需要再劃分隔線時。Ex.左為選單、右為商品列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col-4 black&quot;&gt;選單&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;col 8&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;col-6 black&quot;&gt;商品欄位&lt;&#x2F;div&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;col-6 black&quot;&gt;商品欄位&lt;&#x2F;div&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;col-6 black&quot;&gt;商品欄位&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/nested-grid-system.jpg"></p>
+<blockquote>
+<h2 id="容器與元件的-CSS-設定"><a href="#容器與元件的-CSS-設定" class="headerlink" title="容器與元件的 CSS 設定"></a>容器與元件的 CSS 設定</h2></blockquote>
+<p>「容器就讓它回歸於容器、元件就讓牠回歸於元件，元件通常不會跟容器寫在一起。」</p>
+<ul>
+<li>錯誤示範</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.col-12 .btn-primary &#123;</span><br><span class="line">    CSS</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>正確示範</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.col-12 &#123;</span><br><span class="line">    CSS</span><br><span class="line">&#125;</span><br><span class="line">.btn-primary &#123;</span><br><span class="line">    CSS</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>昨天聽到後面真的有些吃力 QQ，不過好在後續翻閱一些資料以及重看了不懂的部分，就稍微熟悉了一些；身為實習走後端的我，現在來好好學習前端，真的不簡單啊！期許自己持續朝向全端工程師為目標！</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%AD%94%E8%A1%93%E6%95%B8%E5%AD%97_(%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88)">魔術數字 (程式設計) - 維基百科，自由的百科全書</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/box-sizing">box-sizing - CSS | MDN - Mozilla</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Bootstrap/" rel="tag"># Bootstrap</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/Bootstrap5/" rel="tag"># Bootstrap5</a>
+              <a href="/tags/%E6%A0%BC%E7%B7%9A/" rel="tag"># 格線</a>
+              <a href="/tags/%E9%80%9A%E7%94%A8%E9%A1%9E%E5%88%A5/" rel="tag"># 通用類別</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/21day-bootstrap5-1/" rel="prev" title="Bootstrap 5 新手教學實戰營 - Week 1">
+      <i class="fa fa-chevron-left"></i> Bootstrap 5 新手教學實戰營 - Week 1
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E9%AD%94%E8%A1%93%E6%95%B8%E5%AD%97%EF%BC%88magic-number%EF%BC%89%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什麼是魔術數字（magic number）？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E7%B7%9A%E7%B3%BB%E7%B5%B1"><span class="nav-number">2.</span> <span class="nav-text">格線系統</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E7%B7%9A%E7%B3%BB%E7%B5%B1%E5%8E%9F%E7%90%86%EF%BC%9ABootstrap-%E6%8E%92%E7%89%88%E4%B8%89%E5%8A%8D%E5%AE%A2"><span class="nav-number">3.</span> <span class="nav-text">格線系統原理：Bootstrap 排版三劍客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#container"><span class="nav-number">3.1.</span> <span class="nav-text">.container</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rol"><span class="nav-number">3.2.</span> <span class="nav-text">.rol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#col-1-12"><span class="nav-number">3.3.</span> <span class="nav-text">.col 1~12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%86%E6%AE%B5%E7%AF%84%E4%BE%8B%E5%90%A7%EF%BC%81"><span class="nav-number">3.4.</span> <span class="nav-text">來段範例吧！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#col-%E5%9F%BA%E6%9C%AC%E6%8E%92%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">.col 基本排列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E4%B8%80%EF%BC%9Arow-%E4%B8%8B%E4%B8%80%E5%B1%A4%E5%A1%9E%E4%BA%86-3-%E5%80%8B-col-4"><span class="nav-number">4.1.</span> <span class="nav-text">範例一：row 下一層塞了 3 個 col-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E4%BA%8C%EF%BC%9Arow-%E4%B8%8B%E4%B8%80%E5%B1%A4%E5%A1%9E%E4%BA%86-4-%E5%80%8B-col-4"><span class="nav-number">4.2.</span> <span class="nav-text">範例二：row 下一層塞了 4 個 col-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E4%B8%89%EF%BC%9A%E6%9C%89%E6%B2%92%E6%9C%89%E5%8F%AF%E8%83%BD%E6%98%AF-col-2%E3%80%81col3%E3%80%81col4%E3%80%81col6-%E6%8E%92%E6%BB%BF%E4%B8%80%E6%95%B4%E5%88%97%EF%BC%9F"><span class="nav-number">4.3.</span> <span class="nav-text">範例三：有沒有可能是 col-2、col3、col4、col6 排滿一整列？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E5%9B%9B%EF%BC%9A-col-%E6%AC%84%E7%B8%BD%E6%95%B8%E4%B8%80%E5%AE%9A%E8%A6%81%E5%89%9B%E5%A5%BD%E6%98%AF-12-%E5%97%8E%EF%BC%9F"><span class="nav-number">4.4.</span> <span class="nav-text">範例四： col 欄總數一定要剛好是 12 嗎？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E3%80%81%E5%85%83%E4%BB%B6%E4%BB%A5%E5%8F%8A%E9%80%9A%E7%94%A8%E9%A1%9E%E5%88%A5%E7%9A%84%E9%97%9C%E4%BF%82"><span class="nav-number">5.</span> <span class="nav-text">容器、元件以及通用類別的關係</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B7%E9%BB%9E%E8%A8%AD%E8%A8%88"><span class="nav-number">6.</span> <span class="nav-text">斷點設計</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%86%E6%AE%B5%E7%AF%84%E4%BE%8B%E5%90%A7%EF%BC%81-1"><span class="nav-number">6.1.</span> <span class="nav-text">來段範例吧！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E9%A1%9E%E5%88%A5%E8%88%87-display"><span class="nav-number">7.</span> <span class="nav-text">通用類別與 display</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">7.1.</span> <span class="nav-text">使用方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A2%E7%8B%80%E6%A0%BC%E7%B7%9A%E7%B3%BB%E7%B5%B1"><span class="nav-number">8.</span> <span class="nav-text">巢狀格線系統</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E8%88%87%E5%85%83%E4%BB%B6%E7%9A%84-CSS-%E8%A8%AD%E5%AE%9A"><span class="nav-number">9.</span> <span class="nav-text">容器與元件的 CSS 設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">10.</span> <span class="nav-text">後記</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">11.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gui"
+      src="https://img.guiblogs.com/Gui.jpg">
+  <p class="site-author-name" itemprop="name">Gui</p>
+  <div class="site-description" itemprop="description">程式筆記、實戰經驗，與個人成長紀錄</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gui - 本站所有文章未經許可請勿轉載</span>
+</div>
+  <div class="powered-by">本站使用 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 建置
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/liblib/anime.min.js"></script>
+  <script src="/liblib/velocity/velocity.min.js"></script>
+  <script src="/liblib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://guiblogs.com/21day-bootstrap5-2/";
+    this.page.identifier = "21day-bootstrap5-2/";
+    this.language = "zh_TW"; // Disqus 顯示語言
+    this.page.title = "Bootstrap 5 新手教學實戰營 - Week 2";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://guiblogs.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

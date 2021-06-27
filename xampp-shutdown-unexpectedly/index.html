@@ -30,27 +30,21 @@
   gtag('config', 'UA-189750489-1');
 </script>
 
-  <meta name="description" content="時代以及網路在進步，PHP 也不例外，1995 年 PHP 1.0 誕生之後，至今也已經邁向了 PHP 8 時代了！而版本的跌進，當然也就有從早至今的版本可以提供選擇。 而 cPanel 就有一個功能，是提供用戶能夠切換 PHP 版本，當然我不知道是否是只要有 cPanel 就一定有這個功能，可能要視主機商提供的權限而定？不過至少我目前操作的 cPanel 是擁有可以切換 PHP 版本的。">
+  <meta name="description" content="有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。  強制關機的結果：資料庫意外關閉 實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息： 1234567891009:42:22 AM [mysql] Attem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何更換 cPanel 虛擬主機的 PHP 版本？">
-<meta property="og:url" content="http://guiblogs.com/cpanel-change-php-version/">
+<meta property="og:title" content="Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法">
+<meta property="og:url" content="http://guiblogs.com/xampp-shutdown-unexpectedly/">
 <meta property="og:site_name" content="Gui Blog">
-<meta property="og:description" content="時代以及網路在進步，PHP 也不例外，1995 年 PHP 1.0 誕生之後，至今也已經邁向了 PHP 8 時代了！而版本的跌進，當然也就有從早至今的版本可以提供選擇。 而 cPanel 就有一個功能，是提供用戶能夠切換 PHP 版本，當然我不知道是否是只要有 cPanel 就一定有這個功能，可能要視主機商提供的權限而定？不過至少我目前操作的 cPanel 是擁有可以切換 PHP 版本的。">
+<meta property="og:description" content="有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。  強制關機的結果：資料庫意外關閉 實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息： 1234567891009:42:22 AM [mysql] Attem">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://img.guiblogs.com/cpanel-change-php-version/cpanel-change-php-version-login.jpg">
-<meta property="og:image" content="https://img.guiblogs.com/cpanel-change-php-version/php-manage.jpg">
-<meta property="og:image" content="https://img.guiblogs.com/cpanel-change-php-version/change-pnp-version.jpg">
-<meta property="article:published_time" content="2021-05-16T13:52:20.000Z">
-<meta property="article:modified_time" content="2021-06-17T13:30:30.072Z">
+<meta property="article:published_time" content="2021-06-27T06:34:21.000Z">
+<meta property="article:modified_time" content="2021-06-27T06:35:57.272Z">
 <meta property="article:author" content="Gui">
-<meta property="article:tag" content="cPanel">
-<meta property="article:tag" content="PHP">
-<meta property="article:tag" content="虛擬主機">
-<meta property="article:tag" content="版本">
+<meta property="article:tag" content="Xampp">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.guiblogs.com/cpanel-change-php-version/cpanel-change-php-version-login.jpg">
 
-<link rel="canonical" href="http://guiblogs.com/cpanel-change-php-version/">
+<link rel="canonical" href="http://guiblogs.com/xampp-shutdown-unexpectedly/">
 
 
 <script id="page-configurations">
@@ -63,7 +57,7 @@
   };
 </script>
 
-  <title>如何更換 cPanel 虛擬主機的 PHP 版本？ | Gui Blog - 網站的工具人</title>
+  <title>Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法 | Gui Blog - 網站的工具人</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189750489-1"></script>
     <script>
@@ -212,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://guiblogs.com/cpanel-change-php-version/">
+    <link itemprop="mainEntityOfPage" href="http://guiblogs.com/xampp-shutdown-unexpectedly/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img.guiblogs.com/Gui.jpg">
@@ -225,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何更換 cPanel 虛擬主機的 PHP 版本？
+          Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法
         </h1>
 
         <div class="post-meta">
@@ -234,27 +228,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2021-05-16 21:52:20" itemprop="dateCreated datePublished" datetime="2021-05-16T21:52:20+08:00">2021-05-16</time>
+              <time title="創建時間：2021-06-27 14:34:21 / 修改時間：14:35:57" itemprop="dateCreated datePublished" datetime="2021-06-27T14:34:21+08:00">2021-06-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-06-17 21:30:30" itemprop="dateModified" datetime="2021-06-17T21:30:30+08:00">2021-06-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                  <a href="/categories/Xampp/" itemprop="url" rel="index"><span itemprop="name">Xampp</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cPanel/" itemprop="url" rel="index"><span itemprop="name">cPanel</span></a>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
                 </span>
             </span>
 
@@ -264,7 +252,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>593</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -283,34 +271,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>時代以及網路在進步，PHP 也不例外，1995 年 PHP 1.0 誕生之後，至今也已經邁向了 PHP 8 時代了！而版本的跌進，當然也就有從早至今的版本可以提供選擇。</p>
-<p>而 cPanel 就有一個功能，是提供用戶能夠切換 PHP 版本，當然我不知道是否是只要有 cPanel 就一定有這個功能，可能要視主機商提供的權限而定？不過至少我目前操作的 cPanel 是擁有可以切換 PHP 版本的。</p>
+        <p>有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。</p>
+<blockquote>
+<h2 id="強制關機的結果：資料庫意外關閉"><a href="#強制關機的結果：資料庫意外關閉" class="headerlink" title="強制關機的結果：資料庫意外關閉"></a>強制關機的結果：資料庫意外關閉</h2></blockquote>
+<p>實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">09:42:22 AM [mysql] Attempting to start MySQL app...</span><br><span class="line">09:42:22 AM [mysql] Status change detected: running</span><br><span class="line">09:42:22 AM [mysql] Status change detected: stopped</span><br><span class="line">09:42:22 AM [mysql] Error: MySQL shutdown unexpectedly.</span><br><span class="line">09:42:22 AM [mysql] This may be due to a blocked port, missing dependencies,</span><br><span class="line">09:42:22 AM [mysql] improper privileges, a crash, or a shutdown by another method</span><br><span class="line">09:42:22 AM [mysql] Press the Logs button to view error logs and check</span><br><span class="line">09:42:22 AM [mysql] the Windows Event Viewer for more clues</span><br><span class="line">09:42:22 AM [mysql] If you need more help, copy and post this</span><br><span class="line">09:42:22 AM [mysql] entire log window on the forums</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
+<p>查了一下網路上的資料，發現是因為我沒有關閉 Xampp 就進行電腦關機的動作，導致 Xampp 資料毀損。</p>
 <blockquote>
-<h2 id="升級前請三思而後行！"><a href="#升級前請三思而後行！" class="headerlink" title="升級前請三思而後行！"></a>升級前請三思而後行！</h2></blockquote>
-<p>首先，不管是 PHP 版本的升級、還是其他的更新，在做這些變動前備份是一定要做的。</p>
-<p>再來，必須要確認你上面的程式，是否在 PHP 升級過後會出現一些問題？之前實驗室的 Joomla，就曾經在 PHP 升級的情況之下，造成了錯誤；所以升級前務必要先想清楚。</p>
-<blockquote>
-<h2 id="確定好要升級後，PHP-升級教學！"><a href="#確定好要升級後，PHP-升級教學！" class="headerlink" title="確定好要升級後，PHP 升級教學！"></a>確定好要升級後，PHP 升級教學！</h2></blockquote>
+<h2 id="我是如何解決的？"><a href="#我是如何解決的？" class="headerlink" title="我是如何解決的？"></a>我是如何解決的？</h2></blockquote>
+<p>透過參考資料那篇文章，成功地解決了這個問題！由於那篇文章是英文語系，在這邊我就翻成中文：</p>
+<p>Ps. 貼心提醒：做任何修改之前，請先進行備份哦！我自己有將 Xampp 整個先備份，記得我一開始有做錯，幸好有備份 XD</p>
 <ol>
-<li>一開始當然就是進入你的 cPanel 控制台，並進行登入。</li>
+<li>將 Xampp\mysql\data 這個資料夾重新命名成另外一個名稱</li>
+<li>重新建立一個同名的資料夾</li>
+<li>將 Xampp\mysql\backup 內的所有內容複製到新建立的 Xampp\mysql\data</li>
+<li>從舊的 Xampp\mysql\data 複製除了 mysql、performance_schema 以及 phpmyadmin 等資料夾的所有檔案，到新的 mysql\data，尤其是 ibdata1 這支檔案，覆蓋到新的 mysql\data 裡</li>
 </ol>
-<p><img src="https://img.guiblogs.com/cpanel-change-php-version/cpanel-change-php-version-login.jpg"></p>
 <blockquote>
-<h3 id="你的-cPanel-資訊？"><a href="#你的-cPanel-資訊？" class="headerlink" title="你的 cPanel 資訊？"></a>你的 cPanel 資訊？</h3><ul>
-<li>cPanel 網址：https://網址:2083 or <a target="_blank" rel="noopener" href="https://cpanel.網址/">https://cpanel.網址/</a> 皆可<br>P.s. 以我所就讀的學校校內右邊網址通常連不進去，在校內建議用左邊的網址進入。</li>
-<li>cPanel 帳號、密碼：主機商給的 cPanel 帳號密碼。</li>
-</ul>
-</blockquote>
-<ol start="2">
-<li>若是繁體中文語言，找到「軟體」欄內的「多 PHP 管理器」鏈結點擊進去。</li>
+<h2 id="總結與心得"><a href="#總結與心得" class="headerlink" title="總結與心得"></a>總結與心得</h2></blockquote>
+<p>其實這就是一個夜路走多總會遇到鬼的概念，之前覺得沒什麼是因為沒有發生過，只覺得直接關機就好多方便。然而經歷過一次切身之痛就知道該學乖了，人也真是奇妙的生物，每次都要從教訓過才學會成長！XD</p>
+<p>所以希望大家不管是 Xampp 還是其他應用程式，確實將其關閉再將電腦關機，絕對不差這幾分鐘的動作的～第一次能夠修復完成或許是運氣好，如果發生第二次呢？</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ol>
+<li>XAMPP - MySQL shutdown unexpectedly - Stack Overflow<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/18022809/xampp-mysql-shutdown-unexpectedly">https://stackoverflow.com/questions/18022809/xampp-mysql-shutdown-unexpectedly</a></li>
 </ol>
-<p><img src="https://img.guiblogs.com/cpanel-change-php-version/php-manage.jpg"></p>
-<ol start="3">
-<li>進入後，你會看到系統預設的 PHP 版本。不過若要修改自己本身的 PHP 版本，請勾選自己網址旁的選取方塊，再來到網頁右邊的「PHP 版本」選擇要更換的版本，按下套用後即可完成更換！</li>
-</ol>
-<p><img src="https://img.guiblogs.com/cpanel-change-php-version/change-pnp-version.jpg"></p>
 
     </div>
 
@@ -326,7 +313,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="http://guiblogs.com/cpanel-change-php-version/" title="如何更換 cPanel 虛擬主機的 PHP 版本？">http://guiblogs.com/cpanel-change-php-version/</a>
+    <a href="http://guiblogs.com/xampp-shutdown-unexpectedly/" title="Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法">http://guiblogs.com/xampp-shutdown-unexpectedly/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -337,10 +324,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/cPanel/" rel="tag"># cPanel</a>
-              <a href="/tags/PHP/" rel="tag"># PHP</a>
-              <a href="/tags/%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/" rel="tag"># 虛擬主機</a>
-              <a href="/tags/%E7%89%88%E6%9C%AC/" rel="tag"># 版本</a>
+              <a href="/tags/Xampp/" rel="tag"># Xampp</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           </div>
 
         
@@ -349,13 +334,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/session-reorganize-Invalidation/" rel="prev" title="PHP SESSION 重新整理就失效，是發生什麼事情？">
-      <i class="fa fa-chevron-left"></i> PHP SESSION 重新整理就失效，是發生什麼事情？
+    <a href="/j2store-admin-customization/" rel="prev" title="Joomla! 嘗試客製化修改元件控制台界面">
+      <i class="fa fa-chevron-left"></i> Joomla! 嘗試客製化修改元件控制台界面
     </a></div>
-      <div class="post-nav-item">
-    <a href="/21day-bootstrap5-1/" rel="next" title="Bootstrap 5 新手教學實戰營 - Week 1">
-      Bootstrap 5 新手教學實戰營 - Week 1 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -421,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%B4%9A%E5%89%8D%E8%AB%8B%E4%B8%89%E6%80%9D%E8%80%8C%E5%BE%8C%E8%A1%8C%EF%BC%81"><span class="nav-number">1.</span> <span class="nav-text">升級前請三思而後行！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%BA%E5%AE%9A%E5%A5%BD%E8%A6%81%E5%8D%87%E7%B4%9A%E5%BE%8C%EF%BC%8CPHP-%E5%8D%87%E7%B4%9A%E6%95%99%E5%AD%B8%EF%BC%81"><span class="nav-number">2.</span> <span class="nav-text">確定好要升級後，PHP 升級教學！</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%A0%E7%9A%84-cPanel-%E8%B3%87%E8%A8%8A%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">你的 cPanel 資訊？</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B7%E5%88%B6%E9%97%9C%E6%A9%9F%E7%9A%84%E7%B5%90%E6%9E%9C%EF%BC%9A%E8%B3%87%E6%96%99%E5%BA%AB%E6%84%8F%E5%A4%96%E9%97%9C%E9%96%89"><span class="nav-number">1.</span> <span class="nav-text">強制關機的結果：資料庫意外關閉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E6%B1%BA%E7%9A%84%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">我是如何解決的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90%E8%88%87%E5%BF%83%E5%BE%97"><span class="nav-number">3.</span> <span class="nav-text">總結與心得</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -539,10 +521,10 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://guiblogs.com/cpanel-change-php-version/";
-    this.page.identifier = "cpanel-change-php-version/";
+    this.page.url = "http://guiblogs.com/xampp-shutdown-unexpectedly/";
+    this.page.identifier = "xampp-shutdown-unexpectedly/";
     this.language = "zh_TW"; // Disqus 顯示語言
-    this.page.title = "如何更換 cPanel 虛擬主機的 PHP 版本？";
+    this.page.title = "Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

@@ -30,17 +30,17 @@
   gtag('config', 'UA-189750489-1');
 </script>
 
-  <meta name="description" content="這題表示有數量不一定的小朋友，並由陣列 candies 定義；其中有個整數變數為 extraCandies，表示若小朋友的糖果加上變數的數字後（即多得到這個數量的糖果），是否能夠成為擁有最多的糖果或是跟原本最多糖果的小朋友並列第一。 而所謂第一名的基準，看下來是依照原本未加上多的糖果的最多數量。以 Example 1 為例，原本最多糖果的小朋友擁有 5 顆，雖然在增加 3 顆就擁有 8 顆糖果，但">
+  <meta name="description" content="題目資訊題目網址：1431. Kids With the Greatest Number of Candies難易度：Easy 簡單通過率：88.1%（截至發文時間）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 PHP 解 Leetcode：1431. Kids With the Greatest Number of Candies 擁有最多糖果的孩子">
 <meta property="og:url" content="http://guiblogs.com/leetcode1431-php/">
 <meta property="og:site_name" content="Gui Blog">
-<meta property="og:description" content="這題表示有數量不一定的小朋友，並由陣列 candies 定義；其中有個整數變數為 extraCandies，表示若小朋友的糖果加上變數的數字後（即多得到這個數量的糖果），是否能夠成為擁有最多的糖果或是跟原本最多糖果的小朋友並列第一。 而所謂第一名的基準，看下來是依照原本未加上多的糖果的最多數量。以 Example 1 為例，原本最多糖果的小朋友擁有 5 顆，雖然在增加 3 顆就擁有 8 顆糖果，但">
+<meta property="og:description" content="題目資訊題目網址：1431. Kids With the Greatest Number of Candies難易度：Easy 簡單通過率：88.1%（截至發文時間）">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://img.guiblogs.com/leetcode1431-php/success.jpg">
 <meta property="og:image" content="https://img.guiblogs.com/leetcode1431-php/time-submitted.jpg">
 <meta property="article:published_time" content="2021-07-12T14:55:16.000Z">
-<meta property="article:modified_time" content="2021-07-12T15:08:59.230Z">
+<meta property="article:modified_time" content="2021-07-13T03:21:21.372Z">
 <meta property="article:author" content="Gui">
 <meta property="article:tag" content="Leetcode">
 <meta property="article:tag" content="php">
@@ -232,10 +232,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-07-12 22:55:16 / 修改時間：23:08:59" itemprop="dateCreated datePublished" datetime="2021-07-12T22:55:16+08:00">2021-07-12</time>
+              <time title="創建時間：2021-07-12 22:55:16" itemprop="dateCreated datePublished" datetime="2021-07-12T22:55:16+08:00">2021-07-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-07-13 11:21:21" itemprop="dateModified" datetime="2021-07-13T11:21:21+08:00">2021-07-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -275,13 +281,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這題表示有數量不一定的小朋友，並由陣列 <code>candies</code> 定義；其中有個整數變數為 <code>extraCandies</code>，表示若小朋友的糖果加上變數的數字後（即多得到這個數量的糖果），是否能夠成為擁有最多的糖果或是跟原本最多糖果的小朋友並列第一。</p>
-<p>而所謂第一名的基準，看下來是依照原本未加上多的糖果的最多數量。以 <strong>Example 1</strong> 為例，原本最多糖果的小朋友擁有 5 顆，雖然在增加 3 顆就擁有 8 顆糖果，但是所謂「最多」的基準還是 5 顆；像是第一位小朋友原本的 2 顆糖果再加上 3 顆也不過 5 顆糖果，但是因為已經與基準並列第一，也因此就過關。</p>
-<a id="more"></a>
-
-<blockquote>
+        <blockquote>
 <h2 id="題目資訊"><a href="#題目資訊" class="headerlink" title="題目資訊"></a>題目資訊</h2><p>題目網址：<a target="_blank" rel="noopener" href="https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/">1431. Kids With the Greatest Number of Candies</a><br>難易度：Easy 簡單<br>通過率：88.1%（截至發文時間）</p>
 </blockquote>
+<a id="more"></a>
+
+<p>這題表示有數量不一定的小朋友，並由陣列 <code>candies</code> 定義；其中有個整數變數為 <code>extraCandies</code>，表示若小朋友的糖果加上變數的數字後（即多得到這個數量的糖果），是否能夠成為擁有最多的糖果或是跟原本最多糖果的小朋友並列第一。</p>
+<p>而所謂第一名的基準，看下來是依照原本未加上多的糖果的最多數量。以 <strong>Example 1</strong> 為例，原本最多糖果的小朋友擁有 5 顆，雖然在增加 3 顆就擁有 8 顆糖果，但是所謂「最多」的基準還是 5 顆；像是第一位小朋友原本的 2 顆糖果再加上 3 顆也不過 5 顆糖果，但是因為已經與基準並列第一，也因此就過關。</p>
 <p>以下解法一是我第一次提交時的程式碼，但發現整體成績並不理想，於是開始以解法一為基底進行優化，後來就寫出了解法二。</p>
 <blockquote>
 <h2 id="解法一：使用-if"><a href="#解法一：使用-if" class="headerlink" title="解法一：使用 if"></a>解法一：使用 if</h2></blockquote>

@@ -30,15 +30,15 @@
   gtag('config', 'UA-189750489-1');
 </script>
 
-  <meta name="description" content="CSS 除了透過 images 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。">
+  <meta name="description" content="CSS 除了透過 img 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="background CSS 基礎背景應用：image、repeat、color 以及 position">
+<meta property="og:title" content="什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？">
 <meta property="og:url" content="http://guiblogs.com/css-background/">
 <meta property="og:site_name" content="Gui Blog">
-<meta property="og:description" content="CSS 除了透過 images 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。">
+<meta property="og:description" content="CSS 除了透過 img 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-07-18T14:40:57.000Z">
-<meta property="article:modified_time" content="2021-07-18T14:49:42.689Z">
+<meta property="article:modified_time" content="2021-07-22T11:54:27.203Z">
 <meta property="article:author" content="Gui">
 <meta property="article:tag" content="CSS">
 <meta property="article:tag" content="background">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title>background CSS 基礎背景應用：image、repeat、color 以及 position | Gui Blog - 網站的工具人</title>
+  <title>什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？ | Gui Blog - 網站的工具人</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189750489-1"></script>
     <script>
@@ -210,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          background CSS 基礎背景應用：image、repeat、color 以及 position
+          什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？
         </h1>
 
         <div class="post-meta">
@@ -219,10 +219,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-07-18 22:40:57 / 修改時間：22:49:42" itemprop="dateCreated datePublished" datetime="2021-07-18T22:40:57+08:00">2021-07-18</time>
+              <time title="創建時間：2021-07-18 22:40:57" itemprop="dateCreated datePublished" datetime="2021-07-18T22:40:57+08:00">2021-07-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-07-22 19:54:27" itemprop="dateModified" datetime="2021-07-22T19:54:27+08:00">2021-07-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -239,14 +245,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>1.4k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
+              <span>2 分鐘</span>
             </span>
 
         </div>
@@ -258,13 +264,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>CSS 除了透過 images 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。</p>
+        <p>CSS 除了透過 img 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。</p>
 <a id="more"></a>
 
+<blockquote>
+<h2 id="何時用-img-或是-background？他們又有什麼差別？"><a href="#何時用-img-或是-background？他們又有什麼差別？" class="headerlink" title="何時用 img 或是 background？他們又有什麼差別？"></a>何時用 img 或是 background？他們又有什麼差別？</h2></blockquote>
+<p>img 這個標籤主要就是用來表示影像，就像 video 用來表示影片那樣（雖然我知道這樣舉例很爛，等我想一下怎麼說會更好再更新 XD）；而 background 則是設定區塊像是 div 除了文字外，也能夠設定其區塊背景圖片以及顏色。</p>
+<p>一般來講，如果你的圖片會跟後端結合，由資料庫回傳要顯示圖片的 URL，一般來講就會使用 img 標籤來顯示圖片，因為能夠透過後端語言或是 JavaScript 控制 HTML，將資料庫資料一筆一筆傳入網頁，但不太能直接控制 CSS 檔案；相反的如果像是背景圖、或是一些比較少換的影像，可能擺在那邊兩三年都不會換，即可直接在 CSS 使用 background。</p>
+<p>但有沒有可能我也要動態更換 background 圖片？當然有可能，這篇文章也會提到其解決方法。</p>
 <blockquote>
 <h2 id="載入背景圖片-background-image"><a href="#載入背景圖片-background-image" class="headerlink" title="載入背景圖片 background-image"></a>載入背景圖片 background-image</h2></blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(背景圖片網址);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>background-image</code> 可用於設定背景圖片網址，可是絕對路徑或是相對路徑。另外也可以針對 box 設定寬度與寬度，限縮 .box 範圍後，也就會影響背景圖片在整體網頁占比。</p>
+<h3 id="如果想動態更換-background-image-怎麼辦？"><a href="#如果想動態更換-background-image-怎麼辦？" class="headerlink" title="如果想動態更換 background-image 怎麼辦？"></a>如果想動態更換 background-image 怎麼辦？</h3><p>由於後端語言不太能直接控制 CSS 檔案（我不知道是不是真的不能，但以我目前所學到的是不能 XD）所以就會透過後端語言或是 JavaScript 控制 HTML 的 Element 來撰寫：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-image: url(這裡撰寫放置 URL 的變數)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>雖然因為權重關係我們盡量不會去使用 Element 設定 CSS，但是如果要透過 HTML 動態設定 CSS，一般來講就會透過 Element 來去設定 CSS，像是進度條的進度百分比也可以透過這樣的方式設定。</p>
 <blockquote>
 <h2 id="控制圖片重複顯示：background-repeat"><a href="#控制圖片重複顯示：background-repeat" class="headerlink" title="控制圖片重複顯示：background-repeat"></a>控制圖片重複顯示：background-repeat</h2></blockquote>
 <p>若容器過大、而背景圖片尺寸卻小於容器，自動來說圖片會自動填滿容器其它區域，因此利用 <code>background-repeat</code> 屬性，可以控制圖片是否要重複。設定共有：</p>
@@ -277,7 +291,7 @@
 <blockquote>
 <h2 id="背景顏色：background-color"><a href="#背景顏色：background-color" class="headerlink" title="背景顏色：background-color"></a>背景顏色：background-color</h2></blockquote>
 <p><code>background-color</code> 這個就是寫入背景顏色的，當設定時，就會讓該容器內填滿所設定的顏色。</p>
-<p>若有設定不重複的背景圖片，在沒被填滿之處，就會顯示背景顏色。</p>
+<p>另外，背景顏色與背景圖片是能夠同時設定的，因此若有設定不重複的背景圖片，在沒被填滿之處，就會顯示其區塊設定之背景顏色。</p>
 <blockquote>
 <h2 id="背景圖片位置：background-position"><a href="#背景圖片位置：background-position" class="headerlink" title="背景圖片位置：background-position"></a>背景圖片位置：background-position</h2></blockquote>
 <p><code>background-position</code> 這個屬性可為不重複的背景圖片設定其位置。</p>
@@ -310,7 +324,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="http://guiblogs.com/css-background/" title="background CSS 基礎背景應用：image、repeat、color 以及 position">http://guiblogs.com/css-background/</a>
+    <a href="http://guiblogs.com/css-background/" title="什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？">http://guiblogs.com/css-background/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -403,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BC%89%E5%85%A5%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87-background-image"><span class="nav-number">1.</span> <span class="nav-text">載入背景圖片 background-image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%9C%96%E7%89%87%E9%87%8D%E8%A4%87%E9%A1%AF%E7%A4%BA%EF%BC%9Abackground-repeat"><span class="nav-number">2.</span> <span class="nav-text">控制圖片重複顯示：background-repeat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2%EF%BC%9Abackground-color"><span class="nav-number">3.</span> <span class="nav-text">背景顏色：background-color</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87%E4%BD%8D%E7%BD%AE%EF%BC%9Abackground-position"><span class="nav-number">4.</span> <span class="nav-text">背景圖片位置：background-position</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%8D%E7%BD%AE%E9%97%9C%E9%8D%B5%E5%AD%97"><span class="nav-number">4.1.</span> <span class="nav-text">使用位置關鍵字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B8%E5%80%BC"><span class="nav-number">4.2.</span> <span class="nav-text">使用數值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-%E8%AE%93%E5%9C%96%E7%89%87%E8%A8%AD%E5%AE%9A%E5%9C%A8%E5%90%8C%E4%B8%80%E5%80%8B%E5%B1%AC%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">background 讓圖片設定在同一個屬性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">6.</span> <span class="nav-text">後記</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%95%E6%99%82%E7%94%A8-img-%E6%88%96%E6%98%AF-background%EF%BC%9F%E4%BB%96%E5%80%91%E5%8F%88%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">何時用 img 或是 background？他們又有什麼差別？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BC%89%E5%85%A5%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87-background-image"><span class="nav-number">2.</span> <span class="nav-text">載入背景圖片 background-image</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%83%B3%E5%8B%95%E6%85%8B%E6%9B%B4%E6%8F%9B-background-image-%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">如果想動態更換 background-image 怎麼辦？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%9C%96%E7%89%87%E9%87%8D%E8%A4%87%E9%A1%AF%E7%A4%BA%EF%BC%9Abackground-repeat"><span class="nav-number">3.</span> <span class="nav-text">控制圖片重複顯示：background-repeat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2%EF%BC%9Abackground-color"><span class="nav-number">4.</span> <span class="nav-text">背景顏色：background-color</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87%E4%BD%8D%E7%BD%AE%EF%BC%9Abackground-position"><span class="nav-number">5.</span> <span class="nav-text">背景圖片位置：background-position</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%8D%E7%BD%AE%E9%97%9C%E9%8D%B5%E5%AD%97"><span class="nav-number">5.1.</span> <span class="nav-text">使用位置關鍵字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B8%E5%80%BC"><span class="nav-number">5.2.</span> <span class="nav-text">使用數值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-%E8%AE%93%E5%9C%96%E7%89%87%E8%A8%AD%E5%AE%9A%E5%9C%A8%E5%90%8C%E4%B8%80%E5%80%8B%E5%B1%AC%E6%80%A7"><span class="nav-number">6.</span> <span class="nav-text">background 讓圖片設定在同一個屬性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">7.</span> <span class="nav-text">後記</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -524,7 +538,7 @@
     this.page.url = "http://guiblogs.com/css-background/";
     this.page.identifier = "css-background/";
     this.language = "zh_TW"; // Disqus 顯示語言
-    this.page.title = "background CSS 基礎背景應用：image、repeat、color 以及 position";
+    this.page.title = "什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

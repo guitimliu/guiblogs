@@ -119,5 +119,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "update article hexo30-11"
+  message: "update article hexo30-12"
   tokan: ghp

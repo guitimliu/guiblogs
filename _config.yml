@@ -119,5 +119,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article javascript-variable-declaration"
+  message: "add article js-undefined-null"
   tokan: ghp

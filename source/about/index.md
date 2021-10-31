@@ -27,11 +27,10 @@ comments: false
     * 原生撰寫並使用物件導向架構
     * CodeIgniter 3（還沒學最新版的 4）
     * Laravel 8 進修中
-* PHP CMS 開發與維護
+* CMS 開發與維護
     * 使用 WordPress + Woocommerce 開發購物車並優化平台
     * WordPress 串接物流外送車隊功能
     * Joomla! MVC 開發電子報元件
-    * WordPress / Joomla! 錯誤 Debug
 * C# ASP.NET 在學校修課的程度
 * Python 進修中
 * Database
@@ -52,4 +51,4 @@ comments: false
 
 * 使用 Git 進行版控管理【[GitHub 鏈結](https://github.com/guitimliu)】
 * 使用 Hexo 架設技術部落格【就是你現在看到的這個啦！】
-    * 參與 IT 鐵人賽、六角筆記王：[30 天利用 Hexo 打造技術部落格](https://hackmd.io/@gfW814OqQNW3-GopXH4oRw/ByMfa31kY)
+    * 參與 IT 鐵人賽、[六角筆記王](https://hackmd.io/@gfW814OqQNW3-GopXH4oRw/ByMfa31kY)：[30 天利用 Hexo 打造技術部落格](https://ithelp.ithome.com.tw/users/20139218/ironman/3910)

@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Gui Blog
-subtitle: '網站的工具人'
+title: Gui Blog - 網站的工具人
+subtitle:
 description: '程式筆記與個人成長紀錄'
 keywords:
 author: Gui
@@ -63,7 +63,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 7
   order_by: -date
 
 # Category & Tag
@@ -100,7 +100,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next #landscape
+theme: fluid #next #landscape
 
 # count
 symbols_count_time:

@@ -5,6 +5,7 @@ tags:
 - shell
 - cPanel
 categories: Linux
+index_img: https://img.guiblogs.com/shell-backup/shell-backup-after.jpg
 ---
 
 我所待的 Lab 裡滿多網站都是用 cPanel 的排程每日備份資料庫內容，但後來發現某一家主機商下面的備份檔，一下備份正常、一下卻又出現檔案大小「763」容量極小的備份不完全狀況，如下所示......
@@ -13,7 +14,7 @@ categories: Linux
 
 <!-- more -->
 
-> ## 原始作法
+## 原始作法
 
 網站所使用的虛擬主機有提供 cPanel 控制台，因而利用 cPanel 內建的 Cron Job 排程器進行每日排程。指令如下：
 
@@ -21,7 +22,7 @@ categories: Linux
 /usr/bin/mysqldump --user=帳號 --password=密碼 --all-databases --single-transaction > /home/帳號/public_html/backup/full_backup_`date -I`.sql
 ```
 
-> ## 新作法
+## 新作法
 
 後來到網上找了許多相關文章，中文資源找不到往國外資源翻也依舊找不到。後來想了想：那如果自己寫一個腳本來做呢？
 
@@ -48,7 +49,7 @@ done
 
 GitHub Link: [mysql-auto-backup](https://github.com/guitimliu/mysql-auto-backup)
 
-> ## 結論與後記
+## 結論與後記
 
 這段程式其實是我在去年差不多三～四月寫的，雖然只有短短幾行程式碼，但當時為了解決這個問題，前前後後花了三天的時間，從自己研究到實驗室的同學一起學習，最後寫出一個能夠備份的腳本，成果一出來的那一刻到現在還是令人難忘！
 

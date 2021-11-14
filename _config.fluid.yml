@@ -308,7 +308,8 @@ footer:
 #---------------------------
 index:
   # 首頁 Banner 圖
-  banner_img: https://img.guiblogs.com/banner/home.jpg
+  banner_img: https://i.imgur.com/kWTWXvI.jpg
+  # https://img.guiblogs.com/banner/home.jpg
 
   # Banner 百分比，vh
   banner_img_height: 100
@@ -365,7 +366,8 @@ index:
 # 文章頁
 #---------------------------
 post:
-  banner_img: https://img.guiblogs.com/banner/archives.jpg
+  banner_img: https://i.imgur.com/Ebwp4Fh.jpg
+  # https://img.guiblogs.com/banner/archives.jpg
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -500,7 +502,8 @@ disqus:
 # 歸檔頁（文章列表頁）
 #---------------------------
 archive:
-  banner_img: https://img.guiblogs.com/banner/archives.jpg
+  banner_img: https://i.imgur.com/Ebwp4Fh.jpg
+  # https://img.guiblogs.com/banner/archives.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -510,7 +513,8 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: https://img.guiblogs.com/banner/category.jpg
+  banner_img: https://i.imgur.com/v6R7QVX.jpg
+  # https://img.guiblogs.com/banner/category.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -534,7 +538,8 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: https://img.guiblogs.com/banner/tags.jpg
+  banner_img: https://i.imgur.com/TxnDJnK.jpg
+  # https://img.guiblogs.com/banner/tags.jpg
   banner_img_height: 80
   banner_mask_alpha: 0.3
   subtitle:
@@ -550,11 +555,13 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: https://img.guiblogs.com/banner/about.jpg
+  banner_img: https://i.imgur.com/9Mfy1zh.jpg
+  # https://img.guiblogs.com/banner/about.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
-  avatar: https://img.guiblogs.com/avatar.jpg
+  avatar: https://i.imgur.com/zGCnepV.jpg
+  # https://img.guiblogs.com/avatar.jpg
   name: Gui
   intro: 網站的工具人
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码

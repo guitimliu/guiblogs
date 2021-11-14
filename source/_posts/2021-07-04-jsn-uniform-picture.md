@@ -6,6 +6,7 @@ tags:
 - [JSN UniForm]
 categories:
 - [Joomla]
+index_img: https://img.guiblogs.com/jsn-uniform-picture/jsn-uniform-picture.jpg
 ---
 
 Joomla! 的表單元件 JSN UniForm 預設提供的表單功能，在 radioButton 內沒有提供圖片選項（不過是免費版的部分，且是 2020 年時改的，不知道之後有沒有改？）
@@ -14,7 +15,7 @@ Joomla! 的表單元件 JSN UniForm 預設提供的表單功能，在 radioButto
 
 <!--more-->
 
-> ## 教學開始
+## 教學開始
 
 首先聲明一下，這一篇就是稍微紀錄一下，如果你看到的時候已經可以在設定中能夠新增圖片，那就以元件本身設定為主囉！
 

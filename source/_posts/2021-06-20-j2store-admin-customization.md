@@ -8,6 +8,7 @@ tags:
 categories:
 - [PHP]
 - [Joomla]
+index_img: https://img.guiblogs.com/j2store-admin-customization/after.jpg
 ---
 
 過去在實驗室時接到一個網站業主的請求。
@@ -18,7 +19,7 @@ categories:
 
 <!-- more -->
 
-> ## 但...要從何下手呢？
+## 但...要從何下手呢？
 
 我的專題是要製作 Joomla! 元件，但非常慚愧的是，當初剩兩個半月之際，~~我閱讀官方文件的進度只有 8 篇~~。
 
@@ -26,7 +27,7 @@ categories:
 
 於是...開始動工！
 
-> ## 分析網址：找出我們要更改的檔案在哪個目錄？
+## 分析網址：找出我們要更改的檔案在哪個目錄？
 
 先來張我那時在實驗室進度報告，PPT 上顯示的解題過程吧～
 
@@ -40,7 +41,7 @@ categories:
 * option:com_j2store：元件目錄是 com_j2store，代表是 j2store 元件
 * view=order：從 Joomla! MVC 判斷，此界面位於 view 裡的 order 目錄
 
-> ## 複製文字：找出我們要客製的地方在哪個檔案？
+## 複製文字：找出我們要客製的地方在哪個檔案？
 
 再來，因為我們要更改的是「顧客註記」與「運送追蹤 ID」的顯示位置，所以我們要先找到這兩個欄位是放在哪個檔案。
 
@@ -55,7 +56,7 @@ categories:
 
 ![尋找相對應英文字串](https://img.guiblogs.com/j2store-admin-customization/fine-the-code.jpg)
 
-> ## 利用英文字串，找出「顧客註記」、「運送追蹤 ID」所在檔案
+## 利用英文字串，找出「顧客註記」、「運送追蹤 ID」所在檔案
 
 ![找出程式所在檔案](https://img.guiblogs.com/j2store-admin-customization/fine-files.jpg)
 

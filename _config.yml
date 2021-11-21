@@ -119,5 +119,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article new-theme-fluid & update theme"
+  message: "add article start-to-act"
   tokan: ghp

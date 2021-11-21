@@ -164,7 +164,7 @@ custom_html: ''
 
 # 网页访问统计
 web_analytics:  # 网页访问统计
-  enable: false
+  enable: true
 
   # Google 统计的 Tracking ID
   # See: https://developers.google.com/analytics/devguides/collection/analyticsjs
@@ -440,7 +440,13 @@ post:
   # 文章底部自定义区域（位于 footer 上方），支持 HTML，可插入赞赏码、公众号这类内容内容
   custom:
     enable: false
-    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
+    # content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
+    content: "<div>
+  <script>
+    document.write(
+      `<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/guitimliu/button?referrer=${location.href}'></iframe>`);
+  </script>
+<div>"
 
   # 文章圖片可點擊放大
   image_zoom:

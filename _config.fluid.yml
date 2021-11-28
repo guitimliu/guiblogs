@@ -605,9 +605,9 @@ links:
   # 友链的成员项
   items:
     - {
-      title: "Fluid Blog",
-      intro: "主题博客",
-      link: "https://hexo.fluid-dev.com/",
+      title: "Gui Blog - 網站的工具人",
+      intro: "程式筆記與個人成長紀錄",
+      link: "https://guiblogs.com/",
       avatar: "/img/favicon.png"
     }
 
@@ -616,11 +616,23 @@ links:
 
   # 友链下方自定义区域，支持 HTML，可插入例如申请友链的文字
   custom:
-    enable: false
-    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>'
+    enable: true
+    content: '<hr><p>誠摯歡迎你的部落格與我進行交換連結，申請請至以下留言區並依照格式：</p><ul><li>網站名稱：</li><li>網站簡介：</li><li>鏈結：</li><li>Logo：</li></ul>
+    <div class="note note-light">
+      <h2 class="h4">友情連結申請規則</h2>
+      <ol>
+        <li>
+          申請前請先將我方鏈結加入到您的網站：
+          <ul>
+            <li>網站名稱：Gui Blog - 網站的工具人</li><li>網站簡介：程式筆記與個人成長紀錄</li><li>鏈結：<a href="https://guiblogs.com/">https://guiblogs.com/</a></li><li>Logo：</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    '
 
   # 評論套件
   comments:
-    enable: false
+    enable: true
     # 指定套件，需要同時設置對應套件的必要參數
     type: disqus

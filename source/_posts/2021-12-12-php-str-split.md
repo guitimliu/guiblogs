@@ -3,9 +3,9 @@ title: 如何利用 PHP 的 str_split 函式將字串字元一個個分割成字
 date: 2021-12-12 22:55:48
 tags:
 - [PHP]
+- [str_split]
 categories:
 - [PHP]
-- [str_split]
 index_img: http://img.guiblogs.com/index_img/php-str-split.jpg
 ---
 

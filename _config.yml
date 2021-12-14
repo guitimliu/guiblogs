@@ -71,6 +71,7 @@ default_category: uncategorized
 category_map:
   工具推薦: tool-recommendation
   學習: learn
+  開發相關: development
 tag_map:
 
 # Metadata elements
@@ -119,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article php-include-require"
+  message: "add article cookie-session & categories->tags Fluid"
   tokan: ghp

@@ -120,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article cookie-session & categories->tags Fluid"
+  message: "add article hex-javascript-training"
   tokan: ghp

@@ -120,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "update article life-long-learn"
+  message: "add article habit-pain"
   tokan: ghp

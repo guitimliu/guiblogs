@@ -120,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article vue-start"
+  message: "add article vue-render"
   tokan: ghp

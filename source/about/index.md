@@ -14,13 +14,24 @@ layout: about
 > ## 關於作者
 
 * 暱稱：Gui
-* 職業：現為 WordPress 接案工作者
+* 職業：台北設計公司擔任前端工程師
 * 經歷：
-    * 新創公司資訊助理人員，開發 WordPress 線上點餐平台
+    * WordPress 接案工作
+    * 台北新創公司資訊助理人員
     * 私立科大資管系畢業生
     * 國立商科高職資處科畢業
 
 > ## 我的技能 & 作品
+
+### 前端
+
+* HTML5 + CSS3 網頁切版
+    * SCSS 管理 CSS 樣式
+    * Bootstrap 5 【[作品鏈結](https://guitimliu.github.io/hex-bs5-funfundraising/) | [GitHub 儲存庫](https://github.com/guitimliu/hex-bs5-funfundraising)】
+    * RWD 響應式設計
+* JavaScript
+    * jQuery
+    * Vue 3 【[使用 Vue 3 撰寫的 To Do List](https://codepen.io/guitimliu/pen/RwVMGMm)】
 
 ### 後端
 
@@ -37,16 +48,6 @@ layout: about
 * Database
     * MySQL
     * SQL Server
-
-### 前端
-
-* HTML5 + CSS3 網頁切版
-    * SCSS 管理 CSS 樣式
-    * Bootstrap 5 【[作品鏈結](https://guitimliu.github.io/hex-bs5-funfundraising/) | [GitHub 儲存庫](https://github.com/guitimliu/hex-bs5-funfundraising)】
-    * RWD 響應式設計
-* JavaScript
-    * jQuery
-    * Vue 3 進修中 【[使用 Vue 3 撰寫的 To Do List](https://codepen.io/guitimliu/pen/RwVMGMm)】
 
 ### 其它
 

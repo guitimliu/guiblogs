@@ -120,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article v-mode"
+  message: "update about"
   tokan: ghp

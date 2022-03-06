@@ -120,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article v-model-modifier"
+  message: "add article v-on"
   tokan: ghp

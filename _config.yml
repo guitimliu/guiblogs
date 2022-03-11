@@ -120,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article v-on"
+  message: "add article hex-vue-training"
   tokan: ghp

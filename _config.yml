@@ -120,5 +120,5 @@ deploy:
   type: git
   repo: https://github.com/guitimliu/guiblogs.git
   branch: master
-  message: "add article bootstrap-row-cols"
+  message: "add article edge-change-search"
   tokan: ghp

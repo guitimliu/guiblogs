@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="由於篇幅太長，所以拆分成上下篇啦！經過昨天的一些設定，相信大家已經慢慢上手了。接著今天也要接續昨天沒有介紹到的設定。一起加油設定起來！！">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="由於篇幅太長，所以拆分成上下篇啦！經過昨天的一些設定，相信大家已經慢慢上手了。接著今天也要接續昨天沒有介紹到的設定。一起加油設定起來！！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 7：設定你的 Hexo 佈景主題：Next（下）">
+<meta property="og:url" content="http://guiblogs.com/hexo30-7/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="由於篇幅太長，所以拆分成上下篇啦！經過昨天的一些設定，相信大家已經慢慢上手了。接著今天也要接續昨天沒有介紹到的設定。一起加油設定起來！！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/gmDBmAA.png">
+<meta property="og:image" content="https://i.imgur.com/S9Yd6aI.png">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-6/codeblock.jpg">
+<meta property="article:published_time" content="2021-09-22T06:13:30.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.321Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="IT 鐵人賽">
+<meta property="article:tag" content="2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/gmDBmAA.png">
+  
+  <title>Day 7：設定你的 Hexo 佈景主題：Next（下） - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Day 7：設定你的 Hexo 佈景主題：Next（下）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-22 14:13" pubdate>
+        2021年9月22日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day 7：設定你的 Hexo 佈景主題：Next（下）</h1>
+            
+            <div class="markdown-body">
+              <p>由於篇幅太長，所以拆分成上下篇啦！經過昨天的一些設定，相信大家已經慢慢上手了。接著今天也要接續昨天沒有介紹到的設定。一起加油設定起來！！</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="網站-Favicon"><a href="#網站-Favicon" class="headerlink" title="網站 Favicon"></a>網站 Favicon</h2></blockquote>
+<p>Favicon 就是在瀏覽器標題旁邊的小 Icon，Next 預設有提供一個 N 字樣的 Favicon，但身為一個可以識別自己網站的地方，當然是不要放過啦！</p>
+<h3 id="產生-Favicon"><a href="#產生-Favicon" class="headerlink" title="產生 Favicon"></a>產生 Favicon</h3><p>至於 Favicon 的產生方式除了自行製作之外，網路上也有許多 Favicon 製作與產生器，可以嘗試看看哦～</p>
+<h3 id="設定-Hexo-Favicon"><a href="#設定-Hexo-Favicon" class="headerlink" title="設定 Hexo Favicon"></a>設定 Hexo Favicon</h3><p>當 Favicon 製作好後就要設定到 Hexo 啦，首先一樣到 next 目錄下的 _config.yml，找到以下這段語法：</p>
+<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-attr">favicon:</span><br>  <span class="hljs-attr">small:</span> <span class="hljs-string">/images/favicon-16x16-next.png</span><br>  <span class="hljs-attr">medium:</span> <span class="hljs-string">/images/favicon-32x32-next.png</span><br>  <span class="hljs-attr">apple_touch_icon:</span> <span class="hljs-string">/images/apple-touch-icon-next.png</span><br>  <span class="hljs-attr">safari_pinned_tab:</span> <span class="hljs-string">/images/logo.svg</span><br>  <span class="hljs-comment">#android_manifest: /images/manifest.json</span><br>  <span class="hljs-comment">#ms_browserconfig: /images/browserconfig.xml</span><br></code></pre></div></td></tr></table></figure>
+<p>換成自己的圖示網址，或是放置到 ./themes/next/source/images 目錄內，在指定檔案名稱即可。（或是直接覆蓋原先檔案）</p>
+<blockquote>
+<h2 id="回到頂部按鈕"><a href="#回到頂部按鈕" class="headerlink" title="回到頂部按鈕"></a>回到頂部按鈕</h2></blockquote>
+<p>在 ./themes/next/_config.yml 找到以下這段語法：</p>
+<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-attr">back2top:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-comment"># Back to top in sidebar.</span><br>  <span class="hljs-attr">sidebar:</span> <span class="hljs-literal">false</span><br>  <span class="hljs-comment"># Scroll percent label in b2t button.</span><br>  <span class="hljs-attr">scrollpercent:</span> <span class="hljs-literal">false</span><br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>將 sidebar 設定為 true：設定在側邊欄的個人資訊區塊中，Social Links 下，顯示回到頂部按鈕。</li>
+<li>將 scrollpercent 設定為 true：回到頂部按鈕旁加上閱讀進度百分比。</li>
+</ul>
+<p><img src="https://i.imgur.com/gmDBmAA.png" srcset="/img/loading.gif" lazyload alt="回到頂部按鈕"></p>
+<blockquote>
+<h2 id="閱讀進度條"><a href="#閱讀進度條" class="headerlink" title="閱讀進度條"></a>閱讀進度條</h2></blockquote>
+<p>上一段剛好有介紹到閱讀進度數值，而這一段則是可以在讀者滑動的過程中，頂部或是底部有個進度條，隨著你的閱讀進度進行滑動。</p>
+<p>在 ./themes/next/_config.yml 找到以下這段語法：</p>
+<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-comment"># Reading progress bar</span><br><span class="hljs-attr">reading_progress:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>  <span class="hljs-comment"># Available values: top | bottom</span><br>  <span class="hljs-attr">position:</span> <span class="hljs-string">top</span><br>  <span class="hljs-attr">color:</span> <span class="hljs-string">&quot;#37c6c0&quot;</span><br>  <span class="hljs-attr">height:</span> <span class="hljs-string">3px</span><br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>enable：設定是否開啟進度條，開啟則設定 true</li>
+<li>position：設定進度條在頂部還是底部顯示</li>
+<li>color：進度條背景顏色</li>
+<li>height：進度條高度</li>
+</ul>
+<p><img src="https://i.imgur.com/S9Yd6aI.png" srcset="/img/loading.gif" lazyload alt="閱讀進度條"></p>
+<p>我設定個高度 10px 在底部顯示讓大家看比較清楚，目前閱讀進度 62%，進度條的寬度就會在可視範圍內寬度 62% 位置處。</p>
+<p>大家也可以把高度設定為 100vh 來看看部落格被進度條整個蓋住的效果哦（笑）</p>
+<blockquote>
+<h2 id="語法區塊樣式"><a href="#語法區塊樣式" class="headerlink" title="語法區塊樣式"></a>語法區塊樣式</h2></blockquote>
+<p>我們可以看到預設範例文章就有語法區塊的範例，但是我想改變呈現的樣式，該怎麼做呢？</p>
+<p><img src="https://img.guiblogs.com/hexo30-6/codeblock.jpg" srcset="/img/loading.gif" lazyload alt="預設語法區塊樣式"></p>
+<p>找到以下這段語法：</p>
+<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-attr">codeblock:</span><br>  <span class="hljs-comment"># Code Highlight theme</span><br>  <span class="hljs-comment"># Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span><br>  <span class="hljs-comment"># See: https://github.com/chriskempson/tomorrow-theme</span><br>  <span class="hljs-attr">highlight_theme:</span> <span class="hljs-string">normal</span><br>  <span class="hljs-comment"># Add copy button on codeblock</span><br>  <span class="hljs-attr">copy_button:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment"># Show text copy result.</span><br>    <span class="hljs-attr">show_result:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment"># Available values: default | flat | mac</span><br>    <span class="hljs-attr">style:</span><br></code></pre></div></td></tr></table></figure>
+<p> highlight_theme 是整體區塊主題、copy_button 則是設定複製語法的按鈕位置與樣式。一樣，每個都嘗試套用看看，找到一個你滿意的語法區塊樣式吧！</p>
+<blockquote>
+<h2 id="留言區塊、GA-設定、……-還有其它"><a href="#留言區塊、GA-設定、……-還有其它" class="headerlink" title="留言區塊、GA 設定、…… 還有其它"></a>留言區塊、GA 設定、…… 還有其它</h2></blockquote>
+<p>Next 留了非常多區塊讓我們可以直接將留言的功能或是 GA 代碼貼到指定的地方就可以直接運行，不過這些部分又牽涉到第三方服務，我們就留待之後再說明，請大家敬請期待 XD</p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>坦白說為了寫這兩篇文章，讓我對 Next 有了更全面的認識啊！就像主選單使用絕對路徑是我突發奇想想說可不可以這樣，然後就成功了！結果寫到社群鏈結部分時，才發現似乎是相同概念的東西，社群鏈結都可以使用絕對路徑了，主選單當然也可以啊 XD</p>
+<p>想想開始使用 Hexo 至今也差不多七個多月的時間，現在回頭來看這些收穫跟視野又不同了，所以剛開始用 Hexo 的各位也不用太過於慌張，每天進步一點點，或許沒什麼感覺，但回頭來看真的累積了很多啊！</p>
+<blockquote>
+<p>本篇文章同步發布於 <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10269747">iT 邦幫忙</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+                    
+                      <a class="hover-with-bg" href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/hexo30-8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day 8：先別急著撰寫文章，你聽過 Markdown 嗎？</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/hexo30-6/">
+                        <span class="hidden-mobile">Day 6：設定你的 Hexo 佈景主題：Next（上）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/hexo30-7/';
+          this.page.identifier = '/hexo30-7/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

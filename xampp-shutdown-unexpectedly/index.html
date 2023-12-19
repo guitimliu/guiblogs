@@ -1,0 +1,548 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。
+
+強制關機的結果：資料庫意外關閉
+實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息：
+1234567891009:42:22 AM [mysql] Attem">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。  強制關機的結果：資料庫意外關閉 實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息： 1234567891009:42:22 AM [mysql] Attem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法">
+<meta property="og:url" content="http://guiblogs.com/xampp-shutdown-unexpectedly/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。  強制關機的結果：資料庫意外關閉 實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息： 1234567891009:42:22 AM [mysql] Attem">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-06-27T06:34:21.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.318Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="Xampp">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-27 14:34" pubdate>
+        2021年6月27日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法</h1>
+            
+            <div class="markdown-body">
+              <p>有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。</p>
+<blockquote>
+<h2 id="強制關機的結果：資料庫意外關閉"><a href="#強制關機的結果：資料庫意外關閉" class="headerlink" title="強制關機的結果：資料庫意外關閉"></a>強制關機的結果：資料庫意外關閉</h2></blockquote>
+<p>實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">Attempting</span> <span class="hljs-selector-tag">to</span> <span class="hljs-selector-tag">start</span> <span class="hljs-selector-tag">MySQL</span> <span class="hljs-selector-tag">app</span>...<br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">Status</span> <span class="hljs-selector-tag">change</span> <span class="hljs-selector-tag">detected</span>: <span class="hljs-selector-tag">running</span><br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">Status</span> <span class="hljs-selector-tag">change</span> <span class="hljs-selector-tag">detected</span>: <span class="hljs-selector-tag">stopped</span><br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">Error</span>: <span class="hljs-selector-tag">MySQL</span> <span class="hljs-selector-tag">shutdown</span> <span class="hljs-selector-tag">unexpectedly</span>.<br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">This</span> <span class="hljs-selector-tag">may</span> <span class="hljs-selector-tag">be</span> <span class="hljs-selector-tag">due</span> <span class="hljs-selector-tag">to</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">blocked</span> <span class="hljs-selector-tag">port</span>, <span class="hljs-selector-tag">missing</span> <span class="hljs-selector-tag">dependencies</span>,<br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">improper</span> <span class="hljs-selector-tag">privileges</span>, <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">crash</span>, <span class="hljs-selector-tag">or</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">shutdown</span> <span class="hljs-selector-tag">by</span> <span class="hljs-selector-tag">another</span> <span class="hljs-selector-tag">method</span><br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">Press</span> <span class="hljs-selector-tag">the</span> <span class="hljs-selector-tag">Logs</span> <span class="hljs-selector-tag">button</span> <span class="hljs-selector-tag">to</span> <span class="hljs-selector-tag">view</span> <span class="hljs-selector-tag">error</span> <span class="hljs-selector-tag">logs</span> <span class="hljs-selector-tag">and</span> <span class="hljs-selector-tag">check</span><br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">the</span> <span class="hljs-selector-tag">Windows</span> <span class="hljs-selector-tag">Event</span> <span class="hljs-selector-tag">Viewer</span> <span class="hljs-selector-tag">for</span> <span class="hljs-selector-tag">more</span> <span class="hljs-selector-tag">clues</span><br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">If</span> <span class="hljs-selector-tag">you</span> <span class="hljs-selector-tag">need</span> <span class="hljs-selector-tag">more</span> <span class="hljs-selector-tag">help</span>, <span class="hljs-selector-tag">copy</span> <span class="hljs-selector-tag">and</span> <span class="hljs-selector-tag">post</span> <span class="hljs-selector-tag">this</span><br>09<span class="hljs-selector-pseudo">:42</span><span class="hljs-selector-pseudo">:22</span> <span class="hljs-selector-tag">AM</span> <span class="hljs-selector-attr">[mysql]</span> <span class="hljs-selector-tag">entire</span> <span class="hljs-selector-tag">log</span> <span class="hljs-selector-tag">window</span> <span class="hljs-selector-tag">on</span> <span class="hljs-selector-tag">the</span> <span class="hljs-selector-tag">forums</span><br></code></pre></div></td></tr></table></figure>
+<a id="more"></a>
+
+<p>查了一下網路上的資料，發現是因為我沒有關閉 Xampp 就進行電腦關機的動作，導致 Xampp 資料毀損。</p>
+<blockquote>
+<h2 id="我是如何解決的？"><a href="#我是如何解決的？" class="headerlink" title="我是如何解決的？"></a>我是如何解決的？</h2></blockquote>
+<p>透過參考資料那篇文章，成功地解決了這個問題！由於那篇文章是英文語系，在這邊我就翻成中文：</p>
+<p>Ps. 貼心提醒：做任何修改之前，請先進行備份哦！我自己有將 Xampp 整個先備份，記得我一開始有做錯，幸好有備份 XD</p>
+<ol>
+<li>將 Xampp\mysql\data 這個資料夾重新命名成另外一個名稱</li>
+<li>重新建立一個同名的資料夾</li>
+<li>將 Xampp\mysql\backup 內的所有內容複製到新建立的 Xampp\mysql\data</li>
+<li>從舊的 Xampp\mysql\data 複製除了 mysql、performance_schema 以及 phpmyadmin 等資料夾的所有檔案，到新的 mysql\data，尤其是 ibdata1 這支檔案，覆蓋到新的 mysql\data 裡</li>
+</ol>
+<blockquote>
+<h2 id="總結與心得"><a href="#總結與心得" class="headerlink" title="總結與心得"></a>總結與心得</h2></blockquote>
+<p>其實這就是一個夜路走多總會遇到鬼的概念，之前覺得沒什麼是因為沒有發生過，只覺得直接關機就好多方便。然而經歷過一次切身之痛就知道該學乖了，人也真是奇妙的生物，每次都要從教訓過才學會成長！XD</p>
+<p>所以希望大家不管是 Xampp 還是其他應用程式，確實將其關閉再將電腦關機，絕對不差這幾分鐘的動作的～第一次能夠修復完成或許是運氣好，如果發生第二次呢？</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ol>
+<li>XAMPP - MySQL shutdown unexpectedly - Stack Overflow<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/18022809/xampp-mysql-shutdown-unexpectedly">https://stackoverflow.com/questions/18022809/xampp-mysql-shutdown-unexpectedly</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Xampp/">Xampp</a>
+                    
+                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Xampp/">Xampp</a>
+                    
+                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/jsn-uniform-picture/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Joomla! 表單元件 JSN UniForm 利用 HTML 語法加上圖片</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/j2store-admin-customization/">
+                        <span class="hidden-mobile">Joomla! 嘗試客製化修改元件控制台界面</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/xampp-shutdown-unexpectedly/';
+          this.page.identifier = '/xampp-shutdown-unexpectedly/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

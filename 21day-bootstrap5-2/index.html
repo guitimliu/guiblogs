@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是格線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。
+在介紹格線系統之前，先讓我們認識一下「魔術數字」。
+什麼是魔術數字（magic number）？
+設計師開了一個 div 的規格，數字為：左200px、右800px
+程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義
+">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是格線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。 在介紹格線系統之前，先讓我們認識一下「魔術數字」。 什麼是魔術數字（magic number）？ 設計師開了一個 div 的規格，數字為：左200px、右800px 程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap 5 新手教學實戰營 - Week 2">
+<meta property="og:url" content="http://guiblogs.com/21day-bootstrap5-2/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是格線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。 在介紹格線系統之前，先讓我們認識一下「魔術數字」。 什麼是魔術數字（magic number）？ 設計師開了一個 div 的規格，數字為：左200px、右800px 程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-3.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-4.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col6-7.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col5-3.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/grid-option.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/col-12.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/col-md-4.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/col-lg-4.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/untilities-display.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/21day-bootstrap5-2/nested-grid-system.jpg">
+<meta property="article:published_time" content="2021-05-20T12:49:38.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.318Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="Bootstrap">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Bootstrap5">
+<meta property="article:tag" content="格線">
+<meta property="article:tag" content="通用類別">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-3.jpg">
+  
+  <title>Bootstrap 5 新手教學實戰營 - Week 2 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Bootstrap 5 新手教學實戰營 - Week 2">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-20 20:49" pubdate>
+        2021年5月20日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Bootstrap 5 新手教學實戰營 - Week 2</h1>
+            
+            <div class="markdown-body">
+              <p>這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是格線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。</p>
+<p>在介紹格線系統之前，先讓我們認識一下「魔術數字」。</p>
+<h2 id="什麼是魔術數字（magic-number）？"><a href="#什麼是魔術數字（magic-number）？" class="headerlink" title="什麼是魔術數字（magic number）？"></a>什麼是魔術數字（magic number）？</h2><ul>
+<li>設計師開了一個 div 的規格，數字為：左200px、右800px</li>
+<li>程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義</li>
+</ul>
+<a id="more"></a>
+
+<p>簡單來說這個數字能夠讓程式跑的順利，但是其可讀性不高，其他程式設計師甚至會難以理解設置這個數字的意義。</p>
+<p>在 Bootstrap，為了解決這個問題，因此有格線系統可以幫助我們設計。</p>
+<h2 id="格線系統"><a href="#格線系統" class="headerlink" title="格線系統"></a>格線系統</h2><p>格線系統有兩個關鍵字，分別為：</p>
+<ul>
+<li>column 欄 ( 基本上常見總欄數是 12 )</li>
+<li>gutter 間距</li>
+</ul>
+<h2 id="格線系統原理：Bootstrap-排版三劍客"><a href="#格線系統原理：Bootstrap-排版三劍客" class="headerlink" title="格線系統原理：Bootstrap 排版三劍客"></a>格線系統原理：Bootstrap 排版三劍客</h2><h3 id="container"><a href="#container" class="headerlink" title=".container"></a>.container</h3><p>針對不同寬度，總共有分兩種：</p>
+<ul>
+<li>container 固定寬度</li>
+<li>container-fiuld 滿版</li>
+</ul>
+<p>另外，在 .container 之下一層，可以放置 .row 或其它東西，不過不能直接放置 .col！</p>
+<p>再來就是，格線系統最外層至少要有一個 container。</p>
+<h3 id="rol"><a href="#rol" class="headerlink" title=".rol"></a>.rol</h3><ul>
+<li>類似於 Excel 欄的概念</li>
+<li>另有 no-gutters 呈現方式，不需要 gutters</li>
+</ul>
+<p>要注意的事情是，「.rol」的下一層一定、一定、一定要是「.col」，否則會有意想不到的驚喜。</p>
+<h3 id="col-1-12"><a href="#col-1-12" class="headerlink" title=".col 1~12"></a>.col 1~12</h3><ul>
+<li>.col 一定要是在 .row 以下第一層</li>
+<li>要要納入格線的內容，都要放置在 .col 以內，也可以在放一個 .row</li>
+</ul>
+<p>另外要注意的事情是，.col 是用來劃分格子的元素（下面會介紹），所以盡量不要去更動它的寬度、左右 margin、padding，容易造成跑版；上下高度與 margin、padding 調整倒是比較沒什麼影響。</p>
+<ul>
+<li>補充：使用「box-sizing: border-box」，可以讓外框線不增加元素的寬度。</li>
+</ul>
+<h3 id="來段範例吧！"><a href="#來段範例吧！" class="headerlink" title="來段範例吧！"></a>來段範例吧！</h3><ul>
+<li>正確示範</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;h2&gt;內容標題&lt;/h2&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<p>再次提醒：<strong>container 下面可是不同的東西並非僅限於 row，但 row 下第一層一定要是 col！</strong></p>
+<ul>
+<li>錯誤示範一：row 下一層有非 .col 的標籤</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;h2&gt;內容標題&lt;/h2&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>錯誤示範二：row 下接了單純的 div 標籤，而非 .col div</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span>&gt;<br>            &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>            &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<h2 id="col-基本排列"><a href="#col-基本排列" class="headerlink" title=".col 基本排列"></a>.col 基本排列</h2><h3 id="範例一：row-下一層塞了-3-個-col-4"><a href="#範例一：row-下一層塞了-3-個-col-4" class="headerlink" title="範例一：row 下一層塞了 3 個 col-4"></a>範例一：row 下一層塞了 3 個 col-4</h3><figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-3.jpg" srcset="/img/loading.gif" lazyload alt="範例一：row 下一層塞了 3 個 col-4"></p>
+<p>首先，Bootstrap 的 .container 類別樣式會將區塊往置中對齊；再來為求呈現方便，我增加了 .black 的 class，並設定框線樣式，幫助大家區分每一塊 div。</p>
+<p>上面有提到，col 的常見總欄數為 12，而「col-4」就佔了 12 欄中的 4 欄，所以 3 個 col-4，就剛好占滿了 12 欄。</p>
+<p>那如果超過了呢？</p>
+<h3 id="範例二：row-下一層塞了-4-個-col-4"><a href="#範例二：row-下一層塞了-4-個-col-4" class="headerlink" title="範例二：row 下一層塞了 4 個 col-4"></a>範例二：row 下一層塞了 4 個 col-4</h3><figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col4-4.jpg" srcset="/img/loading.gif" lazyload alt="範例二：row 下一層塞了 4 個 col-4"></p>
+<p>多了一個 col-4，但因為第一列已經塞滿了，因此第 4 個 col-4 就自動往下到第二列呈現出來。</p>
+<h3 id="範例三：有沒有可能是-col-2、col3、col4、col6-排滿一整列？"><a href="#範例三：有沒有可能是-col-2、col3、col4、col6-排滿一整列？" class="headerlink" title="範例三：有沒有可能是 col-2、col3、col4、col6 排滿一整列？"></a>範例三：有沒有可能是 col-2、col3、col4、col6 排滿一整列？</h3><p>當然可以，以 col-2 為範例：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-2 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-2 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-2 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-2 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-2 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-2 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-2 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col6-7.jpg" srcset="/img/loading.gif" lazyload alt="範例三：有沒有可能是 col-2、col3、col4、col6 排滿一整列？"></p>
+<p>這次設定了 7 個 col-2，最上層的 col-2 擺滿了 6 個剛好是 12，最後一個 col-2 則自動排到最下面。</p>
+<h3 id="範例四：-col-欄總數一定要剛好是-12-嗎？"><a href="#範例四：-col-欄總數一定要剛好是-12-嗎？" class="headerlink" title="範例四： col 欄總數一定要剛好是 12 嗎？"></a>範例四： col 欄總數一定要剛好是 12 嗎？</h3><p>答案是不用，以下我們用 3 個 col-5 來示範：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-5 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-5 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-5 black&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/row-col5-3.jpg" srcset="/img/loading.gif" lazyload alt="範例四： col 欄總數一定要剛好是 12 嗎？"></p>
+<p>我們可以看到，第一列只有 2 個 col-5，加起來只有 10 而已。這就代表 col 的排版在小於 12 都是會編排在同一列的。</p>
+<p>以第三個 col-5 為例，如果加上它就會變成 15 欄，超過 12 欄了，因此就會自動排到下一列去。</p>
+<p>不過相信眼尖的網友可以發現，col-5 示範圖 div 左右是不平衡的，右邊空出來的就是沒有利用到的兩個 col 區塊，這個部分就要靠網頁設計師在撰寫 css 時在調整 row 欄本身的位置呈現了！</p>
+<h2 id="容器、元件以及通用類別的關係"><a href="#容器、元件以及通用類別的關係" class="headerlink" title="容器、元件以及通用類別的關係"></a>容器、元件以及通用類別的關係</h2><p>待會要介紹「端點」，在介紹端點以前，要先介紹容器、元件以及通用類別的關係。</p>
+<ul>
+<li>容器（container）：格線系統最外層</li>
+<li>元件（components）：Bootstrap 提供的一些撰寫好樣式的互動式功能，通常放置在 col 內，除非該 div 未使用格線系統</li>
+<li>通用類別（Utilities）：通用類別可以讓格線系統在不同大小的裝置上，呈現不同的顯示方式</li>
+</ul>
+<h2 id="斷點設計"><a href="#斷點設計" class="headerlink" title="斷點設計"></a>斷點設計</h2><p><img src="https://img.guiblogs.com/21day-bootstrap5-2/grid-option.jpg" srcset="/img/loading.gif" lazyload alt="斷點設計"></p>
+<p>表格來自於 <a target="_blank" rel="noopener" href="https://bootstrap5.hexschool.com/docs/5.0/layout/grid/#grid-options">網格系統 (Grid system) · Bootstrap 5 繁體中文文件 - 六角學院 v5.0</a>。</p>
+<p>Bootstrap 5 總共分成 6 個網格：</p>
+<ul>
+<li>極小 xs - 視窗 &lt; 576px 適用</li>
+<li>小 sm - 視窗 &gt;= 576px 適用</li>
+<li>中 md - 視窗 &gt;= 768px 適用</li>
+<li>大 lg - 視窗 &gt;= 992px 適用</li>
+<li>特大 xl - 視窗 &gt;= 1200px 適用</li>
+<li>超級大 xxl - 視窗 &gt;= 1400px 適用</li>
+</ul>
+<h3 id="來段範例吧！-1"><a href="#來段範例吧！-1" class="headerlink" title="來段範例吧！"></a>來段範例吧！</h3><figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-12 col-md-4 col-lg-3&quot;</span>&gt;網頁內容&lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>col-12 代表的是一個 col 佔了整個頁面，在這個範例是螢幕較小的時候會呈現出來（Ex. 手機）</li>
+</ul>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/col-12.jpg" srcset="/img/loading.gif" lazyload alt="col-12"></p>
+<ul>
+<li>col-md-4 代表的是在平板（md：768px）以上，一欄占用 4 格，呈現 3 欄</li>
+</ul>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/col-md-4.jpg" srcset="/img/loading.gif" lazyload alt="col-md-4"></p>
+<ul>
+<li>col-lg-4 代表的是在電腦版（lg：992px）以上，一欄占用 3 格，呈現 4欄</li>
+</ul>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/col-lg-4.jpg" srcset="/img/loading.gif" lazyload alt="col-lg-4"></p>
+<h2 id="通用類別與-display"><a href="#通用類別與-display" class="headerlink" title="通用類別與 display"></a>通用類別與 display</h2><p><img src="https://img.guiblogs.com/21day-bootstrap5-2/untilities-display.jpg" srcset="/img/loading.gif" lazyload alt="通用類別與 display"></p>
+<p>文件來自於 <a target="_blank" rel="noopener" href="https://bootstrap5.hexschool.com/docs/5.0/utilities/display/">Display · Bootstrap 5 繁體中文文件 - 六角學院 v5.0</a></p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc"><span class="hljs-title">.d-斷點-值</span><br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>範例一：電腦版以上時隱藏 div</li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc"><span class="hljs-title">.d-lg-none</span><br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>範例二：原本設定隱藏，平版以上顯示 div</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.d-none</span> <span class="hljs-selector-class">.d-md-blick</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="巢狀格線系統"><a href="#巢狀格線系統" class="headerlink" title="巢狀格線系統"></a>巢狀格線系統</h2><p>可適用在 col 內又需要再劃分隔線時。Ex.左為選單、右為商品列表：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;<br>    &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-4 black&quot;</span>&gt;選單&lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col 8&quot;</span>&gt;<br>            &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;<br>                &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6 black&quot;</span>&gt;商品欄位&lt;/<span class="hljs-keyword">div</span>&gt;<br>                &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6 black&quot;</span>&gt;商品欄位&lt;/<span class="hljs-keyword">div</span>&gt;<br>                &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;col-6 black&quot;</span>&gt;商品欄位&lt;/<span class="hljs-keyword">div</span>&gt;<br>            &lt;/<span class="hljs-keyword">div</span>&gt;<br>        &lt;/<span class="hljs-keyword">div</span>&gt;<br>    &lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/21day-bootstrap5-2/nested-grid-system.jpg" srcset="/img/loading.gif" lazyload alt="巢狀格線系統"></p>
+<h2 id="容器與元件的-CSS-設定"><a href="#容器與元件的-CSS-設定" class="headerlink" title="容器與元件的 CSS 設定"></a>容器與元件的 CSS 設定</h2><p>「容器就讓它回歸於容器、元件就讓牠回歸於元件，元件通常不會跟容器寫在一起。」</p>
+<ul>
+<li>錯誤示範</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jboss-cli"><span class="hljs-string">.col-12</span> <span class="hljs-string">.btn-primary</span> &#123;<br>    CSS<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>正確示範</li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc"><span class="hljs-title">.col-12 &#123;</span><br><span class="hljs-code">    CSS</span><br>&#125;<br><span class="hljs-title">.btn-primary &#123;</span><br><span class="hljs-code">    CSS</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>昨天聽到後面真的有些吃力 QQ，不過好在後續翻閱一些資料以及重看了不懂的部分，就稍微熟悉了一些；身為實習走後端的我，現在來好好學習前端，真的不簡單啊！期許自己持續朝向全端工程師為目標！</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%AD%94%E8%A1%93%E6%95%B8%E5%AD%97_(%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88)">魔術數字 (程式設計) - 維基百科，自由的百科全書</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/box-sizing">box-sizing - CSS | MDN - Mozilla</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Bootstrap/">Bootstrap</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Bootstrap/">Bootstrap</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Bootstrap5/">Bootstrap5</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A0%BC%E7%B7%9A/">格線</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%80%9A%E7%94%A8%E9%A1%9E%E5%88%A5/">通用類別</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/j2store-admin-customization/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Joomla! 嘗試客製化修改元件控制台界面</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/21day-bootstrap5-1/">
+                        <span class="hidden-mobile">Bootstrap 5 新手教學實戰營 - Week 1</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/21day-bootstrap5-2/';
+          this.page.identifier = '/21day-bootstrap5-2/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Vue 的頁面由一組又一組的元件所組成，其中或多或少會需要元件之間傳遞值，首先如果是父層元件要將值傳給子層元件，該怎麼設定呢？今天就來介紹 Props 這個能夠將值傳遞給子元件的機制。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="Vue 的頁面由一組又一組的元件所組成，其中或多或少會需要元件之間傳遞值，首先如果是父層元件要將值傳給子層元件，該怎麼設定呢？今天就來介紹 Props 這個能夠將值傳遞給子元件的機制。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初步認識 Vue Props，父元件傳入值給子元件！">
+<meta property="og:url" content="http://guiblogs.com/vue-props/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="Vue 的頁面由一組又一組的元件所組成，其中或多或少會需要元件之間傳遞值，首先如果是父層元件要將值傳給子層元件，該怎麼設定呢？今天就來介紹 Props 這個能夠將值傳遞給子元件的機制。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-04-17T14:19:06.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.328Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>初步認識 Vue Props，父元件傳入值給子元件！ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="初步認識 Vue Props，父元件傳入值給子元件！">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-17 22:19" pubdate>
+        2022年4月17日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">初步認識 Vue Props，父元件傳入值給子元件！</h1>
+            
+            <div class="markdown-body">
+              <p>Vue 的頁面由一組又一組的元件所組成，其中或多或少會需要元件之間傳遞值，首先如果是父層元件要將值傳給子層元件，該怎麼設定呢？今天就來介紹 Props 這個能夠將值傳遞給子元件的機制。</p>
+<a id="more"></a>
+
+<h2 id="將資料傳入元件"><a href="#將資料傳入元件" class="headerlink" title="將資料傳入元件"></a>將資料傳入元件</h2><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML">&lt;元件Tag Props名稱=&quot;傳入值&quot; /&gt;<br></code></pre></div></td></tr></table></figure>
+<h3 id="來段範例"><a href="#來段範例" class="headerlink" title="來段範例"></a>來段範例</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">card</span> <span class="hljs-attr">:title</span>=<span class="hljs-string">&quot;item.title&quot;</span> <span class="hljs-attr">:img</span>=<span class="hljs-string">&quot;item.imgUrl&quot;</span> /&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>方法很簡單，就是在元件的 HTML 標籤內增加屬性，屬性名稱就是我們要設定的 Props 名稱，並將傳入值帶入，如果帶入值為變數可使用 v-bind 形式傳入。</p>
+<p>如此一來元件內就會運用我們在此時設定的 Props 名稱來取傳入值。</p>
+<h2 id="子元件接收傳入值：陣列寫法"><a href="#子元件接收傳入值：陣列寫法" class="headerlink" title="子元件接收傳入值：陣列寫法"></a>子元件接收傳入值：陣列寫法</h2><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>    data () &#123;<br>        <span class="hljs-keyword">return</span> &#123;<br>            text: <span class="hljs-string">&#x27;文字&#x27;</span>,<br>        &#125;<br>    &#125;,<br>    <span class="hljs-comment">// props: [&#x27;Props 名稱 1&#x27;, &#x27;Props 名稱 2&#x27;, /* ... 以此類堆 */ ]</span><br>    props: [<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;img&#x27;</span>],<br>    <span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.title);<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.img);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>我們在以上範例中增加了一個 props 的陣列，裡面擺放了兩個陣列元素的名稱要跟外面傳入的 Props 是一樣的，如此一來我們便能利用 props 來去做後續的操作，以此範例為例我們在 <code>mounted()</code> 內 console 出兩個傳入值。</p>
+<h2 id="子元件接收傳入值：物件寫法"><a href="#子元件接收傳入值：物件寫法" class="headerlink" title="子元件接收傳入值：物件寫法"></a>子元件接收傳入值：物件寫法</h2><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>    data () &#123;<br>        <span class="hljs-keyword">return</span> &#123;<br>            text: <span class="hljs-string">&#x27;文字&#x27;</span>,<br>        &#125;<br>    &#125;,<br>    props: &#123;<br>        title: &#123;<br>            type: <span class="hljs-built_in">String</span>,<br>            <span class="hljs-keyword">default</span>: <span class="hljs-string">&#x27;預設值&#x27;</span>,<br>            required: <span class="hljs-literal">true</span>,<br>        &#125;,<br>        img: &#123;<br>            type: <span class="hljs-built_in">String</span>,<br>            <span class="hljs-keyword">default</span>: <span class="hljs-string">&#x27;預設值&#x27;</span>,<br>            required: <span class="hljs-literal">true</span>,<br>        &#125;,<br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.title);<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.img);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>使用這個寫法的好處是能夠自訂預設值，假設外層沒傳入資料，還是能夠透過這裡設定的預設值來進行運算，同時能夠加入驗證機制，從傳入時即判斷值是否合乎驗證規則。</p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>這篇介紹的 Props 讓父層資料可以傳遞給子元件進行處理，但既然資料可以傳入，代表同樣能夠將資料傳遞回父元件。因此下一次就要介紹 Emit 的用法，敬請期待～</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://book.vue.tw/CH2/2-2-communications.html">2-2 元件之間的溝通傳遞 | 重新認識 Vue.js | Kuro Hsu</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10223833">Day17  Vue Component(元件) - props使用注意細項(1) - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Vue/">Vue</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/vue-emit/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">讓 emit 回傳資料給 Vue 父層元件！</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/edge-change-search/">
+                        <span class="hidden-mobile">如何變更 Edge 預設搜尋引擎？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/vue-props/';
+          this.page.identifier = '/vue-props/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="
+題目資訊題目網址：1431. Kids With the Greatest Number of Candies難易度：Easy 簡單通過率：88.1%（截至發文時間）
+">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="題目資訊題目網址：1431. Kids With the Greatest Number of Candies難易度：Easy 簡單通過率：88.1%（截至發文時間）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 PHP 解 Leetcode：1431. Kids With the Greatest Number of Candies 擁有最多糖果的孩子">
+<meta property="og:url" content="http://guiblogs.com/leetcode1431-php/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="題目資訊題目網址：1431. Kids With the Greatest Number of Candies難易度：Easy 簡單通過率：88.1%（截至發文時間）">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/leetcode1431-php/success.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/leetcode1431-php/time-submitted.jpg">
+<meta property="article:published_time" content="2021-07-12T14:55:16.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.318Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="擁有最多糖果的孩子">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/leetcode1431-php/success.jpg">
+  
+  <title>使用 PHP 解 Leetcode：1431. Kids With the Greatest Number of Candies 擁有最多糖果的孩子 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="使用 PHP 解 Leetcode：1431. Kids With the Greatest Number of Candies 擁有最多糖果的孩子">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-12 22:55" pubdate>
+        2021年7月12日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">使用 PHP 解 Leetcode：1431. Kids With the Greatest Number of Candies 擁有最多糖果的孩子</h1>
+            
+            <div class="markdown-body">
+              <blockquote>
+<h2 id="題目資訊"><a href="#題目資訊" class="headerlink" title="題目資訊"></a>題目資訊</h2><p>題目網址：<a target="_blank" rel="noopener" href="https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/">1431. Kids With the Greatest Number of Candies</a><br>難易度：Easy 簡單<br>通過率：88.1%（截至發文時間）</p>
+</blockquote>
+<a id="more"></a>
+
+<p>這題表示有數量不一定的小朋友，並由陣列 <code>candies</code> 定義；其中有個整數變數為 <code>extraCandies</code>，表示若小朋友的糖果加上變數的數字後（即多得到這個數量的糖果），是否能夠成為擁有最多的糖果或是跟原本最多糖果的小朋友並列第一。</p>
+<p>而所謂第一名的基準，看下來是依照原本未加上多的糖果的最多數量。以 <strong>Example 1</strong> 為例，原本最多糖果的小朋友擁有 5 顆，雖然在增加 3 顆就擁有 8 顆糖果，但是所謂「最多」的基準還是 5 顆；像是第一位小朋友原本的 2 顆糖果再加上 3 顆也不過 5 顆糖果，但是因為已經與基準並列第一，也因此就過關。</p>
+<p>以下解法一是我第一次提交時的程式碼，但發現整體成績並不理想，於是開始以解法一為基底進行優化，後來就寫出了解法二。</p>
+<blockquote>
+<h2 id="解法一：使用-if"><a href="#解法一：使用-if" class="headerlink" title="解法一：使用 if"></a>解法一：使用 if</h2></blockquote>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> Integer[] $candies</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> Integer $extraCandies</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> Boolean[]</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">kidsWithCandies</span>(<span class="hljs-params"><span class="hljs-variable">$candies</span>, <span class="hljs-variable">$extraCandies</span></span>) </span>&#123;<br>        <span class="hljs-comment">// 取最大值</span><br>        <span class="hljs-variable">$max</span> = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span>=<span class="hljs-number">0</span>; <span class="hljs-variable">$i</span>&lt;count(<span class="hljs-variable">$candies</span>); <span class="hljs-variable">$i</span>++) &#123;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-variable">$candies</span>[<span class="hljs-variable">$i</span>] &gt; <span class="hljs-variable">$max</span>) &#123;<br>                <span class="hljs-variable">$max</span> = <span class="hljs-variable">$candies</span>[<span class="hljs-variable">$i</span>];<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">// 比較</span><br>        <span class="hljs-variable">$ans</span> = <span class="hljs-keyword">array</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span>=<span class="hljs-number">0</span>; <span class="hljs-variable">$i</span>&lt;count(<span class="hljs-variable">$candies</span>); <span class="hljs-variable">$i</span>++) &#123;<br>            <span class="hljs-keyword">if</span> ((<span class="hljs-variable">$candies</span>[<span class="hljs-variable">$i</span>] + <span class="hljs-variable">$extraCandies</span>) &gt;= <span class="hljs-variable">$max</span>) &#123;<br>                <span class="hljs-variable">$ans</span>[<span class="hljs-variable">$i</span>] = <span class="hljs-literal">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-variable">$ans</span>[<span class="hljs-variable">$i</span>] = <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125; <br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$ans</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="程式過程"><a href="#程式過程" class="headerlink" title="程式過程"></a>程式過程</h3><ol>
+<li>宣告一個 <code>$max</code> 變數並設定初始值為 <code>0</code>，用於放置最大數值。（最多糖果）</li>
+<li>透過迴圈尋找陣列中最大數值，並放置於變數 <code>$max</code>。</li>
+<li>宣告一個陣列 <code>$ans</code>，用於放置要回傳答案之陣列。</li>
+<li>透過迴圈去跑每一位小朋友，原本所擁有糖果數加上被多給數量後，是否有超過原本擁有最多的小朋友；若有則讓給該陣列位置 <code>true</code>，反之則為 <code>false</code>。</li>
+</ol>
+<h3 id="這樣有什麼問題？"><a href="#這樣有什麼問題？" class="headerlink" title="這樣有什麼問題？"></a>這樣有什麼問題？</h3><p>最後成果出來了，我沒有截圖到但我印象中只贏過 14.8 % 的人 XDD</p>
+<p>後來我就開始思考，該如何優化我的程式碼？</p>
+<ul>
+<li>我知道還有一個 max 函數可以比較指定數字中取最大者，或許可使用看看？</li>
+<li>想起上週看了工程師 YouTuber Nic 大神的 <a target="_blank" rel="noopener" href="https://youtu.be/cfeKek8p9us">提升軟體開發品質! 寫程式的 6 招實用技巧</a> 這部影片，其中第三項的「簡化條件表達式」，剛好可以現學現賣 XD 就來嘗試看看簡化條件表達式～</li>
+</ul>
+<blockquote>
+<h2 id="解法二：捨棄-if，並使用-max-函數"><a href="#解法二：捨棄-if，並使用-max-函數" class="headerlink" title="解法二：捨棄 if，並使用 max 函數"></a>解法二：捨棄 if，並使用 max 函數</h2></blockquote>
+<h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> Integer[] $candies</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> Integer $extraCandies</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> Boolean[]</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">kidsWithCandies</span>(<span class="hljs-params"><span class="hljs-variable">$candies</span>, <span class="hljs-variable">$extraCandies</span></span>) </span>&#123;<br>        <span class="hljs-comment">// 取最大值</span><br>        <span class="hljs-variable">$max</span> = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span>=<span class="hljs-number">0</span>; <span class="hljs-variable">$i</span>&lt;count(<span class="hljs-variable">$candies</span>); <span class="hljs-variable">$i</span>++) &#123;<br>            <span class="hljs-variable">$max</span> = max(<span class="hljs-variable">$max</span>, <span class="hljs-variable">$candies</span>[<span class="hljs-variable">$i</span>]);<br>        &#125;<br>        <span class="hljs-comment">// 進行比較</span><br>        <span class="hljs-variable">$ans</span> = <span class="hljs-keyword">array</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span>=<span class="hljs-number">0</span>; <span class="hljs-variable">$i</span>&lt;count(<span class="hljs-variable">$candies</span>); <span class="hljs-variable">$i</span>++) &#123;<br>            <span class="hljs-variable">$ans</span>[<span class="hljs-variable">$i</span>] = (<span class="hljs-variable">$candies</span>[<span class="hljs-variable">$i</span>] + <span class="hljs-variable">$extraCandies</span>) &gt;= <span class="hljs-variable">$max</span>;<br>        &#125; <br>        <span class="hljs-comment">// 輸出答案</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$ans</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="我優化了哪些部分？"><a href="#我優化了哪些部分？" class="headerlink" title="我優化了哪些部分？"></a>我優化了哪些部分？</h3><ul>
+<li>取最大值的迴圈，我使用 max 函數取代了原本的 if，比起原本使用 if 先判斷再給值的方法，少了一個步驟。</li>
+<li>我將判斷增加糖果後是否有超過原本最多糖果數量的 if 拿掉了，我直接將原本的判斷式放置在該陣列位置，因為原本判斷式就會回傳 true 或是 false 了，不需要特地做一個 if，在那邊 true 的話給 true，false 就給 false XD</li>
+</ul>
+<h3 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h3><p>優化此程式碼後，贏過了 82.95% 的人，與原本只贏過 14.8% 的人有極大差距 XD</p>
+<p><img src="https://img.guiblogs.com/leetcode1431-php/success.jpg" srcset="/img/loading.gif" lazyload alt="提交成功：贏過 82.95% 的人"></p>
+<p>從比較圖來看，優化前的第一次需花費 20ms，第二次提交我優化了判斷式的部分就大幅提升至 8ms，雖然第三次提交優化 max 那個部分 Memory 來多了第二次提交一些些，但我想能少一個步驟還是比較好的！</p>
+<p><img src="https://img.guiblogs.com/leetcode1431-php/time-submitted.jpg" srcset="/img/loading.gif" lazyload alt="Time Submitted"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/PHP/">PHP</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/php/">php</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%93%81%E6%9C%89%E6%9C%80%E5%A4%9A%E7%B3%96%E6%9E%9C%E7%9A%84%E5%AD%A9%E5%AD%90/">擁有最多糖果的孩子</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/css-background/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/web-pattern/">
+                        <span class="hidden-mobile">網頁版型控制不能不知道的事！區塊與行內元素、盒模型與容器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/leetcode1431-php/';
+          this.page.identifier = '/leetcode1431-php/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

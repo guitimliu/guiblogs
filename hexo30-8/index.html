@@ -1,0 +1,586 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="相信有人已經迫不及待要撰寫文章了，不過在這之前，我們先來介紹一下 Markdown 這個標記語言。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="相信有人已經迫不及待要撰寫文章了，不過在這之前，我們先來介紹一下 Markdown 這個標記語言。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 8：先別急著撰寫文章，你聽過 Markdown 嗎？">
+<meta property="og:url" content="http://guiblogs.com/hexo30-8/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="相信有人已經迫不及待要撰寫文章了，不過在這之前，我們先來介紹一下 Markdown 這個標記語言。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-7/write-markdown.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-7/save-file.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-7/code-mode.jpg">
+<meta property="article:published_time" content="2021-09-23T05:18:06.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.321Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="IT 鐵人賽">
+<meta property="article:tag" content="2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/hexo30-7/write-markdown.jpg">
+  
+  <title>Day 8：先別急著撰寫文章，你聽過 Markdown 嗎？ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Day 8：先別急著撰寫文章，你聽過 Markdown 嗎？">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-23 13:18" pubdate>
+        2021年9月23日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day 8：先別急著撰寫文章，你聽過 Markdown 嗎？</h1>
+            
+            <div class="markdown-body">
+              <p>相信有人已經迫不及待要撰寫文章了，不過在這之前，我們先來介紹一下 Markdown 這個標記語言。</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="什麼是-Markdown？"><a href="#什麼是-Markdown？" class="headerlink" title="什麼是 Markdown？"></a>什麼是 Markdown？</h2></blockquote>
+<p>過去撰寫部落格，比方說無名小站或是其它 BSP 服務、WordPress 傳統編輯器，都有提供所見即所得模式，就如同 Word 的使用體驗，可以透過上方工具列選擇需要的文字大小、顏色、粗體或斜體、刪除線、……等多項功能，但是 Hexo 預設並無提供這樣的功能，取而代之的是使用 Markdown 來進行撰寫。</p>
+<p>Markdown 是一個輕量級標記式語言，說到標記語言，能夠立即聯想到的就是 HTML，我們透過 <code>&lt;h1&gt;&lt;/h1&gt;</code> 代表 h1 標題、<code>&lt;p&gt;&lt;/p&gt;</code> 代表段落。Markdown 也是同樣的概念，但寫法又更加精簡，而且還能轉換成 HTML，因此很適合用於撰寫文章使用。</p>
+<blockquote>
+<h2 id="Markdown-有哪些標記？"><a href="#Markdown-有哪些標記？" class="headerlink" title="Markdown 有哪些標記？"></a>Markdown 有哪些標記？</h2></blockquote>
+<p>這邊就先列舉幾個比較常見的：</p>
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><ul>
+<li>h1 <code>#</code></li>
+<li>h2 <code>##</code></li>
+<li>h3 <code>###</code></li>
+<li>h4 <code>####</code></li>
+<li>h5 <code>#####</code></li>
+<li>h6 <code>######</code></li>
+</ul>
+<h3 id="字體"><a href="#字體" class="headerlink" title="字體"></a>字體</h3><ul>
+<li>粗體 <code>**字體**</code></li>
+<li>斜體 <code>*字體*</code></li>
+<li>粗體 <code>***字體***</code></li>
+<li>斜體 <code>~~刪除線~~</code></li>
+</ul>
+<h3 id="區塊"><a href="#區塊" class="headerlink" title="區塊"></a>區塊</h3><ul>
+<li><p>引用： <code>&gt;</code></p>
+<ul>
+<li>如果需要多行，可每一行自首加上 <code>&gt;</code></li>
+</ul>
+</li>
+<li><p>程式碼區塊（一行） `` &lt;— 語法要加在中間</p>
+</li>
+<li><p>程式碼區塊（多行）</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autohotkey">\```<br>    程式語法貼這裡<br>\```<br></code></pre></div></td></tr></table></figure>
+<h3 id="ul-與-ol"><a href="#ul-與-ol" class="headerlink" title="ul 與 ol"></a>ul 與 ol</h3></li>
+<li><p>ul <code>* ul</code></p>
+</li>
+</ul>
+<ol>
+<li>ol <code>1. ol</code> （中間空格不能省略）</li>
+</ol>
+<h3 id="鏈結與圖片"><a href="#鏈結與圖片" class="headerlink" title="鏈結與圖片"></a>鏈結與圖片</h3><p>鏈結 <code>[文字](網址)</code></p>
+<p>圖片 <code>![提示文字](圖片網址)</code></p>
+<p><strong>以上僅列出一些，若需了解更多可以前往 <a target="_blank" rel="noopener" href="https://markdown.tw/">Markdown 語法說明</a> 查看更多資訊～</strong></p>
+<blockquote>
+<h2 id="使用-Typora-撰寫-Markdown"><a href="#使用-Typora-撰寫-Markdown" class="headerlink" title="使用 Typora 撰寫 Markdown"></a>使用 Typora 撰寫 Markdown</h2></blockquote>
+<p>先前安裝 Hexo 前置作業那篇已經有請大家安裝 Typora 這套程式，今天撰寫 Markdown 時就能夠派上用場。</p>
+<h3 id="設定-h1-標題標籤"><a href="#設定-h1-標題標籤" class="headerlink" title="設定 h1 標題標籤"></a>設定 h1 標題標籤</h3><p>基本上一個 # 字號代表的就是文章標題，所以一開始若要設定文章標題，可以這樣設定：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mark"># 文章標題<br></code></pre></div></td></tr></table></figure>
+<p>打好字後，按下 Enter 鍵，可以看到其差異性：</p>
+<p><img src="https://img.guiblogs.com/hexo30-7/write-markdown.jpg" srcset="/img/loading.gif" lazyload alt="Typora 撰寫 Markdown 時，Enter 前後差異"></p>
+<p>可以看到撰寫的 Markdown 透過 Typora 自動編譯成 h1 的形式，而此時如果我們儲存檔案，預設提供的檔案名稱就是我們所設定的標題。</p>
+<p><img src="https://img.guiblogs.com/hexo30-7/save-file.jpg" srcset="/img/loading.gif" lazyload alt="儲存檔案時，檔案名稱預設會是我們所設定的文章標題"></p>
+<p>另外點擊左下方源碼的小 icon，可以進入原始碼模式，就能夠直接看到未經編譯過的 Markdown 語法囉！</p>
+<p><img src="https://img.guiblogs.com/hexo30-7/code-mode.jpg" srcset="/img/loading.gif" lazyload alt="Typora 原始碼模式"></p>
+<p>接下來大家就來練習看看吧！其實當大家按下右鍵時，就會發現 Typora 也有提供類似所見即所得模式的工具列，但還是建議大家可以練習撰寫 Markdown，撰寫習慣之後，目前我自己是除了設定鏈結以外，都直接像上面那樣打標籤比較方便 XD</p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>過去撰寫文件基本上都是使用 Word 或是 Google 文件，但使用過 Markdown 後，就直接回不去了啊！非常符合撰寫技術文件的單純需求，大家也趕緊來練習看看吧！</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/Markdown">Markdown - 維基百科，自由的百科全書</a></li>
+</ul>
+<blockquote>
+<p>本篇文章同步發布於 <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10270615">iT 邦幫忙</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+                    
+                      <a class="hover-with-bg" href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/hexo30-9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day 9：使用 Typora 發表你的第一篇 Hexo 文章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/hexo30-7/">
+                        <span class="hidden-mobile">Day 7：設定你的 Hexo 佈景主題：Next（下）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/hexo30-8/';
+          this.page.identifier = '/hexo30-8/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

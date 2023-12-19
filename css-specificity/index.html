@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="網站的開發當中，若要設定 CSS，我們除了能夠針對網頁的標籤、class 進行指定，其實還有其它方式都能夠指定 CSS 樣式至我們希望呈現樣式的區塊，至於有那些呢，這篇文章就會來提到。
+另外選用不同的方式，也會有不同的差異，這部分就會關心到 CSS 一種叫做「權重」的觀念，而它又牽涉到語法撰寫先後的問題，我們也會於後面來介紹。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="網站的開發當中，若要設定 CSS，我們除了能夠針對網頁的標籤、class 進行指定，其實還有其它方式都能夠指定 CSS 樣式至我們希望呈現樣式的區塊，至於有那些呢，這篇文章就會來提到。 另外選用不同的方式，也會有不同的差異，這部分就會關心到 CSS 一種叫做「權重」的觀念，而它又牽涉到語法撰寫先後的問題，我們也會於後面來介紹。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有哪幾種指定 CSS 樣式的方式？權重又是什麼？能吃嗎？">
+<meta property="og:url" content="http://guiblogs.com/css-specificity/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="網站的開發當中，若要設定 CSS，我們除了能夠針對網頁的標籤、class 進行指定，其實還有其它方式都能夠指定 CSS 樣式至我們希望呈現樣式的區塊，至於有那些呢，這篇文章就會來提到。 另外選用不同的方式，也會有不同的差異，這部分就會關心到 CSS 一種叫做「權重」的觀念，而它又牽涉到語法撰寫先後的問題，我們也會於後面來介紹。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-08-11T14:28:44.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.319Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="選擇器">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>有哪幾種指定 CSS 樣式的方式？權重又是什麼？能吃嗎？ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="有哪幾種指定 CSS 樣式的方式？權重又是什麼？能吃嗎？">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-11 22:28" pubdate>
+        2021年8月11日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">有哪幾種指定 CSS 樣式的方式？權重又是什麼？能吃嗎？</h1>
+            
+            <div class="markdown-body">
+              <p>網站的開發當中，若要設定 CSS，我們除了能夠針對網頁的標籤、class 進行指定，其實還有其它方式都能夠指定 CSS 樣式至我們希望呈現樣式的區塊，至於有那些呢，這篇文章就會來提到。</p>
+<p>另外選用不同的方式，也會有不同的差異，這部分就會關心到 CSS 一種叫做「權重」的觀念，而它又牽涉到語法撰寫先後的問題，我們也會於後面來介紹。</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="指定-CSS-樣式的方式"><a href="#指定-CSS-樣式的方式" class="headerlink" title="指定 CSS 樣式的方式"></a>指定 CSS 樣式的方式</h2></blockquote>
+<h3 id="星號，全域選擇器"><a href="#星號，全域選擇器" class="headerlink" title="* 星號，全域選擇器"></a><code>*</code> 星號，全域選擇器</h3><p>此種指定方式權重為 0 分，實作方法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* CSS */</span><br>* &#123;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>星號代表的是整個 html 標籤，因此星號內的設定會套用到整個 HTML 標籤，如有要使用可放置於 CSS 前面位置，也看過有大神使用 <code>*</code> 來做 CSS Reset。</p>
+<p>另外必須要特別提起的是，<code>*</code> 跟 <code>body</code> 標籤是不一樣的，雖然平常我們會利用 <code>body</code> 設計網站最基本或通用的樣式，但 <code>body</code> 的設定，套用範圍僅為該層以及子層（若設定具有繼承性的情況之下），但星號是整個 HTML 標籤的預設值都會被改變，所以請小心使用。</p>
+<h3 id="標籤選擇區"><a href="#標籤選擇區" class="headerlink" title="標籤選擇區"></a>標籤選擇區</h3><p>此種指定方式權重為 1 分，實作方式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* CSS */</span><br><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">color</span>: blue;<br>&#125;<br><span class="hljs-selector-tag">a</span> &#123;<br>    <span class="hljs-attribute">color</span>: pink;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>此方式就是針對某一種標籤進行設定樣式動作，例如指定 h1 標籤（標題）顏色都是藍色、指定 a 標籤（鏈結）顏色都是粉紅色。</p>
+<p>另外若針對標籤進行設定，我們得知標籤選擇器的權重為 1 分，比起星號的 0 分較高，因此前面 <code>*</code> 的設定會被覆蓋，例如我設定 <code>h1</code> 以及 <code>a</code> 標籤顏色後，原先的橘色設定都會被這兩個標籤的 CSS 設定覆蓋，但此時 <code>p</code> 標籤因為沒有進行任何設定，所以顏色就還是會維持星號的橘色哦！</p>
+<p>不過這時就會遇到一個問題了，又不一定每個標籤的顏色永遠都一樣，像是文字色彩、文字大小、……，每個地方都很可能有不同的呈現，就不太能利用標籤選擇器來解決了。因此就會用到類別選擇器來解決這個問題。</p>
+<h3 id="類別選擇器"><a href="#類別選擇器" class="headerlink" title="類別選擇器"></a>類別選擇器</h3><p>此種指定方式權重為 10 分，實作方式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-comment">&lt;!-- CSS --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    p &#123;<br>        font-size: 16px;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.fz-2</span> &#123;</span><br>        font-size: 20px;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.fz-3</span> &#123;</span><br>        font-size: 24px;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-comment">&lt;!-- HTML --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fz-2&quot;</span>&gt;</span>lorem<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fz-3&quot;</span>&gt;</span>lorem<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>此時相信聰明的各位知道了權重的特性，權重分數愈大就會蓋住權重分數較小的部分，因此使用類別選擇器就能夠覆蓋住前面使用星號以及標籤選擇器設定的樣式。</p>
+<p>使用此種方式需要再指定的標籤上加上 <code>class=&quot;類別名&quot;</code> 的設定值，設定完後要到 CSS 設定針對此類別名稱的 CSS 樣式。且若使用類別選擇器指定樣式，在 CSS 內要在類別名稱錢加上 <code>.</code> 來做為跟標籤選擇器的區別。</p>
+<p>因此使用類別選擇器就能夠針對不同的情境顯示不同的樣式了，而在實務上基本上也以設定標籤選擇器以及類別選擇器指定樣式為最大宗，但其實還有其它種設定方式，就繼續看下去吧！</p>
+<h3 id="ID-選擇器"><a href="#ID-選擇器" class="headerlink" title="ID 選擇器"></a>ID 選擇器</h3><p>此種指定方式權重為 100 分，實作方式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-comment">&lt;!-- CSS --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-id">#fz-3</span> &#123;</span><br>        font-size: 24px;<br>    &#125;<br>    p &#123;<br>        font-size: 16px;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.fz-2</span> &#123;</span><br>        font-size: 20px;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-comment">&lt;!-- HTML --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fz-2&quot;</span>&gt;</span>lorem<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fz-2&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fz-3&quot;</span>&gt;</span>lorem<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>指定方式的部分如同 class 那樣，在 HTML 增加一個 <code>id</code> 屬性，而在 CSS 設定樣式部分則是在 ID 前面加上 <code>#</code> 井字號，以此跟標籤選擇器還有類別選擇器作區別。使用 ID 選擇器後，雖然此範例第二個 p 段落同時有標籤、類別以及 ID 三種選擇器的設定，但因為 ID 選擇器的權重有 100 分，因此字體大小仍然為 24px。</p>
+<p>基本上實務上不太會利用 ID 選擇器來指定樣式，除了分數過高難以讓後續覆蓋之外，而且一個網頁只能有同一個 ID 選擇器（class 可多個、ID 僅能一個），其實也不難理解為何只能有一個 ID，畢竟 ID 也可以類比成這段語句在網頁上的一種唯一識別（像是身份證字號或是地址）。</p>
+<p>因此什麼時候會使用到 ID 呢？就是錨點，例如我們可以點擊鏈結，到網頁指定的區域。像我們就可以設定一個鏈結到達 id 設定為 fz-3 的區域。因為今天的主題是權重，所以這部分改天可以再寫一篇。</p>
+<h3 id="inline-style"><a href="#inline-style" class="headerlink" title="inline style"></a>inline style</h3><p>此種指定方式權重為 1000 分，實作方式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 72px;&quot;</span>&gt;</span><br>    lorem<br><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>此種指定方式是直接在 HTML 標籤內下 CSS 語法，就能讓位於此段落區塊下面的內容設定成字體大小 72px。利用此種設定方式，因為權重比起前面所介紹的選擇器都還高分，所以就會呈現這裡的設定。</p>
+<p>基本上也不太會使用此種方式設定樣式，會去設定的情況是為了要跟後端連接，比如像是募資網站會見到的進度條，就會將目前募資進度數值傳到 style，再由這裡呈現目前的進度。</p>
+<h3 id="大魔王來襲！-important"><a href="#大魔王來襲！-important" class="headerlink" title="大魔王來襲！!important"></a>大魔王來襲！<code>!important</code></h3><p>此種指定方式權重為 10000 分，實作方式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">color</span>: red <span class="hljs-meta">!important</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>之所以叫他大魔王就是沒人比它高分了，指定為 <code>!important</code> 之後基本上可以無視其他選擇器的 <code>color</code> 設定了，因為都會以這裡的設置為主，所以基本上平常不太可能使用此設定值，不然後面怎麼改都改不動 XD</p>
+<blockquote>
+<h2 id="覆蓋樣式設定：先看權重，在看先後"><a href="#覆蓋樣式設定：先看權重，在看先後" class="headerlink" title="覆蓋樣式設定：先看權重，在看先後"></a>覆蓋樣式設定：先看權重，在看先後</h2></blockquote>
+<p>我們先來整理一下前面所提到的選擇器以及權重分數：</p>
+<ul>
+<li><code>*</code> 星號：0 分（看情況使用）</li>
+<li>標籤選擇器：1 分</li>
+<li>類別選擇器：10 分</li>
+<li>ID 選擇器：100 分（不建議設定樣式用）</li>
+<li>inline style：1000 分（不建議設定樣式用）</li>
+<li><code>!important</code>：10000 分（不建議設定樣式用）</li>
+</ul>
+<p>之所以會建議平常使用標籤選擇器與類別選擇器，是因為後續在覆蓋上會比較好覆蓋。但為何要覆蓋呢？可能會有幾種情境：</p>
+<ul>
+<li>網站預設文字為 16px，因此設定 <code>body</code> 為16px，但我希望有些字體能夠比較大</li>
+<li>RWD 中，我希望電腦呈現的某區塊，在手機的又設定一個比較小的大小</li>
+</ul>
+<p>這時候就會出現覆蓋的情形了。但是會怎麼覆蓋呢？基本上前面我們已經知道了權重的概念，但如果遇到了兩個同樣的屬性設定、但權重一樣的情形該會呈現哪一種設定值呢？這時候就會以樣式設定的先後順序來決定，此時比較後面設定的樣式就會覆蓋前面設定的。直接來段範例吧！</p>
+<h3 id="情境一：標籤在前、類別選擇器在後"><a href="#情境一：標籤在前、類別選擇器在後" class="headerlink" title="情境一：標籤在前、類別選擇器在後"></a>情境一：標籤在前、類別選擇器在後</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    a &#123;<br>        color: pink;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.a</span> &#123;</span><br>        color: red;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;a&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>鏈結<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>答案我想很清楚就會是紅色的，因為類別選擇器權重較大。</p>
+<h3 id="情境二：類別選擇器在前、標籤選擇器在後"><a href="#情境二：類別選擇器在前、標籤選擇器在後" class="headerlink" title="情境二：類別選擇器在前、標籤選擇器在後"></a>情境二：類別選擇器在前、標籤選擇器在後</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-class">.a</span> &#123;</span><br>        color: red;<br>    &#125;<br>    a &#123;<br>        color: pink;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;a&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>鏈結<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>此情境答案一樣是紅色，雖然 a 標籤的設定在後，但因為先看權重才會看先後，所以還是類別選擇器贏喔！</p>
+<h3 id="情境三：兩個類別選擇器"><a href="#情境三：兩個類別選擇器" class="headerlink" title="情境三：兩個類別選擇器"></a>情境三：兩個類別選擇器</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-class">.a</span> &#123;</span><br>        color: red;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.b</span> &#123;</span><br>        color: pink;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;a b&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>鏈結<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>此情境答案就會變成是粉紅色了。因為兩種權重都是 10 分，所以後面會蓋掉前面。</p>
+<h3 id="情境四：CSS-順序跟-HTML-類別擺放順序不一樣"><a href="#情境四：CSS-順序跟-HTML-類別擺放順序不一樣" class="headerlink" title="情境四：CSS 順序跟 HTML 類別擺放順序不一樣"></a>情境四：CSS 順序跟 HTML 類別擺放順序不一樣</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-class">.a</span> &#123;</span><br>        color: red;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.b</span> &#123;</span><br>        color: pink;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;b a&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>鏈結<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>大家可以注意到 a 標籤內的類別擺放順序不一樣了，但是答案一樣是粉紅色喔！因為權重只看 CSS 樣式設定，不看你 HTML 類別的設定順序 XD</p>
+<h3 id="情境五：來個變化題吧！"><a href="#情境五：來個變化題吧！" class="headerlink" title="情境五：來個變化題吧！"></a>情境五：來個變化題吧！</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br>    a &#123;<br>        color: red;<br>    &#125;<br>    b &#123;<br>        color: pink;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;a b&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>鏈結<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>此題答案不知道大家有沒有想對呢？答案會是紅色，因為可以看到 CSS 設定的是針對 a 標籤跟 b 標籤，而不是類別選擇器哦！所以答案會是針對 a 標籤設定的紅色。</p>
+<h3 id="情境六：選擇器權重還能夠相加"><a href="#情境六：選擇器權重還能夠相加" class="headerlink" title="情境六：選擇器權重還能夠相加"></a>情境六：選擇器權重還能夠相加</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><br><span class="css">    <span class="hljs-selector-class">.wrap</span> <span class="hljs-selector-tag">p</span> &#123;</span><br>        color: orange;<br>    &#125;<br><span class="css">    <span class="hljs-selector-class">.text</span> &#123;</span><br>        color: blue;<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><br>        lorem<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>這題你的答案是什麼呢？這題的答案會是橘色哦！計算如下：</p>
+<ul>
+<li>.wrap 為 10 分 + p 段落 1 分 = 11 分</li>
+<li>.text 為 10 分</li>
+</ul>
+<p>所以 11 分大於 10 分的情況下，就會是橘色獲勝啦！所以選擇器的權重是能夠相加的 XD 想不到吧！</p>
+<blockquote>
+<h2 id="使用逗點指定樣式給多個選擇器"><a href="#使用逗點指定樣式給多個選擇器" class="headerlink" title="使用逗點指定樣式給多個選擇器"></a>使用逗點指定樣式給多個選擇器</h2></blockquote>
+<p>另外最後還需要介紹的是使用逗點來指定樣式給多個選擇器，因為有些樣式可能多個選擇器都會套用到，就會使用逗點來去做指定。至於常使用嗎？CSS Reset 會利用到這個技巧，至於平常是否會使用，其實我也不知道 XD 反正知道有這個技巧，就記錄下來。</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-selector-tag">ul</span>, <span class="hljs-selector-tag">ol</span> &#123;<br>    <span class="hljs-attribute">list-style</span>: none;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>此語法能夠同時清除 ul 以及 ol 前面的項目符號以及編號，就不用分開設定了！另外需要注意的是他們的權重都是 1 分唷，不會因為同時設定而增加成 2 分。</p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>這篇我沒有附上截圖，開放讓大家自己動手做做看、親自體驗，相信會有更多收穫！（<del>迷之聲：其實是懶癌發作 XDDDDDD</del>）另外撰寫這篇文章也讓我對於星號的使用有了進一步的認識與了解，相關資料我也放在下方，大家也可以點開看看哦！</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10196454">Day20：小事之 CSS 權重 (css specificity)</a></li>
+<li><a target="_blank" rel="noopener" href="https://sites.google.com/site/yutingnote/qian-taihtml-css-js/cssxinghao">CSS 星號 *</a></li>
+<li><a target="_blank" rel="noopener" href="https://selflearningsuccess.com/css-specificity/">CSS權重(specificity)：熟悉這6個樣式級別，讓你的樣式被採用</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CSS/">CSS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%81%B8%E6%93%87%E5%99%A8/">選擇器</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/css-media-rwd/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">運用 CSS 媒體查詢語法開發 RWD 響應式網頁</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/flex-align/">
+                        <span class="hidden-mobile">Flex 強大排版術：align-items、align-content 傻傻分不清楚？align-self 又是什麼？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/css-specificity/';
+          this.page.identifier = '/css-specificity/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="程式筆記與個人成長紀錄">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="程式筆記與個人成長紀錄">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gui Blog - 網站的工具人">
+<meta property="og:url" content="http://guiblogs.com/page/9/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="程式筆記與個人成長紀錄">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="Gui">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/kWTWXvI.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="歡迎來到我的 Coding 日常。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/hexo30-7/" target="_self">
+          Day 7：設定你的 Hexo 佈景主題：Next（下）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/hexo30-7/" target="_self">
+          
+          
+            
+          
+          由於篇幅太長，所以拆分成上下篇啦！經過昨天的一些設定，相信大家已經慢慢上手了。接著今天也要接續昨天沒有介紹到的設定。一起加油設定起來！！
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-22 14:13" pubdate>
+              2021-09-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Hexo/">Hexo</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+            
+              <a href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/hexo30-6/" target="_self">
+          Day 6：設定你的 Hexo 佈景主題：Next（上）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/hexo30-6/" target="_self">
+          
+          
+            
+          
+          昨天我們安裝了 Next 這個佈景主題，今天就要來介紹如何編輯設定 Next，以及 Next 提供了什麼樣的功能與選項給我們使用。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-21 14:05" pubdate>
+              2021-09-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Hexo/">Hexo</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+            
+              <a href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/hexo30-5/" target="_self">
+          Day 5：Hexo 安裝完成後的設定密技，並且為 Hexo 換上新佈景！
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/hexo30-5/" target="_self">
+          
+          
+            
+          
+          安裝好你的 Hexo 部落格後，部落格雖然已經有設定一些預設資料，但要將這些資料改成我們自己的資料嘛！因此今天的篇章就要來介紹安裝好後的 Hexo 有哪些可以設定的部分，並且為 Hexo 換上新佈景。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-20 14:21" pubdate>
+              2021-09-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Hexo/">Hexo</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+            
+              <a href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/hexo30-4/" target="_self">
+          Day 4：透過 npm、Hexo 指令在本機端安裝你的 Hexo 部落格
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/hexo30-4/" target="_self">
+          
+          
+            
+          
+          當前置必要安裝工具用好後，就可以在本機搭建 Hexo 部落格啦！安裝過程會使用到指令，所以我們要打開昨天安裝的 Git 。如果你對指令沒有很熟沒關係，我會一步步說明。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-19 00:07" pubdate>
+              2021-09-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Hexo/">Hexo</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+            
+              <a href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/hexo30-3/" target="_self">
+          Day 3：安裝 Hexo 前置作業：Node.js、Git、網頁編輯器 VS code、文章編輯器 Typora
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/hexo30-3/" target="_self">
+          
+          
+            
+          
+          在架設 Hexo 之前，有些前置作業要先進行。其中由於 Hexo 是使用 Node.js 撰寫，並且需要使用指令安裝 Hexo，因此需要安裝 Node.js 跟 Git。另外，如果要更擅於日後部落格的設定以及文章撰寫，今天還會推坑 VScode 以及 Typora 這兩個工具，就請大家繼續看下去囉！
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-18 11:13" pubdate>
+              2021-09-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Hexo/">Hexo</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+            
+              <a href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/hexo30-2/" target="_self">
+          Day 2：挑選 Hexo 作為工程師技術部落格
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/hexo30-2/" target="_self">
+          
+          
+            
+          
+          來到鐵人賽第二天，今天我們來聊聊 Hexo 這個架設工具。
+
+Hexo 是什麼？
+Hexo 是利用 Node.js 所撰寫而成的部落格程式，我們能夠利用 Hexo 產生出靜態網頁。沒錯！就是靜態網頁，透過指定的 Hexo 指令，可以產生出靜態頁面以及文章的編輯檔案，再透過編譯就能夠邊溢出對應的 HTML 檔案。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-17 15:22" pubdate>
+              2021-09-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Hexo/">Hexo</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+            
+              <a href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/hexo30-1/" target="_self">
+          Day 1：為什麼工程師要建立自己的技術部落格？
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/hexo30-1/" target="_self">
+          
+          
+            
+          
+          大家好我是 Gui，一名剛於私立科大資管系畢業的社會新鮮人，這是我第一次參與 IT 鐵人賽，既緊張又害怕受傷害（誤），其實過去一直都知道有這個賽事，受到不少鐵人賽文章的幫助，在無數的夜晚幫助我完成了無數的 code（？），很開心這一次總算跟到鐵人賽的賽事了！（雖然沒學生獎勵可領感到難過）
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-16 14:24" pubdate>
+              2021-09-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Hexo/">Hexo</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+            
+              <a href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#board">13</a><a class="extend next" rel="next" href="/page/10/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

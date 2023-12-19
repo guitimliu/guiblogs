@@ -1,0 +1,794 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="程式筆記與個人成長紀錄">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="程式筆記與個人成長紀錄">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gui Blog - 網站的工具人">
+<meta property="og:url" content="http://guiblogs.com/page/12/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="程式筆記與個人成長紀錄">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="Gui">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/kWTWXvI.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="歡迎來到我的 Coding 日常。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/web-pattern/" target="_self">
+          網頁版型控制不能不知道的事！區塊與行內元素、盒模型與容器
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/web-pattern/" target="_self">
+          
+          
+            
+          
+          繼上一篇 網頁樣式跟想像中不一樣，你 CSS Reset 了嗎？ 說明了 CSS Reset 造成網頁排版不如預期的因素，其實還有許多因素都會影響網頁上的排版，今天就來了解這些因素，來掌握版型控制技巧！
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-10 17:21" pubdate>
+              2021-07-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CSS/">CSS</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88/">網頁排版</a>
+            
+              <a href="/tags/%E5%8D%80%E5%A1%8A%E5%85%83%E7%B4%A0/">區塊元素</a>
+            
+              <a href="/tags/%E8%A1%8C%E5%85%A7%E5%85%83%E7%B4%A0/">行內元素</a>
+            
+              <a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/">盒模型</a>
+            
+              <a href="/tags/box-model%E3%84%8B/">box-modelㄋ</a>
+            
+              <a href="/tags/padding/">padding</a>
+            
+              <a href="/tags/margin/">margin</a>
+            
+              <a href="/tags/%E8%A1%8C%E8%B7%9D/">行距</a>
+            
+              <a href="/tags/%E5%AE%B9%E5%99%A8/">容器</a>
+            
+              <a href="/tags/%E6%BB%BF%E7%89%88%E5%BC%8F%E8%A8%AD%E8%A8%88/">滿版式設計</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/css-reset/" target="_self">
+          網頁樣式跟想像中不一樣，你 CSS Reset 了嗎？
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/css-reset/" target="_self">
+          
+          
+            
+          
+          當透過 CSS 切完網頁版面後，發現網頁跟自己想像或是設計稿上顯示的有落差，是發生了什麼事情？
+
+CSS Reset 出現與存在意義
+之所以會有 CSS Reset 出現，是因為早期瀏覽器在渲染 HTML 的 CSS 樣式標準不一，導致同一段語法在不同家瀏覽器所渲染出的結果不一樣，為了統一各家瀏覽器的預設渲染樣式，因此出了 CSS Reset 讓預設網頁樣式在各家瀏覽器是一樣的狀態。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-08 12:12" pubdate>
+              2021-07-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CSS/">CSS</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+              <a href="/tags/CSS-Reset/">CSS Reset</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/emmet/" target="_self">
+          <img src="https://img.guiblogs.com/emmet/complete-selection.jpg" srcset="/img/loading.gif" lazyload alt="想要提升寫 code 效率，一定要認識的寫網頁好幫手 - Emmet">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/emmet/" target="_self">
+          想要提升寫 code 效率，一定要認識的寫網頁好幫手 - Emmet
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/emmet/" target="_self">
+          
+          
+            
+          
+          Emmet 是個支援多個編輯器的擴充程式，幫助我們在寫程式時，只要記相對應的縮寫，就能完整將關鍵字打出來。
+優點
+提升開發速度
+減少打錯字造成後續 debug 的時間
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-06 18:08" pubdate>
+              2021-07-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/tool-recommendation/">工具推薦</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HTML/">HTML</a>
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+              <a href="/tags/emmet/">emmet</a>
+            
+              <a href="/tags/VS-code/">VS code</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/jsn-uniform-picture/" target="_self">
+          <img src="https://img.guiblogs.com/jsn-uniform-picture/jsn-uniform-picture.jpg" srcset="/img/loading.gif" lazyload alt="Joomla! 表單元件 JSN UniForm 利用 HTML 語法加上圖片">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/jsn-uniform-picture/" target="_self">
+          Joomla! 表單元件 JSN UniForm 利用 HTML 語法加上圖片
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/jsn-uniform-picture/" target="_self">
+          
+          
+            
+          
+          Joomla! 的表單元件 JSN UniForm 預設提供的表單功能，在 radioButton 內沒有提供圖片選項（不過是免費版的部分，且是 2020 年時改的，不知道之後有沒有改？）
+不過後來發現，只要透過簡單的 HTML 語法就能夠達成這個效果了！
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-04 22:30" pubdate>
+              2021-07-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Joomla/">Joomla</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Joomla/">Joomla</a>
+            
+              <a href="/tags/JSN-UniForm/">JSN UniForm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/xampp-shutdown-unexpectedly/" target="_self">
+          Xampp 錯誤訊息：MySQL shutdown unexpectedly. 解決方法
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/xampp-shutdown-unexpectedly/" target="_self">
+          
+          
+            
+          
+          有些人可能有個壞習慣，就是 Xampp 沒有正常關閉就直接進行關機；當然不只 Xampp，相信非常多視窗也都是跟著 Xampp 一起被強制關機。
+
+強制關機的結果：資料庫意外關閉
+實習日常的第一個動作，就是開啟電腦、打開 Xampp 的 Apache 與 MySQL。但就在某一天，發現打不開 MySQL，並出現以下錯誤訊息：
+1234567891009:42:22 AM [mysql] Attem
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-27 14:34" pubdate>
+              2021-06-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Xampp/">Xampp</a>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Xampp/">Xampp</a>
+            
+              <a href="/tags/MySQL/">MySQL</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/j2store-admin-customization/" target="_self">
+          <img src="https://img.guiblogs.com/j2store-admin-customization/after.jpg" srcset="/img/loading.gif" lazyload alt="Joomla! 嘗試客製化修改元件控制台界面">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/j2store-admin-customization/" target="_self">
+          Joomla! 嘗試客製化修改元件控制台界面
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/j2store-admin-customization/" target="_self">
+          
+          
+            
+          
+          過去在實驗室時接到一個網站業主的請求。
+網站是用 Joomla! 架設、利用 j2Store 搭建起購物車；其中，j2Store 後台界面訂單資訊裡，有個「顧客註記」與「運送追蹤 ID」兩個 input 欄位，如圖所示；業主認為這兩個欄位放在原本這個位置，較不顯眼，希望放置在訂單紀錄下面空白區域。
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-20 20:09" pubdate>
+              2021-06-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+              <a href="/categories/Joomla/">Joomla</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/Joomla/">Joomla</a>
+            
+              <a href="/tags/MVC/">MVC</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/21day-bootstrap5-2/" target="_self">
+          <img src="https://img.guiblogs.com/21day-bootstrap5-2/grid-option.jpg" srcset="/img/loading.gif" lazyload alt="Bootstrap 5 新手教學實戰營 - Week 2">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/21day-bootstrap5-2/" target="_self">
+          Bootstrap 5 新手教學實戰營 - Week 2
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/21day-bootstrap5-2/" target="_self">
+          
+          
+            
+          
+          這篇是 Bootstrap 5 新手教學實戰營的第二次上課筆記，學習重點主要是格線系統的應用以及在各個不同大小的裝置上，格線系統的呈現方式，以及相關觀念。
+在介紹格線系統之前，先讓我們認識一下「魔術數字」。
+什麼是魔術數字（magic number）？
+設計師開了一個 div 的規格，數字為：左200px、右800px
+程式設計師在程式碼設計了一個數字，但只有程式設計師知道其意義
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-20 20:49" pubdate>
+              2021-05-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Bootstrap/">Bootstrap</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Bootstrap/">Bootstrap</a>
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+              <a href="/tags/Bootstrap5/">Bootstrap5</a>
+            
+              <a href="/tags/%E6%A0%BC%E7%B7%9A/">格線</a>
+            
+              <a href="/tags/%E9%80%9A%E7%94%A8%E9%A1%9E%E5%88%A5/">通用類別</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/11/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/#board">13</a><a class="extend next" rel="next" href="/page/13/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

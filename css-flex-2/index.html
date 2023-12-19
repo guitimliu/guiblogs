@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="上一篇 Flex 筆記文章介紹了它的主軸與交錯軸觀念，今天要來介紹的是主軸的對齊，就像文字有所謂的靠左對齊、置中對齊、靠右對齊或是分散對齊，Flex 的排版方式也能夠達成這樣的效果。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="上一篇 Flex 筆記文章介紹了它的主軸與交錯軸觀念，今天要來介紹的是主軸的對齊，就像文字有所謂的靠左對齊、置中對齊、靠右對齊或是分散對齊，Flex 的排版方式也能夠達成這樣的效果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex 強大排版術：主軸對齊怎麼做？為何都擠在同一排？相應屬性一次解說！">
+<meta property="og:url" content="http://guiblogs.com/css-flex-2/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="上一篇 Flex 筆記文章介紹了它的主軸與交錯軸觀念，今天要來介紹的是主軸的對齊，就像文字有所謂的靠左對齊、置中對齊、靠右對齊或是分散對齊，Flex 的排版方式也能夠達成這樣的效果。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/flex-start.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/flex-end.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/center.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/space-between.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/space-around.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/space-evenly.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/row-reverse-flex-end.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/column-center.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/nowrap.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/wrap.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-flex-2/wrap-reverse.jpg">
+<meta property="article:published_time" content="2021-07-25T14:06:59.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.319Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Flex">
+<meta property="article:tag" content="flex-direction">
+<meta property="article:tag" content="justify-content">
+<meta property="article:tag" content="flex-wrap">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/css-flex-2/flex-start.jpg">
+  
+  <title>Flex 強大排版術：主軸對齊怎麼做？為何都擠在同一排？相應屬性一次解說！ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Flex 強大排版術：主軸對齊怎麼做？為何都擠在同一排？相應屬性一次解說！">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-25 22:06" pubdate>
+        2021年7月25日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Flex 強大排版術：主軸對齊怎麼做？為何都擠在同一排？相應屬性一次解說！</h1>
+            
+            <div class="markdown-body">
+              <p>上一篇 Flex 筆記文章介紹了它的主軸與交錯軸觀念，今天要來介紹的是主軸的對齊，就像文字有所謂的靠左對齊、置中對齊、靠右對齊或是分散對齊，Flex 的排版方式也能夠達成這樣的效果。</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="設定主軸對齊的-CSS-屬性：justify-content"><a href="#設定主軸對齊的-CSS-屬性：justify-content" class="headerlink" title="設定主軸對齊的 CSS 屬性：justify-content"></a>設定主軸對齊的 CSS 屬性：<code>justify-content</code></h2></blockquote>
+<p>設定 Flex 主軸對齊，就要利用 <code>justify-content</code> 這個 CSS 屬性，其共有以下設定值：</p>
+<ul>
+<li><code>justify-content: flex-start;</code> 靠主軸的起點對齊</li>
+<li><code>justify-content: flex-end;</code> 靠主軸的終點對齊</li>
+<li><code>justify-content: center;</code> 靠主軸的中間對齊</li>
+<li><code>justify-content: space-between;</code> 區塊內的首、尾物件會貼其餘兩邊，其它平均分配</li>
+<li><code>justify-content: space-around;</code>  首尾物件與兩邊會有一些空間，其它物件則平均分配於主軸，但首尾與兩邊的空間會比較小</li>
+<li><code>justify-content: space-evenly;</code> 與上述基本相同，唯一差別在於首尾物件與兩邊的間隔空間與其它間隔空間一模一樣</li>
+</ul>
+<p>我想用文字述說應該不是很懂（而且我目前也想不太到有更好的說法 XD），那就來附圖示範吧！</p>
+<h3 id="範例程式碼"><a href="#範例程式碼" class="headerlink" title="範例程式碼"></a>範例程式碼</h3><p>這邊我寫了個範例程式碼，背景色我設定成粉紅色、裡面使用 ul 新增三個 li 物件，並設定為橘色背景，方便大家觀察設定不同主軸對齊的狀況。</p>
+<p><strong>CSS</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* CSS Reset 省略 */</span><br><br><span class="hljs-selector-class">.wrap</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;<br>    <span class="hljs-attribute">margin</span>: auto;<br>&#125;<br><span class="hljs-selector-class">.products</span> &#123;<br>    <span class="hljs-attribute">display</span>: flex;<br>    <span class="hljs-attribute">justify-content</span>: 【設定值：flex-start | flex-end | center | space-between | space-around | space-evenly】;<br>    <span class="hljs-attribute">background-color</span>: pink;<br>&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">250px</span>;<br>    <span class="hljs-attribute">background-color</span>: orange;<br>&#125;<br><span class="hljs-selector-class">.item</span> <span class="hljs-selector-tag">img</span> &#123;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><strong>HTML</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;products&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://fakeimg.pl/250x250/aaa&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>標題一<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum deleniti dolore dignissimos, enim ullam corrupti reprehenderit explicabo non molestiae suscipit.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://fakeimg.pl/250x250/aaa&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>標題二<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum deleniti dolore dignissimos, enim ullam corrupti reprehenderit explicabo non molestiae suscipit.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://fakeimg.pl/250x250/aaa&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>標題三<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum deleniti dolore dignissimos, enim ullam corrupti reprehenderit explicabo non molestiae suscipit.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="flex-start"><a href="#flex-start" class="headerlink" title="flex-start"></a>flex-start</h3><p>首先是最預設的 flex-start，就如同最一開始那樣對對齊於主軸起點，所以就算沒有特別設定也會是 flex-start。</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/flex-start.jpg" srcset="/img/loading.gif" lazyload alt="flex-start"></p>
+<h3 id="flex-end"><a href="#flex-end" class="headerlink" title="flex-end"></a>flex-end</h3><p>再來，就是 flex-end，會對齊於主軸的終點。</p>
+<p>另外可注意的一點是，儘管在畫面上是靠右對齊，但是他的順序一樣是從左到右依序顯示標題一、標題二、標題三，因為我們的主軸是從左到右，只是我希望它的對齊是靠結尾對齊，所以在這樣的設定下達成了靠右對齊，但順序依然是從左到右。</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/flex-end.jpg" srcset="/img/loading.gif" lazyload alt="flex-end"></p>
+<h3 id="center"><a href="#center" class="headerlink" title="center"></a>center</h3><p>再來就是居中的效果，它在這邊達成了水平置中的效果，不過其實更精確地說，它是從主軸的起點到終點的平均做了對齊。</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/center.jpg" srcset="/img/loading.gif" lazyload alt="center"></p>
+<h3 id="space-between"><a href="#space-between" class="headerlink" title="space-between"></a>space-between</h3><p>這個設定值會將一系列物件的首尾對齊與兩邊，其餘物件則會均分對齊。</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/space-between.jpg" srcset="/img/loading.gif" lazyload alt="space-between"></p>
+<h3 id="space-around"><a href="#space-around" class="headerlink" title="space-around"></a>space-around</h3><p>此設定值也是會均分物件，但是兩旁會保留一些空間。</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/space-around.jpg" srcset="/img/loading.gif" lazyload alt="space-around"></p>
+<h3 id="space-evenly"><a href="#space-evenly" class="headerlink" title="space-evenly"></a>space-evenly</h3><p>此設定值與 <code>space-around</code> 一樣會保留兩邊空間，差別是此設定值所有分隔空間相等，與上一項設定值的兩旁保留空間較小有所差別。</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/space-evenly.jpg" srcset="/img/loading.gif" lazyload alt="space-evenly"></p>
+<blockquote>
+<h2 id="flex-direction-與-justify-content-的關係"><a href="#flex-direction-與-justify-content-的關係" class="headerlink" title="flex-direction 與 justify-content 的關係"></a>flex-direction 與 justify-content 的關係</h2></blockquote>
+<p>剛剛我們有示範了靠左、右以及置中對齊的效果，但我們就可以稱呼它就是所謂的「XX 對齊」嗎？其實這些設定都是附著在所謂的主軸上面的，所以假設今天透過 flex-direction 改變主軸流向，就會有不同的結果。</p>
+<h3 id="範例一：主軸流向從右到左、並靠終點對齊"><a href="#範例一：主軸流向從右到左、並靠終點對齊" class="headerlink" title="範例一：主軸流向從右到左、並靠終點對齊"></a>範例一：主軸流向從右到左、並靠終點對齊</h3><p>此範例因為將主軸設定為從右到左，所以起點會變成右邊、終點為左邊，如果設定靠終點對齊，就會呈現靠左對齊效果。</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-selector-class">.products</span> &#123;<br>    <span class="hljs-attribute">display</span>: flex;<br>    <span class="hljs-attribute">flex-direction</span>: row-reverse;<br>    <span class="hljs-attribute">justify-content</span>: flex-end;<br>    <span class="hljs-attribute">background-color</span>: pink;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/css-flex-2/row-reverse-flex-end.jpg" srcset="/img/loading.gif" lazyload alt="主軸流向從右到左、並靠終點對齊"></p>
+<h3 id="範例二：主軸流向從上到下、並設定-center"><a href="#範例二：主軸流向從上到下、並設定-center" class="headerlink" title="範例二：主軸流向從上到下、並設定 center"></a>範例二：主軸流向從上到下、並設定 center</h3><p>由於主軸設成從上到下，起點變成頂部、終點為底部，而 <code>justify-content</code> 對齊是針對主軸做對齊設置，因此主軸線變成垂直，所設定之 center 也會變成垂直對齊，所以針對 <code>justify-content</code> 所做的居中設置不一定也不會說它就是水平對齊喔！</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-selector-class">.products</span> &#123;<br>    <span class="hljs-attribute">display</span>: flex;<br>    <span class="hljs-attribute">flex-direction</span>: column;<br>    <span class="hljs-attribute">justify-content</span>: center;<br>    <span class="hljs-attribute">background-color</span>: pink;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">1200px</span>; <span class="hljs-comment">/* 特別設定成 1200px 以呈現出垂直置中效果 */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/css-flex-2/column-center.jpg" srcset="/img/loading.gif" lazyload alt="主軸流向從上到下、並設定 center"></p>
+<blockquote>
+<h2 id="為什麼物件都會擠在同一排？"><a href="#為什麼物件都會擠在同一排？" class="headerlink" title="為什麼物件都會擠在同一排？"></a>為什麼物件都會擠在同一排？</h2></blockquote>
+<p>知道了 <code>justify-content</code> 各對齊方式後，使我們更容易進行排版，但是當物件一多後，就會發現通通都擠在一起了，而且我們可以從下方 CSS 發現，不管 .item 寬度設定成多大，但是所有物件卻都不會跑到外面。</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/nowrap.jpg" srcset="/img/loading.gif" lazyload alt="nowrap 導致物件擠在同一排"></p>
+<p>預設情況，如果物件寬度已經超過外容器，Flex 會將這些物件等比例縮放，所以不論是塞了多少個物件、針對物件設定多大的寬度，它仍舊會擠在同一排，因此我們要設定一項 CSS 屬性：<code>flex-wrap: wrap;</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-selector-class">.products</span> &#123;<br>    <span class="hljs-attribute">display</span>: flex;<br>    <span class="hljs-attribute">justify-content</span>: space-between;<br>    <span class="hljs-attribute">flex-wrap</span>: wrap;<br>    <span class="hljs-attribute">background-color</span>: pink;<br>&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">250px</span>;<br>    <span class="hljs-attribute">background-color</span>: orange;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/css-flex-2/wrap.jpg" srcset="/img/loading.gif" lazyload alt="wrap 使物件能夠自動排列到下一行"></p>
+<p><code>flex-wrap</code> 這項屬性預設值原為 <code>nowrap</code>，若將屬性設定為 <code>wrap</code>，多出來的部分物件便可自動另起一行進行排列，如此以來所有物件就不會擠在同一行。</p>
+<p>另外 flex-wrap 還有一項屬屬性設定值為 <code>flex-wrap: wrap-reverse;</code>，就如同 <code>flex-direction</code> 內的 <code>row-reverse</code> 與 <code>column-reverse</code> 那樣反轉原先順序，原先由上而下的排列會變成由下而上。不過也不常用到此設定就是了 XD</p>
+<p><img src="https://img.guiblogs.com/css-flex-2/wrap-reverse.jpg" srcset="/img/loading.gif" lazyload alt="wrap-reverse"></p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>Flex 技術使網頁排版更加方便且簡易，透過主軸的對齊設定與 flex-wrap 的搭配，已經能排出我們經常看到許多網站的版面。但其實 Flex 有更多可以挖掘的部分，像是先前所提及的交錯軸，將會於下一篇進行介紹。再請大家拭目以待！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CSS/">CSS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Flex/">Flex</a>
+                    
+                      <a class="hover-with-bg" href="/tags/flex-direction/">flex-direction</a>
+                    
+                      <a class="hover-with-bg" href="/tags/justify-content/">justify-content</a>
+                    
+                      <a class="hover-with-bg" href="/tags/flex-wrap/">flex-wrap</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/picture-replace-text/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Logo 不只能用 img，來試試 background 圖片取代文字技巧！</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/css-flex/">
+                        <span class="hidden-mobile">Flex 強大排版術：flex-direction 如何應用？主軸、交錯軸附圖解說！</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/css-flex-2/';
+          this.page.identifier = '/css-flex-2/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

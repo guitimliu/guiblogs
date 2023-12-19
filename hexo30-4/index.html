@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="當前置必要安裝工具用好後，就可以在本機搭建 Hexo 部落格啦！安裝過程會使用到指令，所以我們要打開昨天安裝的 Git 。如果你對指令沒有很熟沒關係，我會一步步說明。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="當前置必要安裝工具用好後，就可以在本機搭建 Hexo 部落格啦！安裝過程會使用到指令，所以我們要打開昨天安裝的 Git 。如果你對指令沒有很熟沒關係，我會一步步說明。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 4：透過 npm、Hexo 指令在本機端安裝你的 Hexo 部落格">
+<meta property="og:url" content="http://guiblogs.com/hexo30-4/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="當前置必要安裝工具用好後，就可以在本機搭建 Hexo 部落格啦！安裝過程會使用到指令，所以我們要打開昨天安裝的 Git 。如果你對指令沒有很熟沒關係，我會一步步說明。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-4/hexo-install.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-4/hexo-directory.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-4/hexo-g.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-4/hexo-public.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-4/hexo-s.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-4/hexo-complete.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hexo30-4/hexo-s-p.jpg">
+<meta property="article:published_time" content="2021-09-18T16:07:35.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.320Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="IT 鐵人賽">
+<meta property="article:tag" content="2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/hexo30-4/hexo-install.jpg">
+  
+  <title>Day 4：透過 npm、Hexo 指令在本機端安裝你的 Hexo 部落格 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Day 4：透過 npm、Hexo 指令在本機端安裝你的 Hexo 部落格">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-19 00:07" pubdate>
+        2021年9月19日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day 4：透過 npm、Hexo 指令在本機端安裝你的 Hexo 部落格</h1>
+            
+            <div class="markdown-body">
+              <p>當前置必要安裝工具用好後，就可以在本機搭建 Hexo 部落格啦！安裝過程會使用到指令，所以我們要打開昨天安裝的 Git 。如果你對指令沒有很熟沒關係，我會一步步說明。</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="下載-Hexo-套件包"><a href="#下載-Hexo-套件包" class="headerlink" title="下載 Hexo 套件包"></a>下載 Hexo 套件包</h2></blockquote>
+<p>要執行的指令為：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs git">$npm install -g hexo-cli<br></code></pre></div></td></tr></table></figure>
+<p>npm 是一個內建於 Node.js 的套件管理系統，使用 JavaScript 所撰寫，可以想像成是 play 商店以及 Apple Store 那樣，將我們需要使用的套件（App）下載至本機使用。這個動作就是要下載 Hexo 套件回自己電腦，使電腦能夠搭建 Hexo 部落格。</p>
+<blockquote>
+<h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2></blockquote>
+<p><img src="https://img.guiblogs.com/hexo30-4/hexo-install.jpg" srcset="/img/loading.gif" lazyload alt="安裝 Hexo"></p>
+<p>首先我們要建立一個資料夾，可以設定在你的桌面或是 C 槽或 D 槽。不過這個資料夾非常重要，因為往後部落格的資料以及部署、設定，都會利用此資料夾，所以請保存好喔～</p>
+<p>我是在 C 槽建立一個 30blog 的資料夾，做為 Hexo 目錄。建立好後，要使用指令指定這個目錄。指令是這樣執行的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs git">cd &#x2F;c&#x2F;30blog<br></code></pre></div></td></tr></table></figure>
+<p>開啟後，會看到截圖上的黃色字「~」變成我們剛剛設定的目錄，就代表位置已經指定到這個目錄。再來我們要初始化這個資料夾為 Hexo 用。指令是這樣執行的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs git">hexo init<br></code></pre></div></td></tr></table></figure>
+<p>再來進行安裝：</p>
+<figure class="highlight plain"><figcaption><span>install</span></figcaption><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs npm">npm install<br></code></pre></div></td></tr></table></figure>
+<p>如此一來，安裝就告一段落了。</p>
+<blockquote>
+<h2 id="搭建完成！看看自己的部落格"><a href="#搭建完成！看看自己的部落格" class="headerlink" title="搭建完成！看看自己的部落格"></a>搭建完成！看看自己的部落格</h2></blockquote>
+<p>當你進行到這步時，恭喜你已經成功在自己的電腦上搭建好一個 Hexo 了。接下來有兩個指令，將在你日後發表文章、編輯文章或頁面以及樣式時大量運用。</p>
+<h3 id="產生靜態網頁"><a href="#產生靜態網頁" class="headerlink" title="產生靜態網頁"></a>產生靜態網頁</h3><p>上次提到 Hexo 是一個靜態網頁產生器，要理解它我們可以從理解 Hexo 的運作原理講起。首先，我們可以看到目前 Hexo 目錄的內容：</p>
+<p><img src="https://img.guiblogs.com/hexo30-4/hexo-directory.jpg" srcset="/img/loading.gif" lazyload alt="Hexo 目錄"></p>
+<p>這些都是 Hexo 的程式檔、編輯檔，而 source 裡面放置了文章、頁面。但是這些編輯檔都不是常見的 HTML，因此我們必須執行這個指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs git">hexo g<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://img.guiblogs.com/hexo30-4/hexo-g.jpg" srcset="/img/loading.gif" lazyload alt="產生 Hexo 靜態網頁"></p>
+<p>此時我們可以看到執行後，多了一個 public 目錄，點擊進去後，會發現裡面有一些內容，這是 Hexo 剛搭建時會有的預設文章。</p>
+<p>之後我們提到將網站部署到空間上時，就是會部署 public 內的內容上去，所以網友看到的就會是你產生出的靜態網頁。</p>
+<p><img src="https://img.guiblogs.com/hexo30-4/hexo-public.jpg" srcset="/img/loading.gif" lazyload alt="Hexo 產生的靜態網頁目錄"></p>
+<h3 id="利用虛擬伺服器在本機預覽部落格"><a href="#利用虛擬伺服器在本機預覽部落格" class="headerlink" title="利用虛擬伺服器在本機預覽部落格"></a>利用虛擬伺服器在本機預覽部落格</h3><p>通常部署之前，我們就要先在本機檢查好內容才會部署到空間上，此時 Hexo 本身就有提供虛擬伺服器的功能，我們只需執行以下指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs git">hexo s<br></code></pre></div></td></tr></table></figure>
+<p>執行代碼後會出現以下訊息：</p>
+<p><img src="https://img.guiblogs.com/hexo30-4/hexo-s.jpg" srcset="/img/loading.gif" lazyload alt="開啟 Hexo 伺服器"></p>
+<p>其中我們可以看到兩個關鍵訊息：</p>
+<ol>
+<li>網址部分，大家可以看到「<a href="http://localhost:4000」這串網址，是">http://localhost:4000」這串網址，是</a> Hexo 預設伺服器網址以及埠號。</li>
+<li>目前是開啟虛擬伺服器階段，如果要要關閉或是因為需要輸入指令而終止，點擊 Ctrl+C 就可輸入指令，但此時開設的伺服器就會連不上。</li>
+</ol>
+<p><img src="https://img.guiblogs.com/hexo30-4/hexo-complete.jpg" srcset="/img/loading.gif" lazyload alt="Hexo 搭建完成"></p>
+<p>你的第一個 Hexo，就此成功搭建在自己的本機上啦！</p>
+<h3 id="如果埠號被占用怎麼辦？"><a href="#如果埠號被占用怎麼辦？" class="headerlink" title="如果埠號被占用怎麼辦？"></a>如果埠號被占用怎麼辦？</h3><p>如果你因為其他需求，剛好已經使用了 4000 這個埠號該怎麼辦呢？此時只要在原先的 <code>hexo s</code> 指令後加幾個字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs git">hexo s -p 6789<br></code></pre></div></td></tr></table></figure>
+<p>可以看到原先執行環境的網址部號已經被改變囉！</p>
+<p><img src="https://img.guiblogs.com/hexo30-4/hexo-s-p.jpg" srcset="/img/loading.gif" lazyload alt="指定埠號開啟伺服器"></p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>當初在架設 Hexo 時有在 Hackmd 上做指令筆記，結果真的要打成文章時，整個失意 QQ 或甚至是當初並沒有搞定其意思，雖然說現在也還沒很懂所有指令的意思就是了 XD 但透過寫文章以及參閱網路上各類資訊，再度讓我重回記憶。所以寫部落格真是一件非常高 CP 的事情啊！以下附上我參考的一些文章內容與資訊～</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ed521.github.io/2019/07/hexo-install/">使用 GitHub Pages + Hexo 來架設個人部落格</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Node.js">Node.js - 維基百科，自由的百科全書</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.yucheng.me/post/hexo-website-setup/">Hexo 網站架設</a></li>
+</ul>
+<blockquote>
+<p>本篇文章同步發布於 <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10267313">iT 邦幫忙</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+                    
+                      <a class="hover-with-bg" href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/hexo30-5/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day 5：Hexo 安裝完成後的設定密技，並且為 Hexo 換上新佈景！</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/hexo30-3/">
+                        <span class="hidden-mobile">Day 3：安裝 Hexo 前置作業：Node.js、Git、網頁編輯器 VS code、文章編輯器 Typora</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/hexo30-4/';
+          this.page.identifier = '/hexo30-4/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

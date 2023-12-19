@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="繼上一篇 網頁樣式跟想像中不一樣，你 CSS Reset 了嗎？ 說明了 CSS Reset 造成網頁排版不如預期的因素，其實還有許多因素都會影響網頁上的排版，今天就來了解這些因素，來掌握版型控制技巧！">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="繼上一篇 網頁樣式跟想像中不一樣，你 CSS Reset 了嗎？ 說明了 CSS Reset 造成網頁排版不如預期的因素，其實還有許多因素都會影響網頁上的排版，今天就來了解這些因素，來掌握版型控制技巧！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="網頁版型控制不能不知道的事！區塊與行內元素、盒模型與容器">
+<meta property="og:url" content="http://guiblogs.com/web-pattern/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="繼上一篇 網頁樣式跟想像中不一樣，你 CSS Reset 了嗎？ 說明了 CSS Reset 造成網頁排版不如預期的因素，其實還有許多因素都會影響網頁上的排版，今天就來了解這些因素，來掌握版型控制技巧！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/web-pattern/block.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/web-pattern/inline.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/web-pattern/block-background.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/web-pattern/background.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/web-pattern/size.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/web-pattern/p-mb1.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/web-pattern/a-mb1.jpg">
+<meta property="article:published_time" content="2021-07-10T09:21:15.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.318Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="網頁排版">
+<meta property="article:tag" content="區塊元素">
+<meta property="article:tag" content="行內元素">
+<meta property="article:tag" content="盒模型">
+<meta property="article:tag" content="box-modelㄋ">
+<meta property="article:tag" content="padding">
+<meta property="article:tag" content="margin">
+<meta property="article:tag" content="行距">
+<meta property="article:tag" content="容器">
+<meta property="article:tag" content="滿版式設計">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/web-pattern/block.jpg">
+  
+  <title>網頁版型控制不能不知道的事！區塊與行內元素、盒模型與容器 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="網頁版型控制不能不知道的事！區塊與行內元素、盒模型與容器">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-10 17:21" pubdate>
+        2021年7月10日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">網頁版型控制不能不知道的事！區塊與行內元素、盒模型與容器</h1>
+            
+            <div class="markdown-body">
+              <p>繼上一篇 <a href="https://guiblogs.com/css-reset/">網頁樣式跟想像中不一樣，你 CSS Reset 了嗎？</a> 說明了 CSS Reset 造成網頁排版不如預期的因素，其實還有許多因素都會影響網頁上的排版，今天就來了解這些因素，來掌握版型控制技巧！</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="區塊元素與行內元素"><a href="#區塊元素與行內元素" class="headerlink" title="區塊元素與行內元素"></a>區塊元素與行內元素</h2></blockquote>
+<ul>
+<li>區塊元素（<code>display: block;</code>）<ul>
+<li>寬度會盡量佔滿整個版面，並依照父元素寬度自適應延伸佔滿</li>
+<li>會另起一行來進行呈現</li>
+<li>Ex. div、h1、ul、li、p</li>
+</ul>
+</li>
+<li>行內元素（<code>display: inline;</code>）<ul>
+<li>文字多寬元素就多寬</li>
+<li>Ex. a、span</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何分辨是區塊元素還是行內元素"><a href="#如何分辨是區塊元素還是行內元素" class="headerlink" title="如何分辨是區塊元素還是行內元素"></a>如何分辨是區塊元素還是行內元素</h3><ul>
+<li><p>利用 Chrome 開發者工具選取該標籤，看是否盡量佔滿整個版面</p>
+<ul>
+<li><p>盡量佔滿了整個版面：區塊元素</p>
+<p><img src="https://img.guiblogs.com/web-pattern/block.jpg" srcset="/img/loading.gif" lazyload alt="區塊元素會盡量佔滿整個版面"></p>
+</li>
+<li><p>並沒有佔滿整個版面：行內元素</p>
+<p><img src="https://img.guiblogs.com/web-pattern/inline.jpg" srcset="/img/loading.gif" lazyload alt="行內元素並沒有盡可能佔滿整個版面"></p>
+</li>
+</ul>
+</li>
+<li><p>使用背景色並設定 width 且寬度設定有作用，儘管背景色沒有佔滿整個版面，但是仍然會另起一行</p>
+<p><img src="https://img.guiblogs.com/web-pattern/block-background.jpg" srcset="/img/loading.gif" lazyload alt="區塊元素會另起一行"></p>
+</li>
+<li><p>使用背景色，若往右滿版即是區塊元素，剛好等於文字寬度則為行內元素，在這個狀況設定 width 也沒效</p>
+<p><img src="https://img.guiblogs.com/web-pattern/background.jpg" srcset="/img/loading.gif" lazyload alt="利用背景顏色觀察是區塊元素還是行內元素"></p>
+</li>
+</ul>
+<blockquote>
+<h2 id="box-model-盒模型"><a href="#box-model-盒模型" class="headerlink" title="box-model 盒模型"></a>box-model 盒模型</h2></blockquote>
+<h3 id="padding-與-margin-推擠"><a href="#padding-與-margin-推擠" class="headerlink" title="padding 與 margin 推擠"></a>padding 與 margin 推擠</h3><ul>
+<li>padding 內距，指區塊距離裡面內容的距離<ul>
+<li>會影響區塊的寬高</li>
+</ul>
+</li>
+<li>margin 外距，指區塊距離前後區塊或是標籤的距離<ul>
+<li>計算區塊寬高時不會包含 margin</li>
+<li>但是該區塊增加 margin 後會影響在畫面中的占比</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.guiblogs.com/web-pattern/size.jpg" srcset="/img/loading.gif" lazyload alt="margin 不會被算在 size，但確實會影響在畫面中佔比"></p>
+<h3 id="margin-bottom-推擠"><a href="#margin-bottom-推擠" class="headerlink" title="margin-bottom 推擠"></a>margin-bottom 推擠</h3><p>這邊稍微說明一下 margin-bottom 推擠，以下面範例為例：</p>
+<ul>
+<li><p>這個 .box，裡面我放置了 p 段落以及 a 標籤鏈結，我在 p 段落設定了一個 <code>margin-bottom: 8px;</code>，因此 p 段落與 Link 中間隔了 8px，整體 .box 高度為 80px。</p>
+<p><img src="https://img.guiblogs.com/web-pattern/p-mb1.jpg" srcset="/img/loading.gif" lazyload alt="在 .box 內的 p 段落增加底部外距，高度因此增加 8px"></p>
+</li>
+<li><p>接下來我將原本放置在 p 斷落的 <code>margin-bottom: 8px;</code> 移到 a 標籤，卻發現：.box 整體高度只有 72px，少了那 8px！</p>
+<p><img src="https://img.guiblogs.com/web-pattern/a-mb1.jpg" srcset="/img/loading.gif" lazyload alt="因為是在 .box 最後一個 a 標籤增加底部外距，所以高度不會因此增加 8px"></p>
+</li>
+</ul>
+<h4 id="原因為何？"><a href="#原因為何？" class="headerlink" title="原因為何？"></a>原因為何？</h4><p>當 .box 本身與該區塊最後的標籤若都有設定 margin-bottom，將會以這兩個值較大的值，來當作 .box 向下推擠的值。</p>
+<p>也因此，.box 內最後一個標籤 p 段落，就自然也會被視為是 .box 本身區塊向下推擠多少的候選之一；因為 margin 本身不會算在區塊本身寬高數值裡，所以照上述範例，.box 整體高度就不會再加上那 8px 了！</p>
+<p>關於詳細的 padding 與 margin 介紹，我之後會再發一篇文章來詳述（學 YouTuber 來挖坑了 XD）</p>
+<h3 id="box-sizing-border-box"><a href="#box-sizing-border-box" class="headerlink" title="box-sizing: border-box;"></a>box-sizing: border-box;</h3><p>預設來說，若元素增加 padding 以及 border，都會影響元素的寬高。以下方範例為例：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">width</span>: 50<span class="hljs-selector-tag">px</span>;<br><span class="hljs-selector-tag">height</span>: 50<span class="hljs-selector-tag">px</span>;<br><span class="hljs-selector-tag">padding-top</span><span class="hljs-selector-pseudo">:10px</span>;<br><span class="hljs-selector-tag">border</span>: 2<span class="hljs-selector-tag">px</span> <span class="hljs-selector-tag">solid</span> <span class="hljs-selector-tag">black</span>;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>寬度為：50px + 2px * 2 = 54px<ul>
+<li>width + 左右兩邊 border</li>
+</ul>
+</li>
+<li>高度為：50px + 10px + 2px * 2 = 64px<ul>
+<li>width + padding-top + 上下兩邊 border</li>
+</ul>
+</li>
+</ul>
+<p>但若增加了 <code>box-sizing: border-box;</code>，區塊的寬高將會等於 width 以及 height 設置值；至於 padding 以及 border 所占面積則會往內推擠，壓縮區塊內容區域。</p>
+<p><strong>所以依照上述說明，範例寬高都將會是 50px。</strong></p>
+<blockquote>
+<h2 id="行距-line-height"><a href="#行距-line-height" class="headerlink" title="行距 line-height"></a>行距 line-height</h2></blockquote>
+<p>行距是指一行文字上下距離，舉例 Word 行高來講，就有分固定行高、1.5 倍行高等等，而網頁就是透過 <code>line-height</code> 來控制行距。</p>
+<p><strong>以下提供幾個範例：（文字大小皆為16px）</strong></p>
+<ul>
+<li>1 行文字、行距 16px：高度為 16px</li>
+<li>1 行文字、行距 24px：高度為 24px</li>
+<li>2 行文字、行距 24px：高度為 48px</li>
+<li>2 行文字、行距 0 px：高度為 0px（你沒看錯！因為文字會通通擠在一起 XD）</li>
+</ul>
+<p>從以上範例就可以知道，影響一行高度的並不是字體大小，而是行距。</p>
+<blockquote>
+<h2 id="暗藏玄機的圖片底部-多出的-2px-3px"><a href="#暗藏玄機的圖片底部-多出的-2px-3px" class="headerlink" title="暗藏玄機的圖片底部 - 多出的 2px ~ 3px"></a>暗藏玄機的圖片底部 - 多出的 2px ~ 3px</h2></blockquote>
+<p>網頁排版時會發現 <code>&lt;img&gt;</code> 圖片底部會多出 2px ~ 3px 的空隙，如果要解決此問題，可以透過以下 CSS 語法的兩段語法二選一使用，兩種語法都可以解決這個問題。</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* 以下兩種方法選一種即可 */</span><br><span class="hljs-selector-tag">img</span> &#123;<br>  <span class="hljs-attribute">display</span>: block; <span class="hljs-comment">/* 方法一 */</span><br>  <span class="hljs-attribute">vertical-align</span>: middle; <span class="hljs-comment">/* 方法二 */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<h2 id="高度-height-該設定？不設定？"><a href="#高度-height-該設定？不設定？" class="headerlink" title="高度 height 該設定？不設定？"></a>高度 height 該設定？不設定？</h2></blockquote>
+<p>一般來講，我們不會去特別針對區塊高度去做設定，因為內容的文字行數不一定，若今天高度僅設置 50px，但卻有 10 行行距 16px 的文字，塞不下的文字就會超出區塊範圍，很容易造成跑版。</p>
+<p>所以一般來講，區塊的高度會用以下方式推擠並產生影響，而不會設定高度：</p>
+<ul>
+<li>padding 內距</li>
+<li>border 框線</li>
+<li>line-height 行距</li>
+</ul>
+<h3 id="什麼時候可以設定高度？"><a href="#什麼時候可以設定高度？" class="headerlink" title="什麼時候可以設定高度？"></a>什麼時候可以設定高度？</h3><ul>
+<li>針對圖片時可以設定其高度。</li>
+</ul>
+<blockquote>
+<h2 id="容器與滿版式設計"><a href="#容器與滿版式設計" class="headerlink" title="容器與滿版式設計"></a>容器與滿版式設計</h2></blockquote>
+<ul>
+<li>網站上每一個區塊，都是由一個容器所包圍</li>
+<li><code>.container</code>、<code>.wrapper</code> 皆可是容器縮寫</li>
+</ul>
+<h3 id="滿版式設計"><a href="#滿版式設計" class="headerlink" title="滿版式設計"></a>滿版式設計</h3><p>以 <a target="_blank" rel="noopener" href="https://shopee.tw/">蝦皮購物</a> 為例，若想達到像他們整體區塊置中、header 有滿版背景色但也同時保有區塊置中的效果，可參考以下寫法：（不代表蝦皮購物也是這麼寫的）</p>
+<h4 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>        內容<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>    內容<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h4><figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.header</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: orange;<br>    <span class="hljs-attribute">color</span>: white;<br>&#125;<br><br><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">1200px</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="解釋與注意事項"><a href="#解釋與注意事項" class="headerlink" title="解釋與注意事項"></a>解釋與注意事項</h3><ul>
+<li>header 區域是透過 header 的滿版與及其設定的背景色，內放置 container 達成內容區塊置中效果</li>
+<li>若是 container 區塊包在 header 外或是放在同一 div，header 設定將會受制於 container 大小<ul>
+<li>Ex. header 最大僅 1200px，無法達成滿版效果</li>
+</ul>
+</li>
+<li>若要設計滿版效果，不要設計成 <code>width:1920px;</code>，若設計稿上這樣寫，是在示意滿版<ul>
+<li>如果螢幕寬度大於 1920px，就不會是滿版囉 XD</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2></blockquote>
+<p>網頁排版是項博大精深的學問，且參雜許多的規則與感到莫名其妙的狀況（？而且同一個版型，每一次切版卻也都有不同的狀況。</p>
+<p>篇幅關係所以大概敘述一下，有機會在好好詳細研究一下！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CSS/">CSS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88/">網頁排版</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%80%E5%A1%8A%E5%85%83%E7%B4%A0/">區塊元素</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%A1%8C%E5%85%A7%E5%85%83%E7%B4%A0/">行內元素</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/">盒模型</a>
+                    
+                      <a class="hover-with-bg" href="/tags/box-model%E3%84%8B/">box-modelㄋ</a>
+                    
+                      <a class="hover-with-bg" href="/tags/padding/">padding</a>
+                    
+                      <a class="hover-with-bg" href="/tags/margin/">margin</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%A1%8C%E8%B7%9D/">行距</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AE%B9%E5%99%A8/">容器</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%BB%BF%E7%89%88%E5%BC%8F%E8%A8%AD%E8%A8%88/">滿版式設計</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/leetcode1431-php/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 PHP 解 Leetcode：1431. Kids With the Greatest Number of Candies 擁有最多糖果的孩子</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/css-reset/">
+                        <span class="hidden-mobile">網頁樣式跟想像中不一樣，你 CSS Reset 了嗎？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/web-pattern/';
+          this.page.identifier = '/web-pattern/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

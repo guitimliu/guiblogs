@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="JavaScript 在 ES6 之後增加了箭頭函式（Arrow functions），使用箭頭函式能夠使寫法更加精簡。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="JavaScript 在 ES6 之後增加了箭頭函式（Arrow functions），使用箭頭函式能夠使寫法更加精簡。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何利用 JavaScript 箭頭函式來更加精簡程式碼？">
+<meta property="og:url" content="http://guiblogs.com/js-arrow-function/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="JavaScript 在 ES6 之後增加了箭頭函式（Arrow functions），使用箭頭函式能夠使寫法更加精簡。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-12-05T14:55:11.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.326Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="箭頭函式">
+<meta property="article:tag" content="Arrow functions">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>如何利用 JavaScript 箭頭函式來更加精簡程式碼？ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="如何利用 JavaScript 箭頭函式來更加精簡程式碼？">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-05 22:55" pubdate>
+        2021年12月5日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">如何利用 JavaScript 箭頭函式來更加精簡程式碼？</h1>
+            
+            <div class="markdown-body">
+              <p>JavaScript 在 ES6 之後增加了箭頭函式（Arrow functions），使用箭頭函式能夠使寫法更加精簡。</p>
+<a id="more"></a>
+
+<h2 id="聲明"><a href="#聲明" class="headerlink" title="聲明"></a>聲明</h2><p><strong>2022/1/19 更新：</strong>雖然使用箭頭函式同時能夠讓語法更加精簡，但是<strong>箭頭函式不等於縮寫</strong>！以 this 觀念來說，箭頭函式沒有自己的 this，因此它不等於是傳統函式的縮寫。</p>
+<h2 id="傳統函式寫法"><a href="#傳統函式寫法" class="headerlink" title="傳統函式寫法"></a>傳統函式寫法</h2><p>宣告一個變數 newData 為函式，傳入值後再透過 return 傳出。如果利用傳統函式，寫法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> newData = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> item;<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(newData(<span class="hljs-string">&#x27;data&#x27;</span>));<br></code></pre></div></td></tr></table></figure>
+<p>如果要使語法更加精簡，可經由以下步驟一步步慢慢精簡。</p>
+<h2 id="步驟一：去除-function、增加-gt"><a href="#步驟一：去除-function、增加-gt" class="headerlink" title="步驟一：去除 function、增加=&gt;"></a>步驟一：去除 <code>function</code>、增加<code>=&gt;</code></h2><p>首先將 <code>function</code> 這個單字去除，然後再參數後 <code>&#123;&#125;</code> 前加上 <code>=&gt;</code> 箭頭函式，就達成初步的精簡；這兩個部分必須同時達成。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> newData = <span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> item;<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(newData(<span class="hljs-string">&#x27;data&#x27;</span>));<br></code></pre></div></td></tr></table></figure>
+<h2 id="步驟二：去除-與-return"><a href="#步驟二：去除-與-return" class="headerlink" title="步驟二：去除 {} 與 return"></a>步驟二：去除 <code>&#123;&#125;</code> 與 <code>return</code></h2><p>再來就是要同時去除 <code>&#123;&#125;</code> 與 <code>return</code>，這兩部分是一組的，所以必須同時存在或移除。如此一來就能夠將語法精簡至一行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> newData = <span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item;<br><br><span class="hljs-built_in">console</span>.log(newData(<span class="hljs-string">&#x27;data&#x27;</span>));<br></code></pre></div></td></tr></table></figure>
+<h2 id="步驟三：只有一個參數時，可去除"><a href="#步驟三：只有一個參數時，可去除" class="headerlink" title="步驟三：只有一個參數時，可去除 ()"></a>步驟三：只有一個參數時，可去除 <code>()</code></h2><p>再來如果你的參數只有一個，就可以將包覆參數的 <code>()</code> 移除。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> newData = <span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item;<br><br><span class="hljs-built_in">console</span>.log(newData(<span class="hljs-string">&#x27;data&#x27;</span>));<br></code></pre></div></td></tr></table></figure>
+<p>但是如果函式沒有任呵參數的話，就必須留下括號。範例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-keyword">let</span> newData = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;data&#x27;</span>;<br><br><span class="hljs-built_in">console</span>.log(newData());<br></code></pre></div></td></tr></table></figure>
+<p>如果有兩個參數以上，也要加入括號。這樣才能夠使用逗號 <code>,</code> 區分參數。</p>
+<h2 id="清楚了嗎？最後再來用-map-示範一次吧！"><a href="#清楚了嗎？最後再來用-map-示範一次吧！" class="headerlink" title="清楚了嗎？最後再來用 map() 示範一次吧！"></a>清楚了嗎？最後再來用 <code>map()</code> 示範一次吧！</h2><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaScript"><span class="hljs-comment">// 傳統寫法</span><br><span class="hljs-keyword">let</span> newData = data.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>&#123;<br>  <span class="hljs-keyword">return</span> item;<br>&#125;)<br><br><span class="hljs-built_in">console</span>.log(newData);<br><br><span class="hljs-comment">// 步驟一：去除 function、增加 =&gt;</span><br><span class="hljs-keyword">let</span> newData = data.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> item;<br>&#125;)<br><br><span class="hljs-built_in">console</span>.log(newData);<br><br><span class="hljs-comment">// 步驟二：去除 &#123;&#125; 與 return</span><br><span class="hljs-keyword">let</span> newData = data.map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item );<br><br><span class="hljs-built_in">console</span>.log(newData);<br><br><span class="hljs-comment">// 步驟三：只有一個參數時，可去除 ()</span><br><span class="hljs-keyword">let</span> newData = data.map(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item );<br><br><span class="hljs-built_in">console</span>.log(newData);<br></code></pre></div></td></tr></table></figure>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>最後還是要提一下，將語法精簡固然很好，不過如果要跟其他人一同協作，還是需要考量一下其他人的 coding style；不過講好就好，我個人是滿喜歡精簡寫法的，畢竟能夠節省空間，除了很有成就感（？）看了也舒適。</p>
+<p>另外 C# 似乎也有箭頭函式，所以不是 JavaScript 獨有的。不過這篇就以 JavaScript 示範為主，就給大家參考一下。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.niclin.tw/2019/09/30/arrow-function-in-javascript/">ES6 箭頭函式 (Arrow functions) « Nic Lin&#39;s Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">鐵人賽：箭頭函式 (Arrow functions) | 卡斯伯 Blog - 前端，沒有極限</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F/">箭頭函式</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Arrow-functions/">Arrow functions</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/php-str-split/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">如何利用 PHP 的 str_split 函式將字串字元一個個分割成字串</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/ActivePresenter/">
+                        <span class="hidden-mobile">ActivePresenter，螢幕錄影好幫手</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/js-arrow-function/';
+          this.page.identifier = '/js-arrow-function/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

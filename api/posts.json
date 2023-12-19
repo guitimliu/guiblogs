@@ -1,0 +1,26 @@
+[
+  {
+    "title": "建立你第一個 Git 版控專案吧！",
+    "image": "http://img.guiblogs.com/index_img/git-init.jpg",
+    "desc": "Git 是一個工程師需要會的一項技能，利用 Git 能夠容易做到版本控制以及與團隊進行專案協作，除了指令外我們能夠透過圖形化介面，幫助整個專案運行的流程更加順暢。 使用 Git 的好處上述提到了版本控",
+    "url": "https://guiblogs.com/git-init/"
+  },
+  {
+    "title": "關於 JavaScript 的 Fucntion 那些事",
+    "image": "http://img.guiblogs.com/index_img/js-function.jpg",
+    "desc": "來把以前 JavaScript 關於 Function 的筆記 Po 上來與大家分享～ 使用函數原因用輸入跟輸出的例子來說明：|輸入|處理|輸出||---|---|---||按電視遙控器|遙控器處理我",
+    "url": "https://guiblogs.com/js-function/"
+  },
+  {
+    "title": "讓 emit 回傳資料給 Vue 父層元件！",
+    "image": "http://img.guiblogs.com/index_img/vue-emit.jpg",
+    "desc": "上一次介紹了 [初步認識 Vue Props，父元件傳入值給子元件！](https://guiblogs.com/vue-props/)，但是然後呢？如果我需要回傳值到父層元件，該怎麼做呢？今天就來介",
+    "url": "https://guiblogs.com/vue-emit/"
+  },
+  {
+    "title": "初步認識 Vue Props，父元件傳入值給子元件！",
+    "image": "http://img.guiblogs.com/index_img/vue-props.jpg",
+    "desc": "Vue 的頁面由一組又一組的元件所組成，其中或多或少會需要元件之間傳遞值，首先如果是父層元件要將值傳給子層元件，該怎麼設定呢？今天就來介紹 Props 這個能夠將值傳遞給子元件的機制。 將資料傳入元件",
+    "url": "https://guiblogs.com/vue-props/"
+  }
+]

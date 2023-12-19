@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="內容發布到網路上，由於都是開放的，不管是你寫的文章、拍攝的相片或是影片，有一定的機率會被轉貼。有些人是無法接受被轉載文章、有些人則是需要事先通知、以及最基本的註明出處。不管是哪一種協議，我們能夠事先在網站或文章上註明，設定 Next 佈景主題的版權區塊至網站上。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="內容發布到網路上，由於都是開放的，不管是你寫的文章、拍攝的相片或是影片，有一定的機率會被轉貼。有些人是無法接受被轉載文章、有些人則是需要事先通知、以及最基本的註明出處。不管是哪一種協議，我們能夠事先在網站或文章上註明，設定 Next 佈景主題的版權區塊至網站上。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 21：在 Hexo 增加作者版權聲明（使用 Next 佈景）">
+<meta property="og:url" content="http://guiblogs.com/hexo30-21/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="內容發布到網路上，由於都是開放的，不管是你寫的文章、拍攝的相片或是影片，有一定的機率會被轉貼。有些人是無法接受被轉載文章、有些人則是需要事先通知、以及最基本的註明出處。不管是哪一種協議，我們能夠事先在網站或文章上註明，設定 Next 佈景主題的版權區塊至網站上。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/GRwOLTU.png">
+<meta property="og:image" content="https://i.imgur.com/UMz9b2N.png">
+<meta property="og:image" content="https://i.imgur.com/A0oMCgJ.png">
+<meta property="og:image" content="https://i.imgur.com/Xs2GpjL.png">
+<meta property="article:published_time" content="2021-10-05T16:02:04.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.324Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="IT 鐵人賽">
+<meta property="article:tag" content="2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/GRwOLTU.png">
+  
+  <title>Day 21：在 Hexo 增加作者版權聲明（使用 Next 佈景） - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Day 21：在 Hexo 增加作者版權聲明（使用 Next 佈景）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-06 00:02" pubdate>
+        2021年10月6日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day 21：在 Hexo 增加作者版權聲明（使用 Next 佈景）</h1>
+            
+            <div class="markdown-body">
+              <p>內容發布到網路上，由於都是開放的，不管是你寫的文章、拍攝的相片或是影片，有一定的機率會被轉貼。有些人是無法接受被轉載文章、有些人則是需要事先通知、以及最基本的註明出處。不管是哪一種協議，我們能夠事先在網站或文章上註明，設定 Next 佈景主題的版權區塊至網站上。</p>
+<a id="more"></a>
+
+<p><img src="https://i.imgur.com/GRwOLTU.png" srcset="/img/loading.gif" lazyload alt="作者版權聲明"></p>
+<blockquote>
+<h2 id="實作方法"><a href="#實作方法" class="headerlink" title="實作方法"></a>實作方法</h2></blockquote>
+<p>進入到 Next 佈景的 _config.yml，找到以下這段語法：</p>
+<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-attr">creative_commons:</span><br>  <span class="hljs-attr">license:</span> <span class="hljs-string">by-nc-sa</span> <span class="hljs-comment"># 使用的版權協議</span><br>  <span class="hljs-attr">sidebar:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 是否於邊欄顯示版權宣告</span><br>  <span class="hljs-attr">post:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 是否於文章內頁顯示版權宣告</span><br>  <span class="hljs-attr">language:</span><br></code></pre></div></td></tr></table></figure>
+<p>如此一來就能夠於網站邊欄或是文章內容底部（可擇一顯示）顯示版權聲明。</p>
+<p><img src="https://i.imgur.com/UMz9b2N.png" srcset="/img/loading.gif" lazyload alt="於網站上顯示版權聲明"></p>
+<h3 id="版權協議"><a href="#版權協議" class="headerlink" title="版權協議"></a>版權協議</h3><p>使用的版權協議，基本上檔案上會有這行註解可選擇：</p>
+<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-comment"># Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span><br></code></pre></div></td></tr></table></figure>
+<p>至於各版權協議的差異，可參考：<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/">關於授權條款</a></p>
+<blockquote>
+<h2 id="自訂內容"><a href="#自訂內容" class="headerlink" title="自訂內容"></a>自訂內容</h2></blockquote>
+<p>如果你想自訂版權宣告區塊的內容，也是可以自訂修改區塊語法。內容及其樣式修改如下：</p>
+<blockquote>
+<ul>
+<li><strong>HTML 內容以及語法</strong>：themes/next/layout/_partials/post/post-copyright.swig</li>
+<li><strong>CSS 樣式</strong>：themes/next/source/css/_common/components/post/post-copyright.styl</li>
+</ul>
+</blockquote>
+<p><img src="https://i.imgur.com/A0oMCgJ.png" srcset="/img/loading.gif" lazyload alt="自訂版權宣告區塊內容"></p>
+<p>如果說我想要在版權宣告區塊左側顯示作者大頭貼，可以將區塊內容代替為以下語法：</p>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-copyright d-flex&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site-author-image&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;image&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&#123;&#123; author &#125;&#125;&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123; url_for(theme.avatar.url) &#125;&#125;&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list-style-none&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-copyright-author&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;&#123; __(&#x27;post.copyright.author&#x27;) + __(&#x27;symbol.colon&#x27;) &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><br>      &#123;&#123;- page.author or author &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-copyright-link&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;&#123; __(&#x27;post.copyright.link&#x27;) + __(&#x27;symbol.colon&#x27;) &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><br>      &#123;&#123; next_url(page.permalink, page.permalink, &#123;title: page.title&#125;) &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-copyright-license&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;&#123; __(&#x27;post.copyright.license_title&#x27;) + __(&#x27;symbol.colon&#x27;) &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><br>      &#123;&#123;- __(&#x27;post.copyright.license_content&#x27;, next_url(ccURL, ccIcon + ccText)) &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-selector-class">.post-copyright</span> &#123;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--card-bg-color);<br>  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">3px</span> solid $red;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">2em</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">padding</span>: .<span class="hljs-number">5em</span> <span class="hljs-number">1em</span>;<br>&#125;<br><span class="hljs-selector-class">.list-style-none</span> &#123;<br>  <span class="hljs-attribute">list-style</span>: none;<br>&#125;<br><span class="hljs-selector-class">.d-flex</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>我將原本 .post-copyright 放置到父層，並將原先 .post-copyright 內的 <code>list-style: none;</code> 另外設定一個類別選擇器，因為那是針對 ul 內 li 不要出現項目標籤使用，並放置於 ul。在設定一個 <code>display: flex;</code> 類別選擇器並指定於父層 div，使區塊元素能夠以水平方式排列。</p>
+<p>設定完後顯示成果如下，大家也可以修改成自己想要的樣式！</p>
+<p><img src="https://i.imgur.com/Xs2GpjL.png" srcset="/img/loading.gif" lazyload alt="自訂內容：將大頭貼新增到版權宣告區塊"></p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://blog.amdoing.com/the-post-copyright-in-hexo-next/">使用Hexo的next主题，配置POST文章文末的版权信息</a></li>
+</ul>
+<blockquote>
+<p>本篇文章同步發布於 <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10278151">iT 邦幫忙</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+                    
+                      <a class="hover-with-bg" href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/hexo30-22/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day 22：如何增加你 Hexo 的選單 Icon？</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/hexo30-20/">
+                        <span class="hidden-mobile">Day 20：設定 404 頁面，不要讓讀者迷路了！</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/hexo30-21/';
+          this.page.identifier = '/hexo30-21/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

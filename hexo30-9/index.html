@@ -1,0 +1,618 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="今天我們正式要使用 Markdown 撰寫你的第一篇部落格文章啦！">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="今天我們正式要使用 Markdown 撰寫你的第一篇部落格文章啦！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 9：使用 Typora 發表你的第一篇 Hexo 文章">
+<meta property="og:url" content="http://guiblogs.com/hexo30-9/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="今天我們正式要使用 Markdown 撰寫你的第一篇部落格文章啦！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/3kRRlYO.png">
+<meta property="og:image" content="https://i.imgur.com/4Vf9gu0.png">
+<meta property="og:image" content="https://i.imgur.com/Q4Huxh6.png">
+<meta property="og:image" content="https://i.imgur.com/dM2436B.png">
+<meta property="og:image" content="https://i.imgur.com/J4PAK40.png">
+<meta property="og:image" content="https://i.imgur.com/lymLWme.png">
+<meta property="og:image" content="https://i.imgur.com/6pVmnus.png">
+<meta property="og:image" content="https://i.imgur.com/3eoGEYy.png">
+<meta property="og:image" content="https://i.imgur.com/Qm01rnY.png">
+<meta property="og:image" content="https://i.imgur.com/jPR5T7T.png">
+<meta property="og:image" content="https://i.imgur.com/lSiN8mt.png">
+<meta property="og:image" content="https://i.imgur.com/3HJPdO5.png">
+<meta property="article:published_time" content="2021-09-24T06:39:14.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.321Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="IT 鐵人賽">
+<meta property="article:tag" content="2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/3kRRlYO.png">
+  
+  <title>Day 9：使用 Typora 發表你的第一篇 Hexo 文章 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Day 9：使用 Typora 發表你的第一篇 Hexo 文章">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-24 14:39" pubdate>
+        2021年9月24日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day 9：使用 Typora 發表你的第一篇 Hexo 文章</h1>
+            
+            <div class="markdown-body">
+              <p>今天我們正式要使用 Markdown 撰寫你的第一篇部落格文章啦！</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="用指令建立文章或草稿-md-檔"><a href="#用指令建立文章或草稿-md-檔" class="headerlink" title="用指令建立文章或草稿 .md 檔"></a>用指令建立文章或草稿 .md 檔</h2></blockquote>
+<p>首先，打開 Git 輸入以下指令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-comment"># 指定部落格目錄</span><br><span class="hljs-built_in">cd</span> 部落格目錄<br><br><span class="hljs-comment"># 建立文章 .md 檔</span><br>hexo new <span class="hljs-string">&quot;文章名稱（網址用）&quot;</span><br><span class="hljs-comment"># 建立草稿 .md 檔</span><br>hexo new draft <span class="hljs-string">&quot;文章名稱（網址用）&quot;</span><br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/3kRRlYO.png" srcset="/img/loading.gif" lazyload alt="hexo new"></p>
+<!-- ![](https://i.imgur.com/tXt21xt.png) -->
+
+<p>照著 Git 回傳的路徑（基本上會放置在 <code>./source/_post</code> 內 ），回到 VScode 查看左側目錄列表，就可以看到檔案已經新增，並且有附上一些文章必備資訊。</p>
+<p><img src="https://i.imgur.com/4Vf9gu0.png" srcset="/img/loading.gif" lazyload alt="VScode 目錄"></p>
+<p>至於若是建立草稿（文章與頁面都可），可以看到建立的 .md 檔會放置在 <code>./source/_drafts</code> 內，存放在 <code>_drafts</code> 目錄內的檔案不會被建立成文章或是頁面，因此如果你想先建立檔案但不一定要先發佈，可以先建立成草稿，等到要發佈時，在移動到 _post 目錄內或是獨立建成一個頁面。（頁面部分會於明天說明）</p>
+<p><img src="https://i.imgur.com/Q4Huxh6.png" srcset="/img/loading.gif" lazyload alt="建立草稿文章"></p>
+<blockquote>
+<h2 id="使用-Typora-撰寫文章"><a href="#使用-Typora-撰寫文章" class="headerlink" title="使用 Typora 撰寫文章"></a>使用 Typora 撰寫文章</h2></blockquote>
+<p>屆時我們可以利用 Typora 開啟這個 .md 檔，利用專門的 Markdown 編輯器可以幫助我們更省力於文章撰寫上。</p>
+<p><img src="https://i.imgur.com/dM2436B.png" srcset="/img/loading.gif" lazyload alt="使用 Typora 撰寫文章"></p>
+<blockquote>
+<h2 id="設定文章資訊"><a href="#設定文章資訊" class="headerlink" title="設定文章資訊"></a>設定文章資訊</h2></blockquote>
+<p>再來我們可以看到預設檔案建立之後，會附帶一些資訊，預設有常見的 <code>title</code>、<code>date</code> 以及 <code>tags</code>，而我自己還會再加上 <code>categories</code>，那分別代表什麼呢？</p>
+<ul>
+<li>title 文章標題</li>
+<li>date 文章建立日期 / 時間，預設會抓檔案建立日期</li>
+<li>tags 文章標籤</li>
+<li>categories 文章分類</li>
+</ul>
+<p>至於文章網址則會抓你的檔案名稱，所以如果你希望網址是英文呈現的話，就要想個英文名稱。</p>
+<h3 id="設定範例"><a href="#設定範例" class="headerlink" title="設定範例"></a>設定範例</h3><figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">---<br>title: 我的第一篇文章<br>date: 2021-08-27 14:30:40 &lt;!-- 預設即可 --&gt;<br>tags:<br><span class="hljs-bullet">-</span> [文章標籤一]<br><span class="hljs-bullet">-</span> [文章標籤二]<br>categories:<br><span class="hljs-bullet">-</span> [文章分類]<br>---<br></code></pre></div></td></tr></table></figure>
+<p>標籤與文章分類我建議都使用 <code>- []</code> 包覆，因為其中分類有加中括號跟沒加會有不一樣的效果，這部分我們會於日後篇章再來說明這部分的差異。</p>
+<blockquote>
+<h2 id="開始撰寫文章啦！"><a href="#開始撰寫文章啦！" class="headerlink" title="開始撰寫文章啦！"></a>開始撰寫文章啦！</h2></blockquote>
+<p>關於一般文章會使用到的 Markdown 撰寫可搭配昨天篇章「<a href="https://guiblogs.com/hexo30-8/">Day 8：先別急著撰寫文章，你聽過 Markdown 嗎？</a>」一起服用，雙重享受（？</p>
+<p><del>所以今天這篇文章就到這裡結束了</del>（不是這樣的吧 XD）好啦還有，接下來的部分就會比較著重在 Typora 本身功能的設定，只要能夠善用，就能夠提升文章撰寫的效率。</p>
+<h3 id="挑選一個順眼的編輯器主題"><a href="#挑選一個順眼的編輯器主題" class="headerlink" title="挑選一個順眼的編輯器主題"></a>挑選一個順眼的編輯器主題</h3><p>撰寫一篇文章需要花費時間大約是一至兩個小時，一個順眼的編輯器絕對相當重要啊！就如同許多編輯器都有提供多種不同的編輯器主題，Typora 本身也內建立了五個主題可讓我們做切換選擇，我自己平常是使用 Night 這個主題，圖下圖所示。大家也可以找個順眼的主題看看。</p>
+<p><img src="https://i.imgur.com/J4PAK40.png" srcset="/img/loading.gif" lazyload alt="編輯器主題"></p>
+<h3 id="選取文字範圍按右鍵"><a href="#選取文字範圍按右鍵" class="headerlink" title="選取文字範圍按右鍵"></a>選取文字範圍按右鍵</h3><p><img src="https://i.imgur.com/lymLWme.png" srcset="/img/loading.gif" lazyload alt="選取文字範圍按右鍵"></p>
+<p>選取文字範圍按右鍵後，可以看到許多類似像所見即所得的工具列選項，當你點擊「B」，所選取文字範圍就會變成粗體。由左上到右下總共分別有：</p>
+<ul>
+<li>B 粗體</li>
+<li><em>I</em> 斜體</li>
+<li>&lt;/&gt; 程式碼區塊</li>
+<li>🔗 鏈結<ul>
+<li>必須先複製一個鏈結，按下它後所選取範圍就會產生鏈結</li>
+</ul>
+</li>
+<li>雙逗號：引用區塊</li>
+<li>有序清單（有標數字的清單）</li>
+<li>無序清單（本清單即使此清單）</li>
+<li><ul>
+<li><input disabled="" type="checkbox"> 核取方塊</li>
+</ul>
+</li>
+</ul>
+<h3 id="選取文字範圍按右鍵：段落"><a href="#選取文字範圍按右鍵：段落" class="headerlink" title="選取文字範圍按右鍵：段落"></a>選取文字範圍按右鍵：段落</h3><p><img src="https://i.imgur.com/6pVmnus.png" srcset="/img/loading.gif" lazyload alt="選取文字範圍按右鍵：段落"></p>
+<p>這部分會自動幫我們產生出各級段落 # 字號。</p>
+<h3 id="右鍵-—-gt-插入"><a href="#右鍵-—-gt-插入" class="headerlink" title="右鍵 —&gt; 插入"></a>右鍵 —&gt; 插入</h3><p><img src="https://i.imgur.com/3eoGEYy.png" srcset="/img/loading.gif" lazyload alt="右鍵 ---&gt; 插入"></p>
+<p>這裡可以插入一些像是圖片、註解等等資訊，不過我自己是很少用啦，當然大家也可以玩玩看。</p>
+<h3 id="貼上截圖產生圖片"><a href="#貼上截圖產生圖片" class="headerlink" title="貼上截圖產生圖片"></a>貼上截圖產生圖片</h3><p>我自己做撰寫時是不太使用右鍵插入的方式，因為當你截圖並且目前已經複製那張圖片時，直接在 Typora 內貼上，它就會自動產生出圖片啦！</p>
+<p><img src="https://i.imgur.com/Qm01rnY.png" srcset="/img/loading.gif" lazyload alt="貼上截圖產生圖片"></p>
+<p><code>![提示文字](圖片網址)</code> 便是圖片的 Markdown 語法，而使用此方式我們只須填上提示文字就好，檔案已經進行產生。不過如果覺得這路徑有點難找的話，按下上面工具列的「檔案」 —&gt; 「偏好設定」來到設定頁面，再來點選左邊選單的「圖片」就能夠進行圖片儲存路徑設定。</p>
+<p><img src="https://i.imgur.com/jPR5T7T.png" srcset="/img/loading.gif" lazyload alt="設定圖片儲存路徑"></p>
+<p>不過我個人認為美中不足的點是它目前僅提供產生 .png 檔，不然其實 .jpg 的檔案大小會比較小，所以我自己都會特別用線上工具把圖片檔轉成 .jpg 後再上傳，只希望能夠盡快提供副檔名選項給我們選擇了 QQ</p>
+<p>至於圖片空間的部分……因為我自己的方法需要使用到自己的網址比較不一樣，這邊我就不做分享。不過我自己在找相關資料時是有查到「<a target="_blank" rel="noopener" href="https://pjchender.blogspot.com/2020/08/app-typora-imgur-for-mac.html">[App] Typora 自動上傳圖片到 imgur (for Mac)</a>」，不過我自己是沒有試過，各位可以試試看。</p>
+<p>對了，如果覺得自動化有點複雜，也是可以直接使用 Imgur 提供的圖片上傳平台來上傳圖片。至於我自己使用的方法，目前預計會分享在 31 天之後的「彩蛋篇」，大家可以期待一下！</p>
+<blockquote>
+<h2 id="產生文章頁面"><a href="#產生文章頁面" class="headerlink" title="產生文章頁面"></a>產生文章頁面</h2></blockquote>
+<p>OK，當文章編輯完成後，要如何產生文章呢？其實很簡單，執行 <code>hexo g</code> 指令產生頁面就好了，然後再執行 <code>hexo g</code> 產生虛擬伺服器就可以看到我們撰寫的文章囉！</p>
+<blockquote>
+<h2 id="文章太長怎麼辦？"><a href="#文章太長怎麼辦？" class="headerlink" title="文章太長怎麼辦？"></a>文章太長怎麼辦？</h2></blockquote>
+<p>產生文章後回到首頁，發現整篇文章內容都顯示在首頁上。如果只想要顯示第一段內容，其他內容則引導讀者點擊標題或點閱讀全文進去瀏覽的話，該怎麼做呢？</p>
+<p><img src="https://i.imgur.com/lSiN8mt.png" srcset="/img/loading.gif" lazyload alt="文章太長怎麼辦？"></p>
+<p>在想要截斷的地方（例如第一段結束），加入以下這段語法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">&lt;!-- more  --&gt;<br></code></pre></div></td></tr></table></figure>
+<p>重新 <code>hexo g</code>、<code>hexo s</code> 後，回到首頁，就能看到首頁僅顯示第一段內容，並出現了「閱讀全文」按鈕。</p>
+<p><img src="https://i.imgur.com/3HJPdO5.png" srcset="/img/loading.gif" lazyload alt="加入閱讀全文按鈕"></p>
+<blockquote>
+<h2 id="刪除文章"><a href="#刪除文章" class="headerlink" title="刪除文章"></a>刪除文章</h2></blockquote>
+<p>如果要刪除文章該怎麼辦呢？也很簡單，只要把文章 .md 檔案刪除就可以了。</p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>撰寫完文章後，明天的篇章會是有關於 Hexo 文章分類、標籤與自訂頁面建立，大家再一起加油，後天就要將部落格部署到網路上啦～</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://orandigo.github.io/blog/2020/03/08/20200308-hexo/">Hexo 主題設定</a></li>
+</ul>
+<blockquote>
+<p>本篇文章同步發布於 <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10271160">iT 邦幫忙</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IT-%E9%90%B5%E4%BA%BA%E8%B3%BD/">IT 鐵人賽</a>
+                    
+                      <a class="hover-with-bg" href="/tags/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD%EF%BC%9A30-%E5%A4%A9%E5%88%A9%E7%94%A8-Hexo-%E6%89%93%E9%80%A0%E6%8A%80%E8%A1%93%E9%83%A8%E8%90%BD%E6%A0%BC/">2021 iThome 鐵人賽：30 天利用 Hexo 打造技術部落格</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/hexo30-10/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day 10：為你的 Hexo 增加頁面：標籤、分類與自訂頁面</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/hexo30-8/">
+                        <span class="hidden-mobile">Day 8：先別急著撰寫文章，你聽過 Markdown 嗎？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/hexo30-9/';
+          this.page.identifier = '/hexo30-9/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

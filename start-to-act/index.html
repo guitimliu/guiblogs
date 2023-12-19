@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="今天看著自己的 Hackmd 檢視一下今年的學習紀錄（也是今年才開始使用 Hackmd），接著發現了年初的 Git 筆記，發現自己差不多看懂了至少八成（原本感覺超難 XD），因此來有感而發寫了這篇文章。
+">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="今天看著自己的 Hackmd 檢視一下今年的學習紀錄（也是今年才開始使用 Hackmd），接著發現了年初的 Git 筆記，發現自己差不多看懂了至少八成（原本感覺超難 XD），因此來有感而發寫了這篇文章。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你要開始才有機會變得很厲害：我是如何開始學習 Git 的？">
+<meta property="og:url" content="http://guiblogs.com/start-to-act/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="今天看著自己的 Hackmd 檢視一下今年的學習紀錄（也是今年才開始使用 Hackmd），接著發現了年初的 Git 筆記，發現自己差不多看懂了至少八成（原本感覺超難 XD），因此來有感而發寫了這篇文章。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/Urldmwr.jpg">
+<meta property="article:published_time" content="2021-11-21T15:36:03.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.326Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="學習歷程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/Urldmwr.jpg">
+  
+  <title>你要開始才有機會變得很厲害：我是如何開始學習 Git 的？ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="你要開始才有機會變得很厲害：我是如何開始學習 Git 的？">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-21 23:36" pubdate>
+        2021年11月21日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">你要開始才有機會變得很厲害：我是如何開始學習 Git 的？</h1>
+            
+            <div class="markdown-body">
+              <p>今天看著自己的 Hackmd 檢視一下今年的學習紀錄（也是今年才開始使用 Hackmd），接著發現了年初的 Git 筆記，發現自己差不多看懂了至少八成（原本感覺超難 XD），因此來有感而發寫了這篇文章。</p>
+<p><img src="https://i.imgur.com/Urldmwr.jpg" srcset="/img/loading.gif" lazyload alt="開始行動"></p>
+<a id="more"></a>
+
+<h2 id="回憶當初，Git-與-GitHub-傻傻分不清楚的故事"><a href="#回憶當初，Git-與-GitHub-傻傻分不清楚的故事" class="headerlink" title="回憶當初，Git 與 GitHub 傻傻分不清楚的故事"></a>回憶當初，Git 與 GitHub 傻傻分不清楚的故事</h2><p>雖然我念資管系，但我第一次使用 GitHub（不是 Git 喔 XD）是在大三下的時候，而且我上傳檔案那些都是用 GitHub 的介面進行操作，對我幾乎不會指令，那時候我也根本就搞不清楚 GitHub 與 Git 的差別。</p>
+<p>所以那時找面試時，面試官問我會不會 Git，<del>因為我自認使用過 GitHub 所以我就說會</del>，先跟面試過我的面試官們說聲抱歉 XD</p>
+<p>後來到了我實習的公司，使用 GitLab 進行版控時，我也是整個一蹋糊塗，然後我一樣是用介面慢慢將檔案上傳上去 XDDD 這時候雖然我知道 Git 跟這些服務是不一樣的，不過坦白說我還是覺得很難啊！不過也很感謝當時的同事教了我許多，所以也才會有那篇我寫下來的 Git 指令筆記。</p>
+<h2 id="開始學習撰寫指令的歷程"><a href="#開始學習撰寫指令的歷程" class="headerlink" title="開始學習撰寫指令的歷程"></a>開始學習撰寫指令的歷程</h2><p>畢竟快畢業了，也必須為自己未來的技能樹作打算跟準備，那時候看著網路上工程師必備技能，好像是 PTT 吧，看到有網友說「Git 不算是技能吧，根本是標配」（我忘記真實怎麼說了，這句話是記憶中拼湊起來的 XD）我自己心裡感到問號？？我認為這些指令超難啊…</p>
+<p>接下來的事情我想如果你有看我的鐵人賽文章，應該就會知道。我為了想要建立自己的技術部落格，所以開始了 Hexo 的學習之路。架設 Hexo 你必須要使用到指令去進行操作。也讓我開始去習慣觸碰指令的東西。</p>
+<h2 id="好像漸漸上手了？"><a href="#好像漸漸上手了？" class="headerlink" title="好像漸漸上手了？"></a>好像漸漸上手了？</h2><p>其實這就好比健身去刺激肌肉，讓身體開始慢慢習慣愈來愈重的重量。開始接觸這些指令之後，雖然一開始障礙是真的滿多的，不過你就是得用才能繼續維護部落格嘛 XD 也就必須慢慢習慣了。</p>
+<p>雖然在今年五月之前我對部落格的關懷（？）是比較少的，所以相對來說使用指令的時間也沒想像中多。但還是起了一些作用；五月中因為疫情爆發，在家時間變長了，因此就開始更加勤奮學習，那時候我是看六角學院的 YouTube Git 教學，結果我發現前十步我至少都聽得懂…？</p>
+<p>是的，誤打誤撞的學習，雖然覺得有點難，但因為至少我開始有想要來認識 Git，慢慢的也就熟悉了。</p>
+<h2 id="進步是一點一滴累積起來的"><a href="#進步是一點一滴累積起來的" class="headerlink" title="進步是一點一滴累積起來的"></a>進步是一點一滴累積起來的</h2><p>有時候學習不要怕慢，因為慢才能將東西學習的更透徹、紮實，雖然我的 Git 也沒有到多強啦… 還是新手一枚，但是透過每次學習一些，慢慢地就會發現自己跟半年甚至一年前有很大的不同。</p>
+<p>看著那篇筆記，當初我是不懂的打完了那篇筆記，但現在的我看到卻已經能看懂大部分，我想這就是每天進步一些的成果吧。</p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>有時候開始才是最難的，就像當初感覺學習指令超難的啊，看到指令教學文就先退後 XD 但不管如何，就先開始吧！這句話我之前參加鐵人賽就重複兩次，但我還是想再重複，因為太重要了就來湊滿第三次吧（？）「你不需要一開始就很厲害，但必須要開始才有機會變得很厲害」與大家共勉之！</p>
+<p>也快年底了，讓我們再加把勁努力完成年初所許下的目標！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/learn/">學習</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%B8%E7%BF%92%E6%AD%B7%E7%A8%8B/">學習歷程</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/ActivePresenter/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ActivePresenter，螢幕錄影好幫手</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/new-theme-fluid/">
+                        <span class="hidden-mobile">部落格成立九個月了，為它換上新衣吧！</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/start-to-act/';
+          this.page.identifier = '/start-to-act/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

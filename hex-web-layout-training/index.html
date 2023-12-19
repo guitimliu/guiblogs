@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="如果你有長期在追蹤我的部落格就會發現，我近期發表的文章基本上都是跟 CSS 相關的。主要原因是我參加了六角學院的網頁切版直播班，那些都是我的課堂筆記。雖然我的筆記還沒全部補完 QQ 不過就先來發表一下我參與六角學院切版班的心得吧。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="如果你有長期在追蹤我的部落格就會發現，我近期發表的文章基本上都是跟 CSS 相關的。主要原因是我參加了六角學院的網頁切版直播班，那些都是我的課堂筆記。雖然我的筆記還沒全部補完 QQ 不過就先來發表一下我參與六角學院切版班的心得吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="六角學院網頁切版直播班，我的上課心得">
+<meta property="og:url" content="http://guiblogs.com/hex-web-layout-training/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="如果你有長期在追蹤我的部落格就會發現，我近期發表的文章基本上都是跟 CSS 相關的。主要原因是我參加了六角學院的網頁切版直播班，那些都是我的課堂筆記。雖然我的筆記還沒全部補完 QQ 不過就先來發表一下我參與六角學院切版班的心得吧。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/hex-web-layout-training/week1-task.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hex-web-layout-training/week8-task.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hex-web-layout-training/daily-task.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hex-web-layout-training/kata-award.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/hex-web-layout-training/presentation.jpg">
+<meta property="article:published_time" content="2021-09-05T15:15:43.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.320Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="網頁">
+<meta property="article:tag" content="切版">
+<meta property="article:tag" content="上課心得">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/hex-web-layout-training/week1-task.jpg">
+  
+  <title>六角學院網頁切版直播班，我的上課心得 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="六角學院網頁切版直播班，我的上課心得">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-05 23:15" pubdate>
+        2021年9月5日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">六角學院網頁切版直播班，我的上課心得</h1>
+            
+            <div class="markdown-body">
+              <p>如果你有長期在追蹤我的部落格就會發現，我近期發表的文章基本上都是跟 CSS 相關的。主要原因是我參加了六角學院的網頁切版直播班，那些都是我的課堂筆記。雖然我的筆記還沒全部補完 QQ 不過就先來發表一下我參與六角學院切版班的心得吧。</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="當初為何選這門課？"><a href="#當初為何選這門課？" class="headerlink" title="當初為何選這門課？"></a>當初為何選這門課？</h2></blockquote>
+<p>當初我已經參與了六角舉辦的 Bootstrap 5 體驗營以及程式體驗營，那時就有看到切版班在招募學員，不過我一開始沒有報名。後來加開我才報名的 XD</p>
+<p>主要是程式體驗營時邊看課程邊做筆記，雖然看起來都會了，但是真的會了嗎？還是自以為會了，真正要做出一個作品時又卡了，因此最後就決定花錢來買了課程。</p>
+<blockquote>
+<h2 id="遊戲化課程設計"><a href="#遊戲化課程設計" class="headerlink" title="遊戲化課程設計"></a>遊戲化課程設計</h2></blockquote>
+<p>六角將整個課程以類似遊戲化破關的方式進行，以網頁切版直播班為例，報到、八週主線任務以及心得任務（就是你現在看到的這一篇 XD），每完成一項就會增加 10 分，課程結束後結算，屆時會根據你達到多少分，給出相對應的獎賞。</p>
+<h3 id="影音課程"><a href="#影音課程" class="headerlink" title="影音課程"></a>影音課程</h3><p>雖然是直播班，不過六角還是有提供一些基礎的影音課程，適課程進度會再陸續補充一些內容。因為我之前有取得六角舉辦的程式體驗營影音課程觀看權，基本上很多都看過，複習時也感到輕鬆自在 XD</p>
+<p>不過，血汗的還在後面呢 …</p>
+<h3 id="直播課程"><a href="#直播課程" class="headerlink" title="直播課程"></a>直播課程</h3><p>每週五是大家的集合時間，課程的主要老師 - 六角學院校長會親自授課，不過因為較為基礎的內容都會事先提供影音課程，所以通常老師所講內容會比較偏向同學們通常會遇到的問題，其中也會讓同學問問題，因此能夠在這個時段即時與校長互動與交流。</p>
+<blockquote>
+<h2 id="地獄般的作業"><a href="#地獄般的作業" class="headerlink" title="地獄般的作業"></a>地獄般的作業</h2></blockquote>
+<h3 id="主線任務"><a href="#主線任務" class="headerlink" title="主線任務"></a>主線任務</h3><p>直播課程開始後，每週會有個主線任務，基本就是要切出一個網頁出來，這也是最血汗的部分 XD</p>
+<p>這是第一週的作業，只有一頁，也沒有 RWD，非常的單純。</p>
+<p><img src="https://img.guiblogs.com/hex-web-layout-training/week1-task.jpg" srcset="/img/loading.gif" lazyload alt="第一週主線任務"></p>
+<p>這是第八週的作業，這一次設計稿含 RWD 總共有 30 頁，非常之狂 QQ</p>
+<p><img src="https://img.guiblogs.com/hex-web-layout-training/week8-task.jpg" srcset="/img/loading.gif" lazyload alt="第八週主線任務"></p>
+<p>詳細可以到我 GitHub 看作品，我就不貼給大家了，因為我根本還沒完成啊 XDD 然後今天要提交作業，我只能先提交現在的版本上去了（嘆）然後趁助教批給前在趕工一下 XD</p>
+<h3 id="每日任務"><a href="#每日任務" class="headerlink" title="每日任務"></a>每日任務</h3><p>這是我滿喜歡的一個服務，主線任務最少都要切出一個完整網頁，需要使用的知識也較多。</p>
+<p>而每日任務則是將每週進度切分成一個個小題目，讓學員每天花 10 - 15 分鐘的時間，練習一個小知識點，每天進步一點點，回頭卻發現已經學習了許多。我覺得比起主線任務，每日任務的學習壓力小很多啊 XDD（但也是因為主線任務有時間壓力啦）</p>
+<p><img src="https://img.guiblogs.com/hex-web-layout-training/daily-task.jpg" srcset="/img/loading.gif" lazyload alt="每日任務"></p>
+<h3 id="努力還是有收穫的（？）"><a href="#努力還是有收穫的（？）" class="headerlink" title="努力還是有收穫的（？）"></a>努力還是有收穫的（？）</h3><p>第一週老師下了個挑戰：前三位在五分鐘內完成 kata 作業（想知道Kata 是什麼<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kata_(programming)">可參考這篇</a>），就會贈書，我發現自己好像有機會能夠達成，馬上就來嘗試看看。最終…</p>
+<p><img src="https://img.guiblogs.com/hex-web-layout-training/kata-award.jpg" srcset="/img/loading.gif" lazyload alt="Kata 獎勵"></p>
+<p>拿到了這本「金魚都能懂的 CSS 選取器」，這本幫助了無數次在夜晚撰寫作業的我啊（感動 + 淚崩）</p>
+<blockquote>
+<h2 id="遇到問題怎麼辦？"><a href="#遇到問題怎麼辦？" class="headerlink" title="遇到問題怎麼辦？"></a>遇到問題怎麼辦？</h2></blockquote>
+<p>六角有很強大的助教團，除了批改學員的作業以外，再來就是在第四週開始，每週一到五下午一時到五時的每日助教服務，幫助學員在撰寫作業的過程中如果遇到問題，能夠在短時間內獲得助教的回復。</p>
+<p>另外我很喜歡六角的互助風氣，同學遇到問題時，不只是助教會回答，校長跟幾個大神還有同學根本像是住在 Slack 似的，都會一起幫忙同學解決問題。</p>
+<blockquote>
+<h2 id="成果發表會"><a href="#成果發表會" class="headerlink" title="成果發表會"></a>成果發表會</h2></blockquote>
+<p>是的，努力了兩個多月的時間，六角也會為學員舉辦成果發表會，讓課程內的同學能夠藉由分享自己的經歷，與其他同學交流。</p>
+<p><img src="https://img.guiblogs.com/hex-web-layout-training/presentation.jpg" srcset="/img/loading.gif" lazyload alt="成果發表會"></p>
+<h3 id="我也報名了！"><a href="#我也報名了！" class="headerlink" title="我也報名了！"></a>我也報名了！</h3><p>再來就是我不知道哪根筋不對去報名了，結果到了發表會當日我還有很多地方沒完成啊（GG… ）不過怎麼能臨陣脫逃呢？成發有大神技術的精彩演說，當然也要有北爛的演說（不是啦）是我如何安排學習、利用什麼心態學習的。</p>
+<p>另外也秉持著「我就爛」，反正也就這樣了啦，相信會更好的態度 XD</p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<h3 id="上完課我學習到什麼？"><a href="#上完課我學習到什麼？" class="headerlink" title="上完課我學習到什麼？"></a>上完課我學習到什麼？</h3><p>原先最基本的 SCSS 或是 Bootstrap 都會使用，不過更進階的設計模式或是開發就不太會了，命名部分也是不太知道怎麼命名。</p>
+<p>我認為我的成長有：</p>
+<ol>
+<li>校長非常強調 Emmet 的刻意練習，我對 Emmet 的掌握度提升了。</li>
+<li>讓我更理解如何更精準進行排版，1px 不差。</li>
+<li>如何更有效率運用通用類別，並且為它們進行命名。</li>
+<li>了解 Bootstrap 更深層的應用。</li>
+<li>善用設計模式設計 CSS，並且搭配 Bootstrap、SCSS 實作。</li>
+</ol>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>上完這門課我自己是感到不後悔的，雖然一開始覺得說我這懂一些觀念的來上會不會太基礎，但是完全不會，只會切版切到懷疑人生 XD</p>
+<p>然後我接續報名 JavaScript 直播班了…希望上完課我的肝還是新鮮的（Q</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/learn/">學習</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%B6%B2%E9%A0%81/">網頁</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%87%E7%89%88/">切版</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%B8%8A%E8%AA%B2%E5%BF%83%E5%BE%97/">上課心得</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/SITCON-2021/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SITCON 2021 學生計算機年會，我的參與初體驗</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/sass-variable/">
+                        <span class="hidden-mobile">Sass / SCSS 筆記：如何利用變數管理重複設定值？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/hex-web-layout-training/';
+          this.page.identifier = '/hex-web-layout-training/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

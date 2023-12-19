@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="CSS 除了透過 img 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="CSS 除了透過 img 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？">
+<meta property="og:url" content="http://guiblogs.com/css-background/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="CSS 除了透過 img 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-07-18T14:40:57.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.318Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="background">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-18 22:40" pubdate>
+        2021年7月18日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">什麼是 background？跟 img 的差別？image、repeat、color 以及 position 等屬性又該如何設定？</h1>
+            
+            <div class="markdown-body">
+              <p>CSS 除了透過 img 顯示圖片外，還有 background 可以用於顯示背景圖片，當然它並不只有背景圖片的技巧，如果要設定背景顏色也是可以的，今天就來介紹一下 background 相關應用。</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="何時用-img-或是-background？他們又有什麼差別？"><a href="#何時用-img-或是-background？他們又有什麼差別？" class="headerlink" title="何時用 img 或是 background？他們又有什麼差別？"></a>何時用 img 或是 background？他們又有什麼差別？</h2></blockquote>
+<p>img 這個標籤主要就是用來表示影像，就像 video 用來表示影片那樣（雖然我知道這樣舉例很爛，等我想一下怎麼說會更好再更新 XD）；而 background 則是設定區塊像是 div 除了文字外，也能夠設定其區塊背景圖片以及顏色。</p>
+<p>一般來講，如果你的圖片會跟後端結合，由資料庫回傳要顯示圖片的 URL，一般來講就會使用 img 標籤來顯示圖片，因為能夠透過後端語言或是 JavaScript 控制 HTML，將資料庫資料一筆一筆傳入網頁，但不太能直接控制 CSS 檔案；相反的如果像是背景圖、或是一些比較少換的影像，可能擺在那邊兩三年都不會換，即可直接在 CSS 使用 background。</p>
+<p>但有沒有可能我也要動態更換 background 圖片？當然有可能，這篇文章也會提到其解決方法。</p>
+<blockquote>
+<h2 id="載入背景圖片-background-image"><a href="#載入背景圖片-background-image" class="headerlink" title="載入背景圖片 background-image"></a>載入背景圖片 background-image</h2></blockquote>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(背景圖片網址);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><code>background-image</code> 可用於設定背景圖片網址，可是絕對路徑或是相對路徑。另外也可以針對 box 設定寬度與寬度，限縮 .box 範圍後，也就會影響背景圖片在整體網頁占比。</p>
+<h3 id="如果想動態更換-background-image-怎麼辦？"><a href="#如果想動態更換-background-image-怎麼辦？" class="headerlink" title="如果想動態更換 background-image 怎麼辦？"></a>如果想動態更換 background-image 怎麼辦？</h3><p>由於後端語言不太能直接控制 CSS 檔案（我不知道是不是真的不能，但以我目前所學到的是不能 XD）所以就會透過後端語言或是 JavaScript 控制 HTML 的 Element 來撰寫：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-image: url(這裡撰寫放置 URL 的變數)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>雖然因為權重關係我們盡量不會去使用 Element 設定 CSS，但是如果要透過 HTML 動態設定 CSS，一般來講就會透過 Element 來去設定 CSS，像是進度條的進度百分比也可以透過這樣的方式設定。</p>
+<blockquote>
+<h2 id="控制圖片重複顯示：background-repeat"><a href="#控制圖片重複顯示：background-repeat" class="headerlink" title="控制圖片重複顯示：background-repeat"></a>控制圖片重複顯示：background-repeat</h2></blockquote>
+<p>若容器過大、而背景圖片尺寸卻小於容器，自動來說圖片會自動填滿容器其它區域，因此利用 <code>background-repeat</code> 屬性，可以控制圖片是否要重複。設定共有：</p>
+<ul>
+<li>repeat 重複顯示圖片並且填滿容器空的所有部分</li>
+<li>repeat-x 重複顯示圖片，但只填滿圖片的 x 軸</li>
+<li>repeat-y 重複顯示圖片，但只填滿圖片的 y 軸</li>
+<li>no-repeat 就是不重覆、不填滿啦！只顯示單張圖片</li>
+</ul>
+<blockquote>
+<h2 id="背景顏色：background-color"><a href="#背景顏色：background-color" class="headerlink" title="背景顏色：background-color"></a>背景顏色：background-color</h2></blockquote>
+<p><code>background-color</code> 這個就是寫入背景顏色的，當設定時，就會讓該容器內填滿所設定的顏色。</p>
+<p>另外，背景顏色與背景圖片是能夠同時設定的，因此若有設定不重複的背景圖片，在沒被填滿之處，就會顯示其區塊設定之背景顏色。</p>
+<blockquote>
+<h2 id="背景圖片位置：background-position"><a href="#背景圖片位置：background-position" class="headerlink" title="背景圖片位置：background-position"></a>背景圖片位置：background-position</h2></blockquote>
+<p><code>background-position</code> 這個屬性可為不重複的背景圖片設定其位置。</p>
+<p>其設定如下種有下列幾種：</p>
+<h3 id="使用位置關鍵字"><a href="#使用位置關鍵字" class="headerlink" title="使用位置關鍵字"></a>使用位置關鍵字</h3><figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">background-position</span>: right bottom;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>第一個參數代表的是水平、第二個參數代表上下；可指定圖片要對齊於哪裡。</p>
+<h3 id="使用數值"><a href="#使用數值" class="headerlink" title="使用數值"></a>使用數值</h3><figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">background-position</span>: <span class="hljs-number">100px</span> <span class="hljs-number">90px</span>;<br>    <span class="hljs-attribute">background-position</span>: <span class="hljs-number">10%</span> <span class="hljs-number">20%</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>也可以使用數 px、百分比等單位，來達到指定圖片位置效果。</p>
+<blockquote>
+<h2 id="background-讓圖片設定在同一個屬性"><a href="#background-讓圖片設定在同一個屬性" class="headerlink" title="background 讓圖片設定在同一個屬性"></a>background 讓圖片設定在同一個屬性</h2></blockquote>
+<p>使用 <code>background</code> 屬性可以讓圖片設定值通通設定於此，如下範例：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* 原先學習之分開寫法 */</span><br><span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(圖片網址);<br>    <span class="hljs-attribute">background-repeat</span>: no-repeat;<br>    <span class="hljs-attribute">background-color</span>: orange;<br>    <span class="hljs-attribute">background-position</span>: <span class="hljs-number">10%</span> <span class="hljs-number">20%</span>;<br>&#125;<br><br><span class="hljs-comment">/* 使用 background 屬性*/</span><br><span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(圖片網址) no-repeat orange <span class="hljs-number">10%</span> <span class="hljs-number">20%</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>從以上使用 background 屬性範例，即可知能夠將所有設定縮寫至此屬性；至於裡面的設定參數，也能夠自由移動。</p>
+<p>但必須注意的是，如果其中一項不小心設定錯誤，就會造成整個屬性所有設定都會失效喔！所以若要使用縮寫就必須很小心，不然比較保險的寫法就是分開撰寫。</p>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>其實 background 背景圖片有非常多可以應用的部分，先來挖個坑：下次還會再撰寫更多的應用，比如圖片取代文字。畢竟最近在學習網頁切版，要多做筆記、強化記憶！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CSS/">CSS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/background/">background</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/css-flex/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Flex 強大排版術：flex-direction 如何應用？主軸、交錯軸附圖解說！</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/leetcode1431-php/">
+                        <span class="hidden-mobile">使用 PHP 解 Leetcode：1431. Kids With the Greatest Number of Candies 擁有最多糖果的孩子</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/css-background/';
+          this.page.identifier = '/css-background/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

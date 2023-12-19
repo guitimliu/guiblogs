@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="隨著時代的進步，上網的載具愈來愈方便，從早期的電腦，到後來的平板、手機，甚至於是超大型螢幕，已經不止傳統的 1024 * 768 解析度螢幕。而這麼多變的螢幕大小，正考驗著網頁開發者的功夫啊！因為這樣也衍生出了所謂的 RWD 響應式網頁設計，讓網頁在不同的裝置或視窗大小呈現不同的顯示方式。">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="隨著時代的進步，上網的載具愈來愈方便，從早期的電腦，到後來的平板、手機，甚至於是超大型螢幕，已經不止傳統的 1024 * 768 解析度螢幕。而這麼多變的螢幕大小，正考驗著網頁開發者的功夫啊！因為這樣也衍生出了所謂的 RWD 響應式網頁設計，讓網頁在不同的裝置或視窗大小呈現不同的顯示方式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="運用 CSS 媒體查詢語法開發 RWD 響應式網頁">
+<meta property="og:url" content="http://guiblogs.com/css-media-rwd/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="隨著時代的進步，上網的載具愈來愈方便，從早期的電腦，到後來的平板、手機，甚至於是超大型螢幕，已經不止傳統的 1024 * 768 解析度螢幕。而這麼多變的螢幕大小，正考驗著網頁開發者的功夫啊！因為這樣也衍生出了所謂的 RWD 響應式網頁設計，讓網頁在不同的裝置或視窗大小呈現不同的顯示方式。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.guiblogs.com/css-media-rwd/1.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-media-rwd/2.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-media-rwd/3.jpg">
+<meta property="og:image" content="https://img.guiblogs.com/css-media-rwd/4.jpg">
+<meta property="article:published_time" content="2021-08-13T14:17:44.000Z">
+<meta property="article:modified_time" content="2023-12-19T16:21:51.319Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="RWD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.guiblogs.com/css-media-rwd/1.jpg">
+  
+  <title>運用 CSS 媒體查詢語法開發 RWD 響應式網頁 - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="運用 CSS 媒體查詢語法開發 RWD 響應式網頁">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-13 22:17" pubdate>
+        2021年8月13日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">運用 CSS 媒體查詢語法開發 RWD 響應式網頁</h1>
+            
+            <div class="markdown-body">
+              <p>隨著時代的進步，上網的載具愈來愈方便，從早期的電腦，到後來的平板、手機，甚至於是超大型螢幕，已經不止傳統的 1024 * 768 解析度螢幕。而這麼多變的螢幕大小，正考驗著網頁開發者的功夫啊！因為這樣也衍生出了所謂的 RWD 響應式網頁設計，讓網頁在不同的裝置或視窗大小呈現不同的顯示方式。</p>
+<a id="more"></a>
+
+<blockquote>
+<h2 id="RWD-的特點"><a href="#RWD-的特點" class="headerlink" title="RWD 的特點"></a>RWD 的特點</h2></blockquote>
+<ol>
+<li>能夠自適應於不同裝置或是視窗的大小。</li>
+<li>不會出現 x 軸滾輪。（一般來講只有平常最常見的垂直滾輪，不能有水平滑動的滾輪，不然就不是 RWD）</li>
+</ol>
+<p>可以參考「<a target="_blank" rel="noopener" href="https://www.cadiis.com.tw/blog/rwd-web-design-infographic">什麼是RWD響應式網頁設計？圖解說明讓你3分鐘搞懂手機版網站</a>」這篇有更詳盡的解說。</p>
+<blockquote>
+<h2 id="設計-RWD-頁面起手式"><a href="#設計-RWD-頁面起手式" class="headerlink" title="設計 RWD 頁面起手式"></a>設計 RWD 頁面起手式</h2></blockquote>
+<p>首先，必須在 <code>&lt;head&gt;&lt;/head&gt;</code> 加上以下這段語法，如果是用 VScode 的 Emmet 功能基本上預設就會有：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>這段語法代表的是網頁寬度要等於裝置的寬度，畫面初始縮放比例為 100%。使用此段語法就能確保網頁在不同寬度的裝置都能夠正常呈現網頁排版與內容。</p>
+<blockquote>
+<h2 id="媒體查詢語法"><a href="#媒體查詢語法" class="headerlink" title="媒體查詢語法"></a>媒體查詢語法</h2></blockquote>
+<p>媒體查詢可以知道用戶的裝置資訊，可用來查詢視區寬高以及裝置寬高。根據 W3Schools 有以下媒體類型：</p>
+<ul>
+<li>all 所有裝置</li>
+<li>print 印表機列印輸出</li>
+<li>screen 一般電腦螢幕</li>
+<li>speech 朗讀式裝置</li>
+</ul>
+<p>如果是針對一般螢幕通常是會使用 screen，使用方式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">991px</span>) &#123;<br>    <span class="hljs-comment">/* CSS 語法 */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>以上例子就是針對 screen 這個媒體類型，在小於並包含 991px 的裝置大小之下，所呈現的 CSS 語法。不過其實媒體類型是可以省略的，如果省略效果就會是「all 所有裝置」。範例如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">767px</span>) &#123;<br>    <span class="hljs-comment">/* CSS 語法 */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>以上範例就是不限任何裝置，在包含 767px 寬度以下，所要呈現的 CSS 語法。</p>
+<blockquote>
+<h2 id="利用媒體查詢設計響應式網頁"><a href="#利用媒體查詢設計響應式網頁" class="headerlink" title="利用媒體查詢設計響應式網頁"></a>利用媒體查詢設計響應式網頁</h2></blockquote>
+<p><strong>CSS</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-comment">/* CSS Reset 省略 */</span><br><span class="hljs-selector-tag">img</span> &#123;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">height</span>: auto;<br>&#125;<br><span class="hljs-selector-class">.wrap</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">1200px</span>;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">margin</span>: auto;<br>    <span class="hljs-attribute">display</span>: flex;<br>    <span class="hljs-attribute">justify-content</span>: space-between;<br>    <span class="hljs-attribute">flex-wrap</span>: wrap;<br>&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">24%</span>;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid black;<br>&#125;<br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">991px</span>) &#123;<br>    <span class="hljs-selector-class">.item</span> &#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-number">48%</span>;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">767px</span>) &#123;<br>    <span class="hljs-selector-class">.item</span> &#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-number">98%</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><strong>HTML</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wrap&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://fakeimg.pl/300x300/eee&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, omnis.<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://fakeimg.pl/300x300/eee&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>        Dolore harum in dignissimos, quo expedita commodi rerum aliquid soluta.<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://fakeimg.pl/300x300/eee&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>        Expedita quisquam molestiae quae culpa id hic in consequuntur. Consequuntur.<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://fakeimg.pl/300x300/eee&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>        Fuga cumque excepturi exercitationem suscipit et eveniet libero repellat maiores.<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="避免圖片過大破版：img-必做設定"><a href="#避免圖片過大破版：img-必做設定" class="headerlink" title="避免圖片過大破版：img 必做設定"></a>避免圖片過大破版：img 必做設定</h3><p>呈現在網頁上的圖片，基本上會建議要呈現多大、圖片大小就設定成一樣，是最節省資源又不失品質的體驗。但有時我們無法決定圖片的大小是如何，如果圖片太大的話，就會造成網頁破版。</p>
+<p>因此在此範例中，會先將圖片最大訂在 100%，這樣不管圖片大小如何在網頁上的呈現寬度都會是區塊的 100%。</p>
+<h3 id="外容器除了設定-width，還要設定-max-width"><a href="#外容器除了設定-width，還要設定-max-width" class="headerlink" title="外容器除了設定 width，還要設定 max-width"></a>外容器除了設定 width，還要設定 max-width</h3><p>width 跟 max-width 的差別在於，width 是我設定目前這個區塊的寬度為多少，而 max-width 則是這個區塊的寬度最寬僅能到多少。</p>
+<p>以這個範例來說，我預設設定了 1200 px，在比 1200px 大的螢幕裝置上，區塊都會呈現 1200px 的寬度。但如果是在平板或是手機螢幕寬度小於 1200px 的情況下，寬度就不會呈現到 1200px，而是最寬也只會等於使用裝置大小的可視寬度，如此就能確保區塊會在可視範圍內呈現。</p>
+<h3 id="瀏覽器會依照裝置大小呈現不同的-CSS-語法"><a href="#瀏覽器會依照裝置大小呈現不同的-CSS-語法" class="headerlink" title="瀏覽器會依照裝置大小呈現不同的 CSS 語法"></a>瀏覽器會依照裝置大小呈現不同的 CSS 語法</h3><p>這篇就不懶惰了（？來附上幾張截圖吧 XDDD 首先第一張就是最原始的大於 1200px 的 14吋筆電所顯示的畫面，可以看到我使用 <code>margin: auto;</code> 讓外容器水平居中於網頁時，左右都還是有一些空隙。</p>
+<p><img src="https://img.guiblogs.com/css-media-rwd/1.jpg" srcset="/img/loading.gif" lazyload alt="可視範圍寬度大於 1200px，左右都還有空隙"></p>
+<p>再來這個階段，可以看到都還有背景我撰寫這篇文章的編輯器，就代表瀏覽器視窗已經縮小。此時瀏覽器視窗寬度已經小於 1200px，如果照著外容器設定寬度為 1200px 並沒有其它的情況之下，是會出現 x 軸滾輪的。但是因為我有設定 <code>width: 100%;</code>，在外容器寬度大於裝置寬度時，最大寬度也只能呈現裝置寬度的 100%，因此不會出現 x 軸滾輪。</p>
+<p><img src="https://img.guiblogs.com/css-media-rwd/2.jpg" srcset="/img/loading.gif" lazyload alt="可視範圍寬度小於 1200px 但也不會出現 x 軸"></p>
+<p>此時可視範圍寬度已經小於 991px，此時大多介於平板裝置的螢幕大小。此時就會引入 <code>@media (max-width: 991px)</code> 的 CSS 語法設定。可以看到 Chrome 右下角的開發人員工具，原本的 <code>width: 24%;</code> 被符合條件的媒體查詢的 <code>width: 48%;</code> 覆蓋，因此現在一行僅會顯示兩個 .item 區塊。</p>
+<p><img src="https://img.guiblogs.com/css-media-rwd/3.jpg" srcset="/img/loading.gif" lazyload alt="可視範圍寬度小於 991px"></p>
+<p>再來就是可視範圍寬度小於 767px 的呈現啦，此時可以看到原先兩項 width 設定都被覆蓋掉了，取而代之的是 <code>@media (max-width: 767px)</code> 內的 width 設定。</p>
+<p><img src="https://img.guiblogs.com/css-media-rwd/4.jpg" srcset="/img/loading.gif" lazyload alt="可視範圍寬度小於 767px"></p>
+<blockquote>
+<h2 id="手機優先：從行動裝置開始設計網頁排版"><a href="#手機優先：從行動裝置開始設計網頁排版" class="headerlink" title="手機優先：從行動裝置開始設計網頁排版"></a>手機優先：從行動裝置開始設計網頁排版</h2></blockquote>
+<p>上述範例都是從電腦裝置的角度，由大螢幕慢慢設計至小螢幕。然而現在手機上網的比率其實是比較多的，如果我們都是從大螢幕開始進行設計，媒體查詢的特性是有符合條件式就會引入裡面的 CSS 內容渲染至網頁上，因此如果要到最小尺寸螢幕，以上述範例來講要先載入大螢幕樣式、平板樣式最後才會載入手機樣式，對於行動裝置使用者有較多資源消耗。</p>
+<p>另外 Google 在 2016 年陸續開始宣布針對搜尋引擎，啟用行動優先索引，因此網頁如果從手機開始進行設計，會有利於 SEO 優化。BootStrap 就是使用行動裝置優先的方式設計。</p>
+<p>Google 相關政策以及對於 SEO 的影響可參考『<a target="_blank" rel="noopener" href="https://www.bnext.com.tw/article/56878/google-mobile-first-indexing">9月流量恐失血！Google搜尋排名改採「行動優先索引」，SEO該怎麼因應？</a>』。    </p>
+<h3 id="利用-min-width-設計行動裝置優先的-RWD"><a href="#利用-min-width-設計行動裝置優先的-RWD" class="headerlink" title="利用 min-width 設計行動裝置優先的 RWD"></a>利用 min-width 設計行動裝置優先的 RWD</h3><p>由於行動裝置優先是從小裝置寫到大裝置，因此設置媒體查詢的斷點時，要從原本的 <code>max-width</code> 改成 <code>min-width</code>，先撰寫最小裝置的 CSS 樣式設定後，在透過 <code>min-width</code> 的方式慢慢將條件式的可視範圍往上加，就能撰寫行動裝置優先的 RWD 設計。</p>
+<p><strong>CSS</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs CSS"><span class="hljs-comment">/* CSS Reset 省略 */</span><br><span class="hljs-selector-tag">img</span> &#123;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">height</span>: auto;<br>&#125;<br><span class="hljs-selector-class">.wrap</span> &#123;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">margin</span>: auto;<br>&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">98%</span>;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid black;<br>&#125;<br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width:</span> <span class="hljs-number">768px</span>) &#123;<br>    <span class="hljs-selector-class">.wrap</span> &#123;<br>        <span class="hljs-attribute">display</span>: flex;<br>        <span class="hljs-attribute">justify-content</span>: space-between;<br>        <span class="hljs-attribute">flex-wrap</span>: wrap;<br>    &#125;<br>    <span class="hljs-selector-class">.item</span> &#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-number">48%</span>;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">min-width:</span> <span class="hljs-number">992px</span>) &#123;<br>    <span class="hljs-selector-class">.wrap</span> &#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-number">1200px</span>;<br>    &#125;<br>    <span class="hljs-selector-class">.item</span> &#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-number">24%</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>這邊我們將原先從電腦螢幕開始設計的 CSS 改寫成行動裝置優先，有做以下修正：</p>
+<ul>
+<li>設定在初始 .wrap 的寬度 1200px 改移到可視範圍寬度最低為 992px 以上時才設定在 .wrap</li>
+<li>由於手機預設一行一個 .item，因此一開始可不用到 Flex 的語法，因此移到可視範圍寬度最低為 768px 時，一行需要呈現 2 個 .item 時使用</li>
+<li>其餘設定在屬性內的 <code>max-width</code> 則不用變動，因為最寬可視範圍以及最寬圖片寬度一樣只能到 100% 才符合 RWD</li>
+</ul>
+<blockquote>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2></blockquote>
+<p>運用這些語法就能夠大概的開發一個響應式網頁了，但其實開發響應式網頁並沒有想像中那麼簡單，有非常多眉角需要注意與優化，要同時考量不同裝置的使用者體驗、確保每個裝置都要能夠正常呈現排版，其實是很不容易的事情（近期接案生活嘔心瀝血的經歷），持續學習與實作才能戰勝 RWD 啊！</p>
+<blockquote>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2></blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=czkmXTkjCDM">金魚都能懂網頁設計入門 : 媒體查詢 - 鐵人賽第二十天</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0FayRAu1du0">金魚都能懂網頁設計入門 : RWD入門 - 鐵人賽第二十一天</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10203671">Day6 如何做出響應式網頁(RWD)？</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CSS/">CSS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/RWD/">RWD</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/web-12y/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">原來已經 12 年了，這條路佔了我超過一半的人生</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/css-specificity/">
+                        <span class="hidden-mobile">有哪幾種指定 CSS 樣式的方式？權重又是什麼？能吃嗎？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/css-media-rwd/';
+          this.page.identifier = '/css-media-rwd/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

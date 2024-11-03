@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="距離上一次更新部落格竟然是兩年半前的事情了。說來慚愧，除了工作忙碌，其實就是很多理由 XD 一直有想回來更新的想法，但內心雜音、要做的事情太多，一直沒有成行。這一次再度參與六角學驗的體驗營，就趁好來趁這次的機會，更新一下學習筆記 XD">
+  <meta name="author" content="Gui">
+  <meta name="keywords" content="">
+  <meta name="description" content="距離上一次更新部落格竟然是兩年半前的事情了。說來慚愧，除了工作忙碌，其實就是很多理由 XD 一直有想回來更新的想法，但內心雜音、要做的事情太多，一直沒有成行。這一次再度參與六角學驗的體驗營，就趁好來趁這次的機會，更新一下學習筆記 XD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="透過「家具店的菜雞銷售奇遇記」來學 PostgreSQL 資料庫指令啦！再次參加六角學院體驗營，這次是學習後端？">
+<meta property="og:url" content="http://guiblogs.com/hex-backend2024-homework-1/">
+<meta property="og:site_name" content="Gui Blog - 網站的工具人">
+<meta property="og:description" content="距離上一次更新部落格竟然是兩年半前的事情了。說來慚愧，除了工作忙碌，其實就是很多理由 XD 一直有想回來更新的想法，但內心雜音、要做的事情太多，一直沒有成行。這一次再度參與六角學驗的體驗營，就趁好來趁這次的機會，更新一下學習筆記 XD">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2024-11-03T09:15:05.000Z">
+<meta property="article:modified_time" content="2024-11-03T09:17:00.742Z">
+<meta property="article:author" content="Gui">
+<meta property="article:tag" content="PostgreSQL">
+<meta property="article:tag" content="資料庫">
+<meta property="article:tag" content="後端">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>透過「家具店的菜雞銷售奇遇記」來學 PostgreSQL 資料庫指令啦！再次參加六角學院體驗營，這次是學習後端？ - Gui Blog - 網站的工具人</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guiblogs.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":"UA-189750489-1","gtag":"G-189750489","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Gui Blog - 網站的工具人</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/Ebwp4Fh.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="透過「家具店的菜雞銷售奇遇記」來學 PostgreSQL 資料庫指令啦！再次參加六角學院體驗營，這次是學習後端？">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Gui
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2024-11-03 17:15" pubdate>
+        2024年11月3日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">透過「家具店的菜雞銷售奇遇記」來學 PostgreSQL 資料庫指令啦！再次參加六角學院體驗營，這次是學習後端？</h1>
+            
+            <div class="markdown-body">
+              <p>距離上一次更新部落格竟然是兩年半前的事情了。說來慚愧，除了工作忙碌，其實就是很多理由 XD 一直有想回來更新的想法，但內心雜音、要做的事情太多，一直沒有成行。這一次再度參與六角學驗的體驗營，就趁好來趁這次的機會，更新一下學習筆記 XD</p>
+<a id="more"></a>
+
+<p>經歷了兩年前端工作的磨練，慢慢對於前端技能有了一些感覺。但其實我的初次工作經驗，也就是實習其實是寫 PHP 後端的，在後來的正職工作與接案上，其實也接觸了不少後端。這也讓我開始在思考說，是否可以往全端技能樹發展了？但其實資料庫是我的硬傷，尤其是在大學時，資料庫就是我最不拿手的科目沒有之一（誒），也是其中一個我為何後來想轉往前端的原因 XDD 但既然想往全端技能發展，勢必資料庫就是我不能逃避的技能了，剛好就趁這一次的體驗營，來好好重新梳理資料庫的內容吧！</p>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><h3 id="執行環境"><a href="#執行環境" class="headerlink" title="執行環境"></a>執行環境</h3><p>我們會使用 <a target="_blank" rel="noopener" href="https://pg-sql.com/">PG SQL</a> 這個線上平台來執行 PostgreSQL 指令。</p>
+<h3 id="初始語法"><a href="#初始語法" class="headerlink" title="初始語法"></a>初始語法</h3><p>首先，要先建立 poducts 資料表，先定義資料表的欄位類型後，透過 INSERT INTO 新增指令建立預設資料。</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products (<br>   name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),         <span class="hljs-comment">-- 商品名稱</span><br>   price <span class="hljs-type">INTEGER</span>,            <span class="hljs-comment">-- 原價</span><br>   discount_price <span class="hljs-type">INTEGER</span>,    <span class="hljs-comment">-- 優惠價</span><br>   stock <span class="hljs-type">INTEGER</span>,            <span class="hljs-comment">-- 庫存數量</span><br>   category <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),      <span class="hljs-comment">-- 商品分類</span><br>   status <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>)         <span class="hljs-comment">-- 商品狀態</span><br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> products (name, price, discount_price, stock, category, status) <span class="hljs-keyword">VALUES</span><br>   (<span class="hljs-string">&#x27;北歐風雙人沙發&#x27;</span>, <span class="hljs-number">39900</span>, <span class="hljs-number">35900</span>, <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;沙發&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;貓抓皮L型沙發&#x27;</span>, <span class="hljs-number">58900</span>, <span class="hljs-number">52900</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;沙發&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;典雅三人座沙發&#x27;</span>, <span class="hljs-number">42800</span>, <span class="hljs-number">42800</span>, <span class="hljs-number">5</span>, <span class="hljs-string">&#x27;沙發&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;工業風電視櫃&#x27;</span>, <span class="hljs-number">5900</span>, <span class="hljs-number">4900</span>, <span class="hljs-number">12</span>, <span class="hljs-string">&#x27;櫃子&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;簡約書櫃&#x27;</span>, <span class="hljs-number">3500</span>, <span class="hljs-number">3500</span>, <span class="hljs-number">8</span>, <span class="hljs-string">&#x27;櫃子&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;玄關鞋櫃&#x27;</span>, <span class="hljs-number">2900</span>, <span class="hljs-number">2900</span>, <span class="hljs-number">15</span>, <span class="hljs-string">&#x27;櫃子&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;日式雙人床架&#x27;</span>, <span class="hljs-number">12000</span>, <span class="hljs-number">11200</span>, <span class="hljs-number">6</span>, <span class="hljs-string">&#x27;床架&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;掀床五尺雙人床&#x27;</span>, <span class="hljs-number">19900</span>, <span class="hljs-number">18900</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;床架&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;兒童床架&#x27;</span>, <span class="hljs-number">8900</span>, <span class="hljs-number">8900</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;床架&#x27;</span>, <span class="hljs-string">&#x27;inactive&#x27;</span>),<br>   (<span class="hljs-string">&#x27;電腦辦公椅&#x27;</span>, <span class="hljs-number">4500</span>, <span class="hljs-number">3900</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;椅子&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;餐椅四入組&#x27;</span>, <span class="hljs-number">6000</span>, <span class="hljs-number">5200</span>, <span class="hljs-number">8</span>, <span class="hljs-string">&#x27;椅子&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;北歐風餐桌&#x27;</span>, <span class="hljs-number">15800</span>, <span class="hljs-number">14800</span>, <span class="hljs-number">4</span>, <span class="hljs-string">&#x27;桌子&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;實木咖啡桌&#x27;</span>, <span class="hljs-number">3200</span>, <span class="hljs-number">2900</span>, <span class="hljs-number">10</span>, <span class="hljs-string">&#x27;桌子&#x27;</span>, <span class="hljs-string">&#x27;active&#x27;</span>),<br>   (<span class="hljs-string">&#x27;電競書桌&#x27;</span>, <span class="hljs-number">8900</span>, <span class="hljs-number">8900</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;桌子&#x27;</span>, <span class="hljs-string">&#x27;inactive&#x27;</span>);<br></code></pre></div></td></tr></table></figure>
+<p>事前都準備好後，接下來就進入「家具店的菜雞銷售奇遇記」的奇幻冒險吧！</p>
+<p><strong>P.S. 以下故事本身就是題目，所以如果有在其他地方看到同樣的故事，是正常的哦～</strong></p>
+<h2 id="故事-…-開始！！"><a href="#故事-…-開始！！" class="headerlink" title="故事 … 開始！！"></a>故事 … 開始！！</h2><p>剛進入『築夢家居』當銷售顧問的小美，，沒想到第一天上班就遇到系統大當機，最扯的是這間老字號家具店只有 POS 機和資料庫，也沒有網站可以查詢。</p>
+<p>偏偏今天是週年慶開跑，主管又在門市坐鎮，店裡生意好到不行，只好硬著頭皮詢問店裡的工程師大大…</p>
+<p>（門市內）</p>
+<p><strong>客人</strong>：我要看那個貓抓皮沙發，你們還有貨嗎？</p>
+<p><strong>小美</strong>：（慌張）啊…貓抓皮沙發…</p>
+<p>（急著用 LINE 問小明）</p>
+<p><strong>小美</strong>：學長救命！要怎麼查這個沙發？</p>
+<p><strong>小明</strong>：用等於就可以了：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> name, price, stock<br><span class="hljs-keyword">FROM</span> products<br><span class="hljs-keyword">WHERE</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;貓抓皮L型沙發&#x27;</span>;<br></code></pre></div></td></tr></table></figure>
+<p><strong>小美</strong>：喔！就是以下這樣，對嗎？</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">選取 名字、價格、庫存<br>從 商品表<br>找 商品名等於貓抓皮L型沙發<br></code></pre></div></td></tr></table></figure>
+<p><strong>小明</strong>：對！很快就上手了嘛！</p>
+<p><strong>小美</strong>：（快速輸入…）哇！真的查到了！只剩一張庫存耶…</p>
+<p><strong>客人</strong>：（不耐煩）小姐？到底有沒有啊？</p>
+<p><strong>小美</strong>： 這款 L 型沙發目前最後一張特價 52900，要幫您預訂嗎？</p>
+<p><strong>客人</strong>：哦？最後一張喔…那…就先訂起來好了！</p>
+<p><strong>小明</strong>：！！！這麼快就會了？根本是資料庫天才 == b</p>
+<p><strong>小明</strong>：那我再考你幾題，如果你都會了以後，那我就可以退休了ㄏㄏㄏ</p>
+<p><strong>小美</strong>：…..</p>
+<h2 id="基礎比較運算"><a href="#基礎比較運算" class="headerlink" title="基礎比較運算"></a><strong>基礎比較運算</strong></h2><h3 id="情境-1：單品查詢"><a href="#情境-1：單品查詢" class="headerlink" title="情境 1：單品查詢"></a><strong>情境 1</strong>：單品查詢</h3><p>客人：「這張北歐風雙人沙發多少錢？」</p>
+<p>小美想查：想找到這張沙發的價格和庫存</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT name, price, stock<br>FROM products<br>WHERE name = <span class="hljs-string">&#x27;北歐風雙人沙發&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>首先，使用 select 語法來查詢 products 資料表裡面的內容，並且因為題目需要價格與庫存，因此撈了 price 與 stock 欄位，我這邊多撈了 name 欄位來幫助識別。</p>
+<p>最後，加上 where 條件，將 name 鎖定在題目所指定的「北歐風雙人沙發」。</p>
+<h3 id="情境-2：價格比較"><a href="#情境-2：價格比較" class="headerlink" title="情境 2：價格比較"></a>情境 2：價格比較</h3><p>客人：「請列出 5000 元以下的櫃子有哪些？」</p>
+<p>小美想查：找出櫃子類且價格在 5000 以下的商品</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE price &lt; 5000<br></code></pre></div></td></tr></table></figure>
+<p>這次沒特別指定欄位，所以我就 select 星號把全部欄位給撈出來，並且透過 where 來撈出符合價格低於 5000 的商品出來。</p>
+<h3 id="情境-3：庫存確認"><a href="#情境-3：庫存確認" class="headerlink" title="情境 3：庫存確認"></a><strong>情境 3</strong>：庫存確認</h3><p>客人：「日式雙人床架還有貨嗎？」</p>
+<p>小美想查：確認日式雙人床架的庫存狀況</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT name, status<br>FROM products<br>WHERE name = <span class="hljs-string">&#x27;日式雙人床架&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>因為是確認庫存狀況，所以撈了 status 以及提供識別的 name，並且透過 where 篩選出 name 等於日式雙人床架的欄位，來確認庫存狀況。</p>
+<h2 id="邏輯運算-AND"><a href="#邏輯運算-AND" class="headerlink" title="邏輯運算 AND"></a><strong>邏輯運算 AND</strong></h2><h3 id="情境-4：預算內的商品"><a href="#情境-4：預算內的商品" class="headerlink" title="情境 4：預算內的商品"></a><strong>情境 4</strong>：預算內的商品</h3><p>客人：「想找 4 萬以下，而且有現貨的沙發」</p>
+<p>小美想查：要同時符合：是沙發、4萬以下、有庫存</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE category = <span class="hljs-string">&#x27;沙發&#x27;</span><br>	AND price &lt; 40000<br>  AND status = <span class="hljs-string">&#x27;active&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>首先透過 select 查詢 products 資料表後，where 的判斷分別下了 category 等於沙發、price 要小於 40000、status 等於 active 的三個條件式，並且透過 AND 來串接條件式，表示這三個條件同時需要符合，不然就不會回傳該筆資料。</p>
+<h3 id="情境-5：特價且有貨"><a href="#情境-5：特價且有貨" class="headerlink" title="情境 5：特價且有貨"></a><strong>情境 5</strong>：特價且有貨</h3><p>客人：「沙發有哪些特價且現貨的品項？」</p>
+<p>小美想查：要找到沙發類且有特價（原價大於優惠價）且還有庫存的商品</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE price &gt; discount_price<br>	AND status = <span class="hljs-string">&#x27;active&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>此題需要符合價格 price 要大於優惠價 discount_price，表示該商品目前有折扣，如果兩者相等代表這個商品目前沒有折扣。因此 where 的條件下了 price 要大於 discount_price，直接透過欄位比較來下條件，並且同時需要符合 status 等於 active 才能撈出所需條件的筆數。</p>
+<h2 id="邏輯運算-OR"><a href="#邏輯運算-OR" class="headerlink" title="邏輯運算 OR"></a><strong>邏輯運算 OR</strong></h2><h3 id="情境-6：多分類查詢"><a href="#情境-6：多分類查詢" class="headerlink" title="情境 6：多分類查詢"></a><strong>情境 6</strong>：多分類查詢</h3><p>客人：「我要找櫃子或桌子」</p>
+<p>小美想查：要找出櫃子類或桌子類的商品</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE category = <span class="hljs-string">&#x27;沙發&#x27;</span> or category = <span class="hljs-string">&#x27;桌子&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>此題要撈分類等於「沙發」與「卓子」的欄位，但如果使用 AND 就變成要同時符合，但是題目設計上分類只會分別等於沙發、卓子，所以就會與題目要求不相符。所以此時就需要使用到 OR，這樣只要 OR 前後有其中一項符合，就會撈出該筆資料，如此一來就會將分類等於沙發或是桌子的筆數撈出來。</p>
+<h3 id="情境-7：指定商品"><a href="#情境-7：指定商品" class="headerlink" title="情境 7：指定商品"></a><strong>情境 7</strong>：指定商品</h3><p>客人：「北歐風雙人沙發和貓抓皮L型沙發哪個還有貨？」</p>
+<p>小美想查：要找出這兩張特定沙發的庫存狀況</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT name, status<br>FROM products<br>WHERE name = <span class="hljs-string">&#x27;北歐風雙人沙發&#x27;</span> OR name = <span class="hljs-string">&#x27;貓抓皮L型沙發&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>這次撈出題目指定的庫存狀況 status 與方便識別的商品名稱 name，在 where 讀不份透過 OR 來將商品名稱為「北歐風雙人沙發」與「貓抓皮L型沙發」資料撈出來。</p>
+<h2 id="IN-運算"><a href="#IN-運算" class="headerlink" title="IN 運算"></a><strong>IN 運算</strong></h2><h3 id="情境-8：多分類查詢"><a href="#情境-8：多分類查詢" class="headerlink" title="情境 8：多分類查詢"></a><strong>情境 8</strong>：多分類查詢</h3><p>客人：「客廳的家具有哪些？我要看沙發、櫃子跟桌子」</p>
+<p>小美想查：要找出沙發、櫃子和桌子這三種分類的商品</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE category IN (<span class="hljs-string">&#x27;沙發&#x27;</span>, <span class="hljs-string">&#x27;櫃子&#x27;</span>, <span class="hljs-string">&#x27;桌子&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<p>如果照情境 6 的做法，就會是要透過兩個 or 將上面三個分類的條件式列出來，如果條件一多其實滿累人，程式碼又很冗長 XD 但是透過 in 的方式，等於是只要 category 有符合右邊括號內的其中一個元素（可以理解成陣列元素）就會將資料撈出來。</p>
+<h3 id="情境-9：特定商品"><a href="#情境-9：特定商品" class="headerlink" title="情境 9：特定商品"></a><strong>情境 9</strong>：特定商品</h3><p>客人：「電腦辦公椅和餐椅四入組的價格是多少？」</p>
+<p>小美想查：要找出這兩款椅子的價格</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT name, price<br>FROM products<br>WHERE name IN (<span class="hljs-string">&#x27;電腦辦公椅&#x27;</span>, <span class="hljs-string">&#x27;餐椅四入組&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<p>邏輯基本上跟上面一樣，撈出商品名稱為「電腦辦公椅」與「餐椅四入組」的商品名稱與價格。</p>
+<h2 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a><strong>BETWEEN</strong></h2><h3 id="情境-10：價格區間"><a href="#情境-10：價格區間" class="headerlink" title="情境 10：價格區間"></a><strong>情境 10</strong>：價格區間</h3><p>客人：「想找 10000 到 20000 之間的商品有哪些？」</p>
+<p>小美想查：列出這個價格區間的所有商品</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE price BETWEEN 10000 AND 20000<br></code></pre></div></td></tr></table></figure>
+<p>透過 BETWEEN 數字一 AND 數字二 可以撈出價格在這兩個數字之間的資料，所以透過這個語法來撈出價格在 10000 到 20000 之間的資料。</p>
+<h3 id="情境-11：庫存區間"><a href="#情境-11：庫存區間" class="headerlink" title="情境 11：庫存區間"></a><strong>情境 11</strong>：庫存區間</h3><p>主管：「請列出庫存在 5 到 15 之間的商品」</p>
+<p>小美想查：列出庫存數量在這個範圍的商品</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE stock BETWEEN 5 AND 15<br></code></pre></div></td></tr></table></figure>
+<p>將庫存在 5 到 15 之間的商品撈出來。</p>
+<h2 id="NOT-IN"><a href="#NOT-IN" class="headerlink" title="NOT IN"></a><strong>NOT IN</strong></h2><h3 id="情境-12：排除商品"><a href="#情境-12：排除商品" class="headerlink" title="情境 12：排除商品"></a><strong>情境 12</strong>：排除商品</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SELECT * FROM products<br>WHERE category NOT IN (<span class="hljs-string">&#x27;沙發&#x27;</span>, <span class="hljs-string">&#x27;床架&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<p>這個指令會將分類是「分類」與「床架」以外的資料撈出來。</p>
+<h2 id="更新和刪除"><a href="#更新和刪除" class="headerlink" title="更新和刪除"></a><strong>更新和刪除</strong></h2><h3 id="情境-13：調整價格"><a href="#情境-13：調整價格" class="headerlink" title="情境 13：調整價格"></a><strong>情境 13</strong>：調整價格</h3><p>主管：「北歐風雙人沙發要調降 2000 元」</p>
+<p>小美想查：要如何更新這張沙發的價格</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">UPDATE products<br>SET price = price - 2000<br>WHERE name = <span class="hljs-string">&#x27;北歐風雙人沙發&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>透過 Update 指令可以更新 products 資料表內的 price 欄位，以題目來說會將商品名稱為「北歐風雙人沙發」的價格 price 更新為 price 在減 2000</p>
+<h3 id="情境-14：更新庫存"><a href="#情境-14：更新庫存" class="headerlink" title="情境 14：更新庫存"></a><strong>情境 14</strong>：更新庫存</h3><p>主管：「電腦辦公椅進了 5 張」</p>
+<p>小美想查：要如何增加這款椅子的庫存數量</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">UPDATE products<br>SET stock = stock + 5<br>WHERE name = <span class="hljs-string">&#x27;電腦辦公椅&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>這個題目會將原本電腦辦公椅的庫存再加上 5 筆庫存。</p>
+<h3 id="情境-15：清除資料"><a href="#情境-15：清除資料" class="headerlink" title="情境 15：清除資料"></a><strong>情境 15</strong>：清除資料</h3><p>主管：「要清掉兒童床架和電競書桌的資料」</p>
+<p>小美想查：要如何刪除這兩項商品</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">DELETE FROM products<br>WHERE name IN (<span class="hljs-string">&#x27;兒童床架&#x27;</span>, <span class="hljs-string">&#x27;電競書桌&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<p>這個題目結合了上面提到的 IN，會將商品名稱為「兒童床架」與「電競書桌」的資料給刪除。</p>
+<h2 id="故事結束"><a href="#故事結束" class="headerlink" title="故事結束"></a>故事結束</h2><p>發現透過情境來學習，增加了一些有趣程度寫起來會有種不一樣的感覺 XDD 尤其是在資料庫這種我不擅長的科目，開心不少（？）希望可以趁這次機會把一直沒機會學好的資料庫理解更深入！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%B3%87%E6%96%99%E5%BA%AB/">資料庫</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/PostgreSQL/">PostgreSQL</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B3%87%E6%96%99%E5%BA%AB/">資料庫</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%BE%8C%E7%AB%AF/">後端</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener noopener">BY-NC-SA</a> 許可協議。轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/git-init/">
+                        <span class="hidden-mobile">建立你第一個 Git 版控專案吧！</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://guiblogs.com/hex-backend2024-homework-1/';
+          this.page.identifier = '/hex-backend2024-homework-1/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'guiblogs' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-189750489-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-189750489"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-189750489');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

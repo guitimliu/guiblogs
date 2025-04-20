@@ -15,28 +15,29 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="測試是一個工程師都知道要寫的東西，但常常跟文件一樣，不知不覺就閃過去了 XDD 閃過去的念頭不外乎就是開發就夠忙了，哪有來的時間寫測試？尤其像是我在接案公司，趕 Deadline 都很勉強了還跟你測試？
-但請不要忘記我們現在這個時代的黑科技登場：AI！
-">
+  <meta name="description" content="上週寫了篇想學測試的動機，今天來嘗試不看筆記、書籍的情況下盲打一篇自己對於各個測試的理解（？）">
   <meta name="author" content="Gui">
   <meta name="keywords" content="">
-  <meta name="description" content="測試是一個工程師都知道要寫的東西，但常常跟文件一樣，不知不覺就閃過去了 XDD 閃過去的念頭不外乎就是開發就夠忙了，哪有來的時間寫測試？尤其像是我在接案公司，趕 Deadline 都很勉強了還跟你測試？ 但請不要忘記我們現在這個時代的黑科技登場：AI！">
+  <meta name="description" content="上週寫了篇想學測試的動機，今天來嘗試不看筆記、書籍的情況下盲打一篇自己對於各個測試的理解（？）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="因為 AI 的強大，我開始學習測試了！？近期體悟分享">
-<meta property="og:url" content="http://guiblogs.com/test-learn-start/">
+<meta property="og:title" content="今天來談談測試種類～">
+<meta property="og:url" content="http://guiblogs.com/test-types/">
 <meta property="og:site_name" content="Gui Blog - 網站的工具人">
-<meta property="og:description" content="測試是一個工程師都知道要寫的東西，但常常跟文件一樣，不知不覺就閃過去了 XDD 閃過去的念頭不外乎就是開發就夠忙了，哪有來的時間寫測試？尤其像是我在接案公司，趕 Deadline 都很勉強了還跟你測試？ 但請不要忘記我們現在這個時代的黑科技登場：AI！">
+<meta property="og:description" content="上週寫了篇想學測試的動機，今天來嘗試不看筆記、書籍的情況下盲打一篇自己對於各個測試的理解（？）">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://img.guiblogs.com/test-learn-start/test-learn-start.jpg">
-<meta property="article:published_time" content="2025-04-13T14:26:22.000Z">
-<meta property="article:modified_time" content="2025-04-13T15:17:14.813Z">
+<meta property="og:image" content="https://img.guiblogs.com/test-types/test-types.jpg">
+<meta property="article:published_time" content="2025-04-20T14:10:34.000Z">
+<meta property="article:modified_time" content="2025-04-20T14:49:54.958Z">
 <meta property="article:author" content="Gui">
 <meta property="article:tag" content="測試">
-<meta property="article:tag" content="AI">
+<meta property="article:tag" content="單元測試">
+<meta property="article:tag" content="整合測試">
+<meta property="article:tag" content="端對端測試">
+<meta property="article:tag" content="視覺測試">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img.guiblogs.com/test-learn-start/test-learn-start.jpg">
+<meta name="twitter:image" content="https://img.guiblogs.com/test-types/test-types.jpg">
   
-  <title>因為 AI 的強大，我開始學習測試了！？近期體悟分享 - Gui Blog - 網站的工具人</title>
+  <title>今天來談談測試種類～ - Gui Blog - 網站的工具人</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -182,7 +183,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="因為 AI 的強大，我開始學習測試了！？近期體悟分享">
+            <span class="h2" id="subtitle" title="今天來談談測試種類～">
               
             </span>
 
@@ -197,8 +198,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2025-04-13 22:26" pubdate>
-        2025年4月13日 晚上
+      <time datetime="2025-04-20 22:10" pubdate>
+        2025年4月20日 晚上
       </time>
     </span>
   
@@ -208,7 +209,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.9k 字
     </span>
   
 
@@ -217,7 +218,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分鐘
+      6 分鐘
     </span>
   
 
@@ -246,42 +247,61 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">因為 AI 的強大，我開始學習測試了！？近期體悟分享</h1>
+            <h1 style="display: none">今天來談談測試種類～</h1>
             
             <div class="markdown-body">
-              <p>測試是一個工程師都知道要寫的東西，但常常跟文件一樣，<del>不知不覺就閃過去了</del> XDD 閃過去的念頭不外乎就是開發就夠忙了，哪有來的時間寫測試？尤其像是我在接案公司，趕 Deadline 都很勉強了還跟你測試？</p>
-<p>但請不要忘記我們現在這個時代的黑科技登場：AI！</p>
-<p><img src="https://img.guiblogs.com/test-learn-start/test-learn-start.jpg" srcset="/img/loading.gif" lazyload alt="因為 AI 的強大，我開始學習測試了！？近期體悟分享"></p>
+              <p>上週寫了篇想學測試的動機，今天來嘗試不看筆記、書籍的情況下盲打一篇自己對於各個測試的理解（？）</p>
 <a id="more"></a>
 
-<h2 id="開始學習測試的契機"><a href="#開始學習測試的契機" class="headerlink" title="開始學習測試的契機"></a>開始學習測試的契機</h2><p>學習一項技能，要有契機、原因或是藍圖，那我的契機是什麼呢？</p>
-<h3 id="第一階段：公司導入了-AI"><a href="#第一階段：公司導入了-AI" class="headerlink" title="第一階段：公司導入了 AI"></a>第一階段：公司導入了 AI</h3><p>最近公司導入了 Cursor 這個 AI，讓我感到對於開發有更多的想像性，開始想著有什麼東西可以提升效率？啊！我想就是 debug 這件事情！目前我們公司在 debug 都還是滿仰賴人力、肉眼除錯的，如果有機會直接讓 AI 幫我們去處理這塊，看起來好像滿讚的！</p>
-<h3 id="第二階段：從想像到開始"><a href="#第二階段：從想像到開始" class="headerlink" title="第二階段：從想像到開始"></a>第二階段：從想像到開始</h3><p>但說真的身為一個測試小白，第一步總是困難的？要找資源、課程、書籍等等，而且也不知道該怎麼起手。</p>
-<p>結果就剛好看到平常所待的 Discord 群組，開始招募了測試的線上讀書會，我就想說哇這也太剛好了吧，大概考慮了一下就加入了 XDD</p>
-<p>覺得大家想學習一項新技能，也可以去像是技能交換網或 Facebook 社團等之類的平台～尋找是否有人在找讀書會或是自己辦一個，我覺得有大家一起讀、環境一起成長，會比較不容易半途而廢！</p>
-<h2 id="我希望達成什麼藍圖？前端測試種類？"><a href="#我希望達成什麼藍圖？前端測試種類？" class="headerlink" title="我希望達成什麼藍圖？前端測試種類？"></a>我希望達成什麼藍圖？前端測試種類？</h2><p>其實我一開始的想像是，單純希望讓一些功能不會壞掉，就這樣 XD 畢竟我對測試的認知還沒到很深，所以不太了解測試能做什麼？</p>
-<p>直到我開始讀了測試讀書會指定的書籍「前端測試指南：策略與實踐 - 唐心皓（Summer） 著」其中的前端測試種類，好像慢慢有了一點想像。</p>
-<p>這裡簡略提到一點，這會是一篇技術筆記系列文，之後會再詳細提到他們分別是什麼：</p>
-<ul>
-<li>單元測試：對「對小單位的測試」，比方說有一段程式單純做「數字相差」，沒錯！就是驗證這麼小的東西。</li>
-<li>整合測試：對於功能進行的全面測試，比方說要測試一個元件能夠「按了一個按鈕，出現一段文字」。</li>
-<li>端對端測試：模擬使用者操作流程的測試。</li>
-<li>視覺測試：利用工具自動檢測使用者介面變更的測試。</li>
+<p><img src="https://img.guiblogs.com/test-types/test-types.jpg" srcset="/img/loading.gif" lazyload alt="今天來談談測試種類～"></p>
+<h2 id="單元測試"><a href="#單元測試" class="headerlink" title="單元測試"></a>單元測試</h2><p>基本上就是針對最小單元的程式碼去做測試，上週的文章有提到像是計時器之類的，以我目前的工作場景有用到像是：</p>
+<ol>
+<li>將時間戳轉成網站共用的時間格式</li>
+<li>將存入 AWS S3 的 key 轉為固定的「年/月/日/隨機檔案名稱」格式</li>
+</ol>
+<p>（補充一下：因為我有寫 Node.js 後端～所以雖然書籍是前端，但還是會運用在後端上！）</p>
+<p>等等之類的，就是那一種非常小的 function 或是 method～就會用單元測試，確保這種很小的單一功能程式不會出錯，如此一來有許多地方共同套用時，就不會一步錯通通錯 XD</p>
+<p>基本上也會是測試數量最多，但範圍最小的一種測試。</p>
+<p>不過單元測試還是會有它測不到的地方，因為針對的東西太小的，其實無法真的去測到使用者真正實際的流程之間是否會有錯誤，例如有一個情境可能是要把格式化好的時間顯示在某個 Input 上，或許時間格式本身對、顯示的 Input 本身也是沒問題，但是在「顯示到 Input」上可能出錯，這個單元測試就測不到了，畢竟這範圍就不小，就會需要使用到整合測試或是端對端測試來補足這件事。</p>
+<h2 id="整合測試"><a href="#整合測試" class="headerlink" title="整合測試"></a>整合測試</h2><p>整合測試偏向是針對多個元件協作後的驗證，例如上面提到的格式化好的時間顯示在某個 Input 上，或是點擊了什麼按鈕就會出現一段「Hello World!」之類的東西，就很適合運用整合測試～可以去測試到說這個元件的實際流程長什麼樣子。</p>
+<p>當然缺點就是無法像是單元測試那樣，去測到這麼鉅細靡遺的東西～但它們是相輔相成的，單元測試無法測到整體的流程，就可以靠整合測試來補足，因此更貼近使用者的實際操作狀況。</p>
+<h2 id="端對端測試"><a href="#端對端測試" class="headerlink" title="端對端測試"></a>端對端測試</h2><p><del>完了到這裡開始在偷看小抄筆記了（誒）趕快看完用自己的話講 XDD</del></p>
+<p>基本上這個測試會模擬整套使用者流程，例如以電商網站來說，使用者可能面臨打開瀏覽器、進入網站之後，可能會點擊特定的功能（可能是登入？）或著是說一般會從商品頁面進入的話，那會是點擊加入購物車？等等之類的一系列行為。</p>
+<p>例如最簡單的我進入該頁面該怎麼去知道說這是什麼商品？最簡單的就是看到標題～但會不會不小心標題不見 XD？這就是測試可以去做到的～去點擊商品頁面之後能夠順利取標題的話，這個部分的測試就算過～也可以模擬整個登入到購買的流程來去確保說每個步驟都是正確的，收到錢錢沒問題 XD</p>
+<p>至於其缺點的話跟整合測試一樣～比較測不到根本的問題，會需要靠單元測試補足，但是整體測試是最符合使用者操作流程的！</p>
+<h2 id="視覺測試"><a href="#視覺測試" class="headerlink" title="視覺測試"></a>視覺測試</h2><p>這是上週有提到的視覺測試～</p>
+<p>可以透過安裝第三方套件之後，先對一開始的網頁畫面來去做快照，後續如果有任何的更動，會以視覺 diff 呈現差異，快速發現不如預期的畫面變動，以及各裝置、大小是否也符合預期，會去抓一個誤差範圍內是否符合，就可以一次測到許多不一樣的情境！</p>
+<h2 id="來個重點整理（其實是我之前看完書後摘錄下來的重點摘錄-XDD）"><a href="#來個重點整理（其實是我之前看完書後摘錄下來的重點摘錄-XDD）" class="headerlink" title="來個重點整理（其實是我之前看完書後摘錄下來的重點摘錄 XDD）"></a>來個重點整理（其實是我之前看完書後摘錄下來的重點摘錄 XDD）</h2><h3 id="單元測試-精準小功能"><a href="#單元測試-精準小功能" class="headerlink" title="單元測試 - 精準小功能"></a>單元測試 - 精準小功能</h3><ul>
+<li>針對 function、method 等最小範圍功能的測試。</li>
+<li>例如一個簡單的數字計算，這個過程中可能的參數、所計算出的結果，是否符合或悖離事實。</li>
+<li>數量最多的測試種類，但是範圍是最小的，因為專注於在該功能，並且更能找到根本原因。</li>
+<li>但是與元件的整合就比較無法測到，因為是專注於本身。這點就需要靠整合測試補足。</li>
+<li>適合對象：產品核心功能，驗證 function、method、class instance 輸入與輸出合邏輯。</li>
 </ul>
-<p>說真的當讀完第一章之後我才發現原來有這麼多方便的測試工具！像是單元測試，可能會認為說這麼簡單幹嘛測試？不過像是 JavaScript 或是有人如果跟我一樣有寫過 PHP 的，因為弱型別語言的關係，就可能會出現型別錯誤。或是說數字計算時會出現小誤點誤差等等的情況，其實就很適合使用單元測試。</p>
-<p>目前其實我有在整理公司的初始後端開發範本，就很適合針對一些基本專案一定會用到的功能做個測試，這樣之後專案複製出來也會是對的，減少的多少成本呀～</p>
-<h2 id="沒想到居然對我的工作已經有些幫助？"><a href="#沒想到居然對我的工作已經有些幫助？" class="headerlink" title="沒想到居然對我的工作已經有些幫助？"></a>沒想到居然對我的工作已經有些幫助？</h2><p>在讀到視覺測試這塊，有對前端測試有新的認知，可以針對說畫面如果有變動、RWD、不同裝置的不同狀況去做監測，超讚！</p>
-<p>不過我自己是剛好有遇到一個情況：一個老舊專案要去做改善，但因為該專案的資料不少，上傳上去後我需要肉眼去一個一個檢查，其實真的還滿麻煩的。</p>
-<p>這時候我就突發奇想，去使用了視覺測試來幫助我判斷資料是否有更動 XD 於是我馬上請了 Cursor AI 與 Chat GPT 大神給了我怎麼去執行，說真的 code 我基本上也不太會寫 XDD 但就在跟 AI 一起協作的情況下，就能夠針對我改善 code 更新前與更新後去幫我比對差距是小的（會有點誤差範圍），後續上傳之後也確實就沒有問題。</p>
-<p>當然我不確定這是不是個好辦法，但至少給了我一些解決的思路，我是覺得挺不錯的。大家也可以嘗試出自己不同的解決方法～</p>
-<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>覺得現在真的很方便能夠與 AI 進行協作～</p>
-<p>但其實一開始我有想過一個念頭：既然 AI 這麼強大了，那我還要特別學習測試有意義嗎？還是就請 AI 幫我去處理就可以了～</p>
-<p>但後來覺得說還是可以去嘗試學習看看，也因為我去知道了這些測試的東西，我有了新的認知，就能夠搭配過去的經驗產生出沒有想過的搭配與方法！畢竟 AI 是一個工具，但如果我們有更多的知識與創意，更能夠創造出更多提升產能的東西吧！</p>
-<p>之後會有一系列的測試系列文，新手上路也可能會有些錯誤 XDD 會盡可能的將內容寫到正確～希望大家一起指教多多交流！</p>
+<h3 id="整合測試（功能測試）-元件之間的互動"><a href="#整合測試（功能測試）-元件之間的互動" class="headerlink" title="整合測試（功能測試）- 元件之間的互動"></a>整合測試（功能測試）- 元件之間的互動</h3><ul>
+<li>針對「合併的程式碼」進行測試。</li>
+<li>針對整合元件、套件與函式庫、從 API 拿到資料的呈現等。</li>
+<li>更貼近使用者實際操作狀況。</li>
+<li>較難發現根本原因，但能透過單元測試補足。</li>
+</ul>
+<h3 id="端對端測試（E2E-測試）-模擬流程"><a href="#端對端測試（E2E-測試）-模擬流程" class="headerlink" title="端對端測試（E2E 測試）- 模擬流程"></a>端對端測試（E2E 測試）- 模擬流程</h3><ul>
+<li>模擬使用者實際操作的流程，例如開啟瀏覽器、進入網站、點擊特定功能後等一系列行為。<ul>
+<li>Ex. 打開網址的網站後，是否能夠拿到標題。</li>
+</ul>
+</li>
+<li>能完整測試產品功能，最貼近使用者操作狀況，但是較難發現根本原因，要從單元測試找起。</li>
+</ul>
+<h3 id="視覺測試-比對畫面"><a href="#視覺測試-比對畫面" class="headerlink" title="視覺測試 - 比對畫面"></a>視覺測試 - 比對畫面</h3><ul>
+<li>自動檢測使用者介面變更，對使用者的畫面進行快照後比對。</li>
+<li>可以達到精準的視覺比對，並針對多種裝置與跨瀏覽器進行測試，</li>
+<li>需要使用到第三方服務，並且動態改變畫面無法有效檢測出來。</li>
+</ul>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>上述提到了這麼多種測試，都可以用在應付各個不同的場景上～但不論是用哪一種測試類型，重點還是要從最重要的地方、商業邏輯開始撰寫，譬如電商網站從購物流程下去優先測試，畢竟能夠收到錢才是根本（？）</p>
+<p>另外，測試數量也並非是愈多愈好，還是要針對目前的專案情境來去評估撰寫，還是更重要的！</p>
+<p>這週我也才剛開始有更實際運用在工作上，還在感受與摸索中，希望之後更加熟悉後再帶來更多自己實際上的體會～</p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
 <li>前端測試指南：策略與實踐 - 唐心皓（Summer） 著</li>
-<li>Cursor AI</li>
-<li>Chat GPT</li>
+<li>有請 Chat GPT 幫我勘誤、增加重點整理的標題描述</li>
 <li>縮圖是 Chat GPT 產生出來的</li>
 </ul>
 
@@ -295,8 +315,6 @@
                     
                       <a class="hover-with-bg" href="/categories/%E6%B8%AC%E8%A9%A6/">測試</a>
                     
-                      <a class="hover-with-bg" href="/categories/AI/">AI</a>
-                    
                   </div>
                 
                 
@@ -305,7 +323,13 @@
                     
                       <a class="hover-with-bg" href="/tags/%E6%B8%AC%E8%A9%A6/">測試</a>
                     
-                      <a class="hover-with-bg" href="/tags/AI/">AI</a>
+                      <a class="hover-with-bg" href="/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/">單元測試</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B4%E5%90%88%E6%B8%AC%E8%A9%A6/">整合測試</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AB%AF%E5%B0%8D%E7%AB%AF%E6%B8%AC%E8%A9%A6/">端對端測試</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%A6%96%E8%A6%BA%E6%B8%AC%E8%A9%A6/">視覺測試</a>
                     
                   </div>
                 
@@ -322,18 +346,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/test-types/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">今天來談談測試種類～</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/hex-backend2024-homework-1/">
-                        <span class="hidden-mobile">透過「家具店的菜雞銷售奇遇記」來學 PostgreSQL 資料庫指令啦！再次參加六角學院體驗營，這次是學習後端？</span>
+                      <a href="/test-learn-start/">
+                        <span class="hidden-mobile">因為 AI 的強大，我開始學習測試了！？近期體悟分享</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -355,8 +373,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://guiblogs.com/test-learn-start/';
-          this.page.identifier = '/test-learn-start/';
+          this.page.url = 'http://guiblogs.com/test-types/';
+          this.page.identifier = '/test-types/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
